@@ -1,10 +1,11 @@
-package com.kuit.kuit5.ui.assets.component
+package com.kuit.kuit5.ui.assets.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -12,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kuit.kuit5.R
@@ -31,15 +33,10 @@ fun AssetsInfoItem(modifier: Modifier = Modifier, assets: AssetsData) {
                 contentDescription = "icon",
                 tint = Color.Unspecified
             )
+            Spacer(modifier.width(10.dp))
             Text(assets.name)
         }
-        Text(assets.value)
+        Text(assets.value, fontWeight = FontWeight.W500)
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-private fun AssetsInfoItemPreview() {
-    val asset = AssetsData(icon = R.drawable.img_kakao_icon, name = "입출금통장", value = "1,000,000원")
-    AssetsInfoItem(assets = asset)
-}

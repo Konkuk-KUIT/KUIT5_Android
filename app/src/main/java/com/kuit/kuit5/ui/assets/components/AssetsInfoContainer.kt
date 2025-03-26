@@ -1,4 +1,4 @@
-package com.kuit.kuit5.ui.assets.component
+package com.kuit.kuit5.ui.assets.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,8 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.model.AssetsData
 
@@ -20,11 +20,12 @@ fun AssetsInfoContainer(
     modifier: Modifier = Modifier,
     assetsList: List<AssetsData>,
     title: String,
+    money: String
 ) {
     Column(modifier.fillMaxWidth()) {
         Row(modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            Text(title)
-            Text("234,567원")
+            Text(title, fontSize = 12.sp)
+            Text(money, fontSize = 12.sp)
         }
         HorizontalDivider(
             modifier
@@ -61,5 +62,5 @@ private fun AssetsInfoContainerPreview() {
 
         )
 
-    AssetsInfoContainer(assetsList = assetsList, title = "입출금")
+    AssetsInfoContainer(assetsList = assetsList, title = "입출금", money = "1")
 }
