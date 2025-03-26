@@ -75,7 +75,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                     "자산",
                     color = Color.Black,
                     fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold,
+                    fontWeight = FontWeight.W700,
                 )
             },
             actions = {
@@ -146,7 +146,11 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                         contentColor = Color(0xff666668)
                     )
                 ) {
-                    Text("분석", fontWeight = FontWeight.Bold)
+                    Text(
+                        text = "분석",
+                        fontWeight = FontWeight.W600,
+                        fontSize = 14.sp,
+                    )
                 }
             }
             Card(
@@ -171,7 +175,6 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
 
                             Text(
                                 "티맵 대리 1만원 쿠폰 받으세요",
-                                fontSize = 16.sp,
                                 fontWeight = FontWeight.W600
                             )
                             Spacer(Modifier.size(5.dp))
@@ -191,10 +194,16 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
             ) {
                 Text("계좌 · 현금", fontSize = 16.sp, fontWeight = FontWeight.W700)
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text("1,234,567원", fontSize = 14.sp)
+                    Text(
+                        "1,234,567원",
+                        fontSize = 14.sp,
+                        color = Color(0xff666668),
+                        fontWeight = FontWeight.W500
+                    )
                     Icon(
                         painter = painterResource(R.drawable.ic_assets_right_arrow),
-                        contentDescription = "right arrow"
+                        contentDescription = "right arrow",
+                        tint = Color(0xff666668)
                     )
                 }
             }
@@ -263,7 +272,12 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 ) {
                     Text("페이머니", fontSize = 16.sp, fontWeight = FontWeight.W700)
 
-                    Text("0원", fontSize = 14.sp)
+                    Text(
+                        "0원",
+                        fontSize = 14.sp,
+                        color = Color(0xff666668),
+                        fontWeight = FontWeight.W500
+                    )
 
 
                 }
@@ -287,9 +301,9 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                             contentDescription = "뱅샐머니 아이콘"
                         )
 
-                        Text("뱅샐머니")
+                        Text("뱅샐머니", fontSize = 14.sp, color = Color(0xff666668))
                     }
-                    Text("0원")
+                    Text("0원", fontWeight = FontWeight.W500, fontSize = 14.sp)
                 }
 
             }
@@ -309,12 +323,18 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text("신용", fontWeight = FontWeight.W700, fontSize = 16.sp)
+                Text("신용", fontWeight = FontWeight.W700)
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text("750점")
+                    Text(
+                        "750점",
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.W600,
+                        color = Color(0xff666668)
+                    )
                     Icon(
                         painter = painterResource(R.drawable.ic_assets_right_arrow),
-                        contentDescription = "right arrow"
+                        contentDescription = "right arrow",
+                        tint = Color(0xff666668)
                     )
                 }
 
@@ -326,7 +346,6 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                     .background(Color(0xffF3F4F6))
             )
             Spacer(Modifier.size(24.dp))
-//            Text("asdasds")
             AssetsMore(title = "카드", icon = R.drawable.img_assets_card, content = "내게 맞는 추천카드는?")
             Spacer(
                 Modifier
@@ -363,9 +382,19 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
-                    Text("편집하기")
-                    VerticalDivider(Modifier.height(22.dp))
-                    Text("추가하기")
+                    Text(
+                        "편집하기",
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.W500,
+                        color = Color(0xff666668)
+                    )
+                    VerticalDivider(Modifier.height(22.dp), color = Color(0xff9FA5B0))
+                    Text(
+                        "추가하기",
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.W500,
+                        color = Color(0xff666668)
+                    )
 
                 }
             }
@@ -378,81 +407,6 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
     }
 }
 
-// 1번 카운터
-@Composable
-fun CounterWithoutRemember() {
-    var counterValue = 0
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(20.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Button(
-            onClick = {
-                counterValue++
-            }
-        ) {
-            Text(text = "Click Me!", fontSize = 20.sp)
-        }
-        Text("${counterValue}", fontSize = 30.sp, fontWeight = FontWeight.Bold)
-    }
-}
-
-// 2번 카운터
-@Composable
-fun CounterWithRemember() {
-    var counterValue by remember { mutableStateOf(0) }
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(20.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Button(
-            onClick = {
-                counterValue++
-            }
-        ) {
-            Text(text = "Click Me!", fontSize = 20.sp)
-        }
-        Text("${counterValue}", fontSize = 30.sp, fontWeight = FontWeight.Bold)
-    }
-}
-
-// 3번 카운터
-@Composable
-fun CounterWithRememberSaveable() {
-    var counterValue by rememberSaveable { mutableStateOf(0) }
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(20.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Button(
-            onClick = {
-                counterValue++
-            }
-        ) {
-            Text(text = "Click Me!", fontSize = 20.sp)
-        }
-        Text("${counterValue}", fontSize = 30.sp, fontWeight = FontWeight.Bold)
-    }
-}
-
-@Composable
-fun SampleTextField() {
-    var text = ""
-    TextField(
-        value = text,
-        onValueChange = { text = it },
-        label = { Text("Sample TextField") }
-    )
-}
 
 @Preview(heightDp = 800, widthDp = 360)
 @Composable

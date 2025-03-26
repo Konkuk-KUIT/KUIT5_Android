@@ -24,8 +24,8 @@ fun AssetsInfoContainer(
 ) {
     Column(modifier.fillMaxWidth()) {
         Row(modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            Text(title, fontSize = 12.sp)
-            Text(money, fontSize = 12.sp)
+            Text(title, fontSize = 12.sp, color = Color(0xff666668))
+            Text(money, fontSize = 12.sp, color = Color(0xff666668))
         }
         HorizontalDivider(
             modifier

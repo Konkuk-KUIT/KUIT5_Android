@@ -16,6 +16,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.model.AssetsData
 
@@ -34,9 +35,9 @@ fun AssetsInfoItem(modifier: Modifier = Modifier, assets: AssetsData) {
                 tint = Color.Unspecified
             )
             Spacer(modifier.width(10.dp))
-            Text(assets.name)
+            Text(assets.name, color = Color(0xff666668), fontSize = 14.sp)
         }
-        Text(assets.value, fontWeight = FontWeight.W500)
+        Text(assets.value, fontWeight = FontWeight.W500, fontSize = 14.sp)
     }
 }
 

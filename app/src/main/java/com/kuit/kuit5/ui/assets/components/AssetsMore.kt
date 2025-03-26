@@ -22,6 +22,7 @@ import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -44,9 +45,11 @@ fun AssetsMore(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(title)
+            Text(title, fontWeight = FontWeight.W700)
             Icon(
-                painter = painterResource(R.drawable.ic_assets_plus), contentDescription = "plus"
+                painter = painterResource(R.drawable.ic_assets_plus),
+                contentDescription = "plus",
+                tint = Color(0xff9FA5B0)
             )
         }
 
@@ -65,10 +68,10 @@ fun AssetsMore(
                     tint = Color.Unspecified
                 )
                 Spacer(modifier.width(10.dp))
-                Text(content, fontSize = 14.sp)
+                Text(content, fontSize = 14.sp, color = Color(0xff666668))
             }
             Column {
-                Text("확인하기", fontSize = 14.sp)
+                Text("확인하기", fontSize = 14.sp, color = Color(0xff9FA5B0))
                 Spacer(Modifier.width(4.dp))
                 HorizontalDivider(Modifier.width(50.dp))
             }
