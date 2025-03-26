@@ -31,29 +31,29 @@ fun FinanceItem(
 ) {
     Column (){
         Row(
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ){
             Text(
-                modifier = modifier,
+                modifier = Modifier,
                 text = title,
                 color = Color.Black,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold
             )
             Icon(
-                modifier = modifier
+                modifier = Modifier
                     .size(14.dp),
                 painter = painterResource(id = R.drawable.ic_assets_plus),
                 contentDescription = "plus",
                 tint = Color.Unspecified
             )
         }
-        Spacer(modifier=modifier.size(30.dp))
+        Spacer(modifier=Modifier.size(30.dp))
         Row(
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
@@ -62,14 +62,14 @@ fun FinanceItem(
                 verticalAlignment = Alignment.CenterVertically
             ){
                 Icon(
-                    modifier = modifier
+                    modifier = Modifier
                         .size(30.dp),
                     painter = painterResource(id = icon),
                     contentDescription = "asset icon",
                     tint = Color.Unspecified
                 )
                 Text(
-                    modifier = modifier.padding(10.dp),
+                    modifier = Modifier.padding(10.dp),
                     text = value,
                     color = Color(0xFF666668),
                     fontSize = 14.sp,
