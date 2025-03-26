@@ -35,6 +35,7 @@ fun AssetInfoItem(modifier: Modifier = Modifier,
                 contentDescription="asset icon",
                 tint = Color.Unspecified
             )
+            //Spacer()
             Text(text= asset.name)
         }
         Text(text=asset.value)
