@@ -38,13 +38,13 @@ import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.model.AssetData
 import com.kuit.kuit5.ui.asset.component.AssetInfoContainer
-import com.kuit.kuit5.ui.asset.component.AssetInfoContainer2
+import com.kuit.kuit5.ui.asset.component.AssetInfoContainer_second
 import com.kuit.kuit5.ui.asset.component.AssetInfoItem
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AssetsScreen( modifier: Modifier=Modifier) {
-    val scrollstate= rememberScrollState()
+fun AssetsScreen(modifier: Modifier = Modifier) {
+    val scrollstate = rememberScrollState()
 
     Column(
         modifier = Modifier
@@ -98,7 +98,8 @@ fun AssetsScreen( modifier: Modifier=Modifier) {
         )
         //TopAppBar 제외한 화면
         Column(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
                 .verticalScroll(state = scrollstate)
         ) {
             Box(
@@ -171,9 +172,11 @@ fun AssetsScreen( modifier: Modifier=Modifier) {
                     .padding(horizontal = 20.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Text("계좌 · 현금",
-                    fontSize =16.sp,
-                    fontWeight = FontWeight.Bold    )
+                Text(
+                    "계좌 · 현금",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold
+                )
                 Row() {
                     Text("1,234,567원")
                     Icon(
@@ -183,16 +186,16 @@ fun AssetsScreen( modifier: Modifier=Modifier) {
                 }
 
             }
-           Spacer(modifier = modifier.size(30.dp))
+            Spacer(modifier = modifier.size(30.dp))
             //입출금
             Column(
                 modifier = modifier
                     .fillMaxWidth()
                     .padding(horizontal = 20.dp)
-            ){
+            ) {
                 AssetInfoContainer(
                     modifier = modifier,
-                        title = "입출금",
+                    title = "입출금",
                     assetList = listOf(
                         AssetData(
                             icon = R.drawable.kakao_bank,
@@ -234,20 +237,23 @@ fun AssetsScreen( modifier: Modifier=Modifier) {
 
 
 
-                Spacer(modifier=modifier.size(22.dp))
-                Spacer(
-                    modifier=modifier
-                        .fillMaxWidth()
-                        .height(10.dp)
-                        .background(Color(0xFFF3F4F6))
+                Spacer(modifier = modifier.size(22.dp))
 
-                )
             }
+            Spacer(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .height(10.dp)
+                    .background(Color(0xFFF3F4F6))
+
+            )
 
             Spacer(modifier = modifier.size(22.dp))
-            Column(modifier = modifier
-                .fillMaxWidth()
-                .padding(horizontal = 20.dp)) {
+            Column(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp)
+            ) {
                 Row(
                     modifier = modifier
                         .fillMaxWidth(),
@@ -268,18 +274,23 @@ fun AssetsScreen( modifier: Modifier=Modifier) {
                 SingleAssetExample()
 
                 Spacer(modifier = modifier.size(22.dp))
-                Spacer(
-                    modifier=modifier
-                        .fillMaxWidth()
-                        .height(10.dp)
-                        .background(Color(0xFFF3F4F6))
 
-                )
 
             }
-            Column(modifier = modifier
-                .fillMaxWidth()
-                .padding(horizontal = 20.dp)) {
+
+            Spacer(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .height(10.dp)
+                    .background(Color(0xFFF3F4F6))
+
+            )
+
+            Column(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp)
+            ) {
                 Spacer(modifier = modifier.size(20.dp))
                 Row(
                     modifier = modifier
@@ -302,22 +313,23 @@ fun AssetsScreen( modifier: Modifier=Modifier) {
 
                 }
                 Spacer(modifier = modifier.size(20.dp))
-                Spacer(
-                    modifier = modifier
-                        .fillMaxWidth()
-                        .height(10.dp)
-                        .background(Color(0xFFF3F4F6))
-
-                )
-            }
 
             }
-            Column(
-                modifier = modifier
-                    .fillMaxWidth()
-            ){
-                Column{
-                AssetInfoContainer2(
+
+        }
+        Spacer(
+            modifier = modifier
+                .fillMaxWidth()
+                .height(10.dp)
+                .background(Color(0xFFF3F4F6))
+
+        )
+        Column(
+            modifier = modifier
+                .fillMaxWidth()
+        ) {
+            Column {
+                AssetInfoContainer_second(
                     modifier = modifier,
                     title = "카드",
                     assetList = listOf(
@@ -332,80 +344,89 @@ fun AssetsScreen( modifier: Modifier=Modifier) {
                 )
 
                 //Spacer(modifier=modifier.size(22.dp))
-                Spacer(
-                    modifier=modifier
-                        .padding(horizontal = 20.dp)
-                        .fillMaxWidth()
-                        .height(10.dp)
-                        .background(Color(0xFFF3F4F6))
 
+            }
+            Spacer(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .height(10.dp)
+                    .background(Color(0xFFF3F4F6))
+
+            )
+            Column() {
+                AssetInfoContainer_second(
+                    modifier = modifier,
+                    title = "대출",
+                    assetList = listOf(
+                        AssetData(
+                            icon = R.drawable.ic_bankhouse,
+                            name = "   내 최저 금리는?",
+                            value = "확인하기"
+
+                        ),
+                    )
                 )
-}
-                Column() {
-                    AssetInfoContainer2(
-                        modifier = modifier,
-                        title = "대출",
-                        assetList = listOf(
-                            AssetData(
-                                icon = R.drawable.ic_bankhouse,
-                                name = "   내 최저 금리는?",
-                                value = "확인하기"
-
-                            ),
-                        )
-                    )
-
-                    Spacer(
-                        modifier = modifier
-                            .padding(20.dp)
-                            .fillMaxWidth()
-                            .height(10.dp)
-                            .background(Color(0xFFF3F4F6))
-
-                    )
-                }
-                Column() {
-                    AssetInfoContainer2(
-                        modifier = modifier,
-                        title = "보험",
-                        assetList = listOf(
-                            AssetData(
-                                icon = R.drawable.ic_defend,
-                                name = "   보험료 낸 만큼 보상받을 수 있을까?",
-                                value = "확인하기"
-
-                            ),
-                        )
-                    )
-
-                   // Spacer(modifier = modifier.size(22.dp))
-                }
 
 
             }
+            Spacer(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .height(10.dp)
+                    .background(Color(0xFFF3F4F6))
+
+            )
+            Column() {
+                AssetInfoContainer_second(
+                    modifier = modifier,
+                    title = "보험",
+                    assetList = listOf(
+                        AssetData(
+                            icon = R.drawable.ic_defend,
+                            name = "   보험료 낸 만큼 보상받을 수 있을까?",
+                            value = "확인하기"
+
+                        ),
+                    )
+                )
+
+                // Spacer(modifier = modifier.size(22.dp))
+            }
+
+
+        }
         Card(
             modifier = modifier,
-                colors = CardDefaults.cardColors(
+            colors = CardDefaults.cardColors(
                 containerColor = Color(0xFFF3F4F6)
             ),
             content = {
                 Row(
                     modifier = modifier
                         .fillMaxWidth()
-                        .height(78.dp)
-                    ) {
+                        .height(78.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
 
-                    Spacer(modifier = modifier.size(16.dp))
-                    Column {
-                        Text("편집하기")
 
+                    Text(text = "편집하기")
+                    Row() {
+                        Image(
+                            modifier = modifier.size(22.dp),
+                            painter = painterResource(id = R.drawable.ic_vertical_line),
+
+                            contentDescription = "plus"
+                        )
                     }
+                    Text(text = "추가하기")
+
                 }
             }
 
         )
-        }
     }
+}
 
 @Composable
 fun SingleAssetExample(modifier: Modifier = Modifier) {
@@ -419,9 +440,9 @@ fun SingleAssetExample(modifier: Modifier = Modifier) {
 }
 
 
-@Preview(showBackground = true,heightDp = 2200)
+@Preview(showBackground = true, heightDp = 2200)
 @Composable
-private fun AssetScreenPreview(){
+private fun AssetScreenPreview() {
     AssetsScreen()
     //SingleAssetExample()
 }

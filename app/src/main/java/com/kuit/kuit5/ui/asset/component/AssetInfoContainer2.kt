@@ -22,7 +22,7 @@ import com.kuit.kuit5.R
 import com.kuit.kuit5.model.AssetData
 
 @Composable
-fun AssetInfoContainer2(
+fun AssetInfoContainer_second(
     modifier: Modifier = Modifier,
     title: String,
     assetList: List<AssetData>
@@ -42,7 +42,7 @@ fun AssetInfoContainer2(
             Row() {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_vector_plus),
-                    contentDescription = "plus",
+                    contentDescription = "plus"
                 )
             }
 
@@ -63,7 +63,7 @@ fun AssetInfoContainer2(
 
 @Preview(showBackground = true)
 @Composable
-private fun AssetInfoContainer2Preview(){
+private fun AssetInfoContainer_second_Preview(){
     val assetList = listOf(
         AssetData(
             icon= R.drawable.ic_card,
@@ -88,7 +88,7 @@ private fun AssetInfoContainer2Preview(){
 
     )
 
-    AssetInfoContainer2(
+    AssetInfoContainer_second(
         title = "입출금",
         assetList= assetList
     )
