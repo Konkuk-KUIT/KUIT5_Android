@@ -26,12 +26,18 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextFieldDefaults.contentPadding
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -105,13 +111,20 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
             }
         )
         // TopAppBar 제외한 지점
+//        CounterWithoutRemember()
+//        CounterWithRemember()
+//        CounterWithRememberSaveable()
+//
+//        SampleTextField()
+
+
         Column(
-            modifier
+            Modifier
                 .fillMaxWidth()
                 .verticalScroll(state = scrollState)
         ) {
             Box(
-                modifier
+                Modifier
                     .fillMaxWidth()
                     .padding(20.dp)
             ) {
@@ -120,7 +133,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                     Text("1,234,567원", fontSize = 24.sp, fontWeight = FontWeight.W700)
                 }
                 Button(
-                    modifier = modifier
+                    modifier = Modifier
                         .size(58.dp, 38.dp)
                         .align(Alignment.CenterEnd),
                     contentPadding = PaddingValues(0.dp),
@@ -137,23 +150,23 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 }
             }
             Card(
-                modifier = modifier
+                modifier = Modifier
                     .padding(horizontal = 20.dp),
                 colors = CardDefaults.cardColors(containerColor = Color(0xffF3F4F6)),
                 content = {
                     Row(
-                        modifier
+                        Modifier
                             .fillMaxWidth()
                             .padding(16.dp)
                     ) {
                         Image(
-                            modifier = modifier
+                            modifier = Modifier
                                 .clip(RoundedCornerShape(12.dp))
                                 .size(42.dp),
                             painter = painterResource(R.drawable.img_assets_tmap),
                             contentDescription = "tmap image"
                         )
-                        Spacer(modifier.size(16.dp))
+                        Spacer(Modifier.size(16.dp))
                         Column {
 
                             Text(
@@ -161,7 +174,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight.W600
                             )
-                            Spacer(modifier.size(5.dp))
+                            Spacer(Modifier.size(5.dp))
                             Text("3월 선착순 1만명 혜택", fontSize = 10.sp, color = Color(0xff666668))
                         }
                     }
@@ -171,7 +184,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
             Spacer(Modifier.size(22.dp))
 
             Row(
-                modifier
+                Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 20.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
@@ -189,11 +202,11 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
 
             Spacer(Modifier.size(30.dp))
             Column(
-                modifier.padding(horizontal = 20.dp),
+                Modifier.padding(horizontal = 20.dp),
                 verticalArrangement = Arrangement.spacedBy(28.dp)
             ) {
                 AssetsInfoContainer(
-                    modifier = modifier,
+                    modifier = Modifier,
                     title = "입출금",
                     money = "234,567원",
                     assetsList = listOf(
@@ -207,7 +220,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 )
 
                 AssetsInfoContainer(
-                    modifier = modifier,
+                    modifier = Modifier,
                     title = "예금",
                     money = "1,000,000원",
                     assetsList = listOf(
@@ -219,7 +232,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                     )
                 )
                 AssetsInfoContainer(
-                    modifier = modifier,
+                    modifier = Modifier,
                     title = "현금",
                     money = "0원",
                     assetsList = listOf(
@@ -231,18 +244,18 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                     )
                 )
             }
-            Spacer(modifier.size(22.dp))
+            Spacer(Modifier.size(22.dp))
             Spacer(
-                modifier
+                Modifier
                     .fillMaxWidth()
                     .height(10.dp)
                     .background(Color(0xffF3F4F6))
             )
 
 
-            Column(modifier.padding(vertical = 24.dp)) {
+            Column(Modifier.padding(vertical = 24.dp)) {
                 Row(
-                    modifier
+                    Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 20.dp)
                         .align(Alignment.CenterHorizontally),
@@ -256,7 +269,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 }
                 Spacer(Modifier.height(30.dp))
                 Row(
-                    modifier
+                    Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 20.dp)
                         .align(Alignment.CenterHorizontally),
@@ -269,7 +282,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                     ) {
                         Icon(
                             painter = painterResource(R.drawable.img_banksal_icon),
-                            modifier = modifier.size(30.dp),
+                            modifier = Modifier.size(30.dp),
                             tint = Color.Unspecified,
                             contentDescription = "뱅샐머니 아이콘"
                         )
@@ -282,14 +295,14 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
             }
 
             Spacer(
-                modifier
+                Modifier
                     .fillMaxWidth()
                     .height(10.dp)
                     .background(Color(0xffF3F4F6))
             )
 
             Row(
-                modifier
+                Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 20.dp, vertical = 24.dp)
                     .align(Alignment.CenterHorizontally),
@@ -307,7 +320,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
 
             }
             Spacer(
-                modifier
+                Modifier
                     .fillMaxWidth()
                     .height(10.dp)
                     .background(Color(0xffF3F4F6))
@@ -316,7 +329,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
 //            Text("asdasds")
             AssetsMore(title = "카드", icon = R.drawable.img_assets_card, content = "내게 맞는 추천카드는?")
             Spacer(
-                modifier
+                Modifier
                     .fillMaxWidth()
                     .height(10.dp)
                     .background(Color(0xffF3F4F6))
@@ -326,7 +339,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
 
             AssetsMore(title = "대출", icon = R.drawable.img_assets_loan, content = "내 최저 금리는?")
             Spacer(
-                modifier
+                Modifier
                     .fillMaxWidth()
                     .height(10.dp)
                     .background(Color(0xffF3F4F6))
@@ -340,7 +353,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
             )
 
             Box(
-                modifier
+                Modifier
                     .size(360.dp, 78.dp)
                     .background(Color(0xffF3F4F6))
             ) {
@@ -357,13 +370,91 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 }
             }
 
-            Spacer(modifier.height(80.dp))
+//            Spacer(Modifier.height(80.dp))
+
+
         }
 
     }
 }
 
-@Preview
+// 1번 카운터
+@Composable
+fun CounterWithoutRemember() {
+    var counterValue = 0
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(20.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Button(
+            onClick = {
+                counterValue++
+            }
+        ) {
+            Text(text = "Click Me!", fontSize = 20.sp)
+        }
+        Text("${counterValue}", fontSize = 30.sp, fontWeight = FontWeight.Bold)
+    }
+}
+
+// 2번 카운터
+@Composable
+fun CounterWithRemember() {
+    var counterValue by remember { mutableStateOf(0) }
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(20.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Button(
+            onClick = {
+                counterValue++
+            }
+        ) {
+            Text(text = "Click Me!", fontSize = 20.sp)
+        }
+        Text("${counterValue}", fontSize = 30.sp, fontWeight = FontWeight.Bold)
+    }
+}
+
+// 3번 카운터
+@Composable
+fun CounterWithRememberSaveable() {
+    var counterValue by rememberSaveable { mutableStateOf(0) }
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(20.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Button(
+            onClick = {
+                counterValue++
+            }
+        ) {
+            Text(text = "Click Me!", fontSize = 20.sp)
+        }
+        Text("${counterValue}", fontSize = 30.sp, fontWeight = FontWeight.Bold)
+    }
+}
+
+@Composable
+fun SampleTextField() {
+    var text = ""
+    TextField(
+        value = text,
+        onValueChange = { text = it },
+        label = { Text("Sample TextField") }
+    )
+}
+
+@Preview(heightDp = 800, widthDp = 360)
 @Composable
 private fun AssetsScreenPreview() {
     AssetsScreen()

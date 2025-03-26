@@ -24,11 +24,17 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.ui.assets.screen.AssetsScreen
 
 @Composable
-fun AssetsMore(modifier: Modifier = Modifier, title: String, icon: Int, content: String) {
+fun AssetsMore(
+    modifier: Modifier = Modifier,
+    title: String,
+    icon: Int,
+    content: String,
+) {
 
     Column(
         Modifier.padding(horizontal = 20.dp),
@@ -62,7 +68,7 @@ fun AssetsMore(modifier: Modifier = Modifier, title: String, icon: Int, content:
                 Text(content, fontSize = 14.sp)
             }
             Column {
-                Text("확인하기")
+                Text("확인하기", fontSize = 14.sp)
                 Spacer(Modifier.width(4.dp))
                 HorizontalDivider(Modifier.width(50.dp))
             }
