@@ -398,6 +398,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                     icon = R.drawable.img_loan_icon,
                 )
             }
+            Spacer(modifier = modifier.size(24.dp))
             Spacer(
                 modifier = modifier
                     .fillMaxWidth()
@@ -420,8 +421,9 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
             Spacer(modifier = modifier.size(24.dp))
             //편집하기 추가히기
             Row(
-                modifier = Modifier
+                modifier = modifier
                     .fillMaxWidth()
+                    .padding(bottom = 80.dp)
                     .background(Color(0xFFF5F6F8))
                     .height(78.dp),
                 horizontalArrangement = Arrangement.Center,
