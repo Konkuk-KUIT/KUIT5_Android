@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.model.AssetData
 import com.kuit.kuit5.ui.asset.component.AssetInfoContainer
+import com.kuit.kuit5.ui.asset.component.AssetInfoContainer2
 import com.kuit.kuit5.ui.asset.component.AssetInfoItem
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -46,12 +47,12 @@ fun AssetsScreen( modifier: Modifier=Modifier) {
     val scrollstate= rememberScrollState()
 
     Column(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxSize()
             .background(Color.White)
     ) {
         TopAppBar(
-            modifier = modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             colors = TopAppBarDefaults.topAppBarColors(
                 containerColor = Color.White
             ),
@@ -66,7 +67,7 @@ fun AssetsScreen( modifier: Modifier=Modifier) {
             },
             actions = {
                 Row(
-                    modifier = modifier.padding(20.dp),
+                    modifier = Modifier.padding(20.dp),
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
                     Icon(
@@ -97,11 +98,11 @@ fun AssetsScreen( modifier: Modifier=Modifier) {
         )
         //TopAppBar 제외한 화면
         Column(
-            modifier = modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth()
                 .verticalScroll(state = scrollstate)
         ) {
             Box(
-                modifier = modifier
+                modifier = Modifier
                     .fillMaxWidth()
                     .padding(20.dp)
             ) {
@@ -309,34 +310,102 @@ fun AssetsScreen( modifier: Modifier=Modifier) {
 
                 )
             }
-            Column(modifier=modifier
-                .fillMaxWidth()
-                .padding(20.dp)){
-                //Spacer(modifier=modifier.size(20.dp))
-                Row(
-                    modifier = modifier
-                        .fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text("카드",
-                        fontSize =16.sp,
-                        fontWeight = FontWeight.Bold    )
-                    Row() {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_vector_plus),
-                            contentDescription = "plus",
-                        )
-                    }
-
-
-                }
-                Spacer(modifier=modifier.size(38.dp))
 
             }
+            Column(
+                modifier = modifier
+                    .fillMaxWidth()
+            ){
+                Column{
+                AssetInfoContainer2(
+                    modifier = modifier,
+                    title = "카드",
+                    assetList = listOf(
+                        AssetData(
+                            icon = R.drawable.ic_card,
+                            name = "   내게 맞는 추천카드는?",
+                            value = "확인하기"
 
+                        ),
+                    )
+
+                )
+
+                //Spacer(modifier=modifier.size(22.dp))
+                Spacer(
+                    modifier=modifier
+                        .padding(horizontal = 20.dp)
+                        .fillMaxWidth()
+                        .height(10.dp)
+                        .background(Color(0xFFF3F4F6))
+
+                )
+}
+                Column() {
+                    AssetInfoContainer2(
+                        modifier = modifier,
+                        title = "대출",
+                        assetList = listOf(
+                            AssetData(
+                                icon = R.drawable.ic_bankhouse,
+                                name = "   내 최저 금리는?",
+                                value = "확인하기"
+
+                            ),
+                        )
+                    )
+
+                    Spacer(
+                        modifier = modifier
+                            .padding(20.dp)
+                            .fillMaxWidth()
+                            .height(10.dp)
+                            .background(Color(0xFFF3F4F6))
+
+                    )
+                }
+                Column() {
+                    AssetInfoContainer2(
+                        modifier = modifier,
+                        title = "보험",
+                        assetList = listOf(
+                            AssetData(
+                                icon = R.drawable.ic_defend,
+                                name = "   보험료 낸 만큼 보상받을 수 있을까?",
+                                value = "확인하기"
+
+                            ),
+                        )
+                    )
+
+                   // Spacer(modifier = modifier.size(22.dp))
+                }
+
+
+            }
+        Card(
+            modifier = modifier,
+                colors = CardDefaults.cardColors(
+                containerColor = Color(0xFFF3F4F6)
+            ),
+            content = {
+                Row(
+                    modifier = modifier
+                        .fillMaxWidth()
+                        .height(78.dp)
+                    ) {
+
+                    Spacer(modifier = modifier.size(16.dp))
+                    Column {
+                        Text("편집하기")
+
+                    }
+                }
+            }
+
+        )
         }
     }
-}
 
 @Composable
 fun SingleAssetExample(modifier: Modifier = Modifier) {
@@ -350,7 +419,7 @@ fun SingleAssetExample(modifier: Modifier = Modifier) {
 }
 
 
-@Preview(showBackground = true,heightDp = 1200)
+@Preview(showBackground = true,heightDp = 2200)
 @Composable
 private fun AssetScreenPreview(){
     AssetsScreen()
