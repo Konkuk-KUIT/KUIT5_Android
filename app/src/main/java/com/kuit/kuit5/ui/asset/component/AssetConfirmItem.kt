@@ -44,7 +44,10 @@ fun AssetConfirmItem(
                 tint = Color.Unspecified
             )
             Spacer(modifier.size(10.dp))
-            Text(text = confirm.name)
+            Text(
+                text = confirm.name,
+                fontSize = 14.sp
+            )
         }
         Column(){
             Text(
