@@ -26,7 +26,7 @@ fun KuitNavGraph(
         }
         // 자산
         composable(route = Route.Assets.route) {
-            AssetsScreen(modifier = modifier)
+            AssetsScreen()
         }
         // 가계부
         composable(route = Route.Records.route) {
