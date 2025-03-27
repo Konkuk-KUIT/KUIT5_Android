@@ -358,10 +358,12 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
             }
             Spacer(modifier = Modifier.height(22.dp))
 
-            Row(modifier = modifier
+            Row(modifier = Modifier
                 .fillMaxWidth()
                 .background(Color(0xFFF3F4F6))
-                .padding(vertical = 32.dp),
+                .padding(vertical = 32.dp)
+                ,
+
                 horizontalArrangement = Arrangement.Center,
                 ) {
                 Text(text = "편집하기", color = Color(0xFF666668), fontSize = 14.sp, fontWeight = FontWeight.Medium)
@@ -380,7 +382,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true, heightDp = 2000)
+@Preview(showBackground = true)
 @Composable
 private fun AssetScreenPreview() {
     AssetsScreen()
