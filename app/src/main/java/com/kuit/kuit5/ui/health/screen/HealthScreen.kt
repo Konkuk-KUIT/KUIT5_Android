@@ -1,4 +1,4 @@
-package com.kuit.kuit5
+package com.kuit.kuit5.ui.health.screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
