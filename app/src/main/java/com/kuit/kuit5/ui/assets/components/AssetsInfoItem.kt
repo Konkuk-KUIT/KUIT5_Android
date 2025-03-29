@@ -19,6 +19,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.model.AssetsData
+import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
+import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 
 @Composable
 fun AssetsInfoItem(modifier: Modifier = Modifier, assets: AssetsData) {
@@ -35,9 +37,9 @@ fun AssetsInfoItem(modifier: Modifier = Modifier, assets: AssetsData) {
                 tint = Color.Unspecified
             )
             Spacer(modifier.width(10.dp))
-            Text(assets.name, color = Color(0xff666668), fontSize = 14.sp)
+            Text(assets.name, color = colors.gray500, style = typography.body_01_R_14)
         }
-        Text(assets.value, fontWeight = FontWeight.W500, fontSize = 14.sp)
+        Text(assets.value, style = typography.body_01_M_14)
     }
 }
 

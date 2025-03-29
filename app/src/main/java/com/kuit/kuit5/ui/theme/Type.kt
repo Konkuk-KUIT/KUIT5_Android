@@ -54,17 +54,17 @@ val defaultBankSaladTypography = BankSaladTypography(
         lineHeight = 16.sp
     ),
     head_03_SB_16 = TextStyle(
-        fontFamily = bankSaladFontBold,
+        fontFamily = bankSaladFontSemiBold,
         fontSize = 16.sp,
         lineHeight = 16.sp
     ),
     head_03_R_16 = TextStyle(
-        fontFamily = bankSaladFontBold,
+        fontFamily = bankSaladFontRegular,
         fontSize = 16.sp,
         lineHeight = 16.sp
     ),
     head_04_SB_14 = TextStyle(
-        fontFamily = bankSaladFontBold,
+        fontFamily = bankSaladFontSemiBold,
         fontSize = 14.sp,
         lineHeight = 14.sp
     ),
@@ -74,31 +74,31 @@ val defaultBankSaladTypography = BankSaladTypography(
         lineHeight = 10.sp
     ),
 
-    //body
+    // Body
     body_01_M_14 = TextStyle(
-        fontFamily = bankSaladFontBold,
+        fontFamily = bankSaladFontMedium,
         fontSize = 14.sp,
         lineHeight = 14.sp
     ),
     body_01_R_14 = TextStyle(
-        fontFamily = bankSaladFontBold,
+        fontFamily = bankSaladFontRegular,
         fontSize = 14.sp,
         lineHeight = 14.sp
     ),
     body_02_SB_12 = TextStyle(
-        fontFamily = bankSaladFontBold,
+        fontFamily = bankSaladFontSemiBold,
         fontSize = 12.sp,
         lineHeight = 12.sp
     ),
     body_02_R_12 = TextStyle(
-        fontFamily = bankSaladFontBold,
+        fontFamily = bankSaladFontRegular,
         fontSize = 12.sp,
         lineHeight = 12.sp
     ),
 
     // Caption
     caption_01_R_10 = TextStyle(
-        fontFamily = bankSaladFontBold,
+        fontFamily = bankSaladFontRegular,
         fontSize = 10.sp,
         lineHeight = 10.sp
     ),

@@ -4,6 +4,7 @@ import android.graphics.drawable.Icon
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -28,6 +29,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.ui.assets.screen.AssetsScreen
+import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
+import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 
 @Composable
 fun AssetsMore(
@@ -45,11 +48,11 @@ fun AssetsMore(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(title, fontWeight = FontWeight.W700)
+            Text(title, style = typography.head_03_B_16)
             Icon(
                 painter = painterResource(R.drawable.ic_assets_plus),
                 contentDescription = "plus",
-                tint = Color(0xff9FA5B0)
+                tint = colors.gray400
             )
         }
 
@@ -68,12 +71,21 @@ fun AssetsMore(
                     tint = Color.Unspecified
                 )
                 Spacer(modifier.width(10.dp))
-                Text(content, fontSize = 14.sp, color = Color(0xff666668))
+                Text(
+                    content,
+                    style = typography.body_01_R_14,
+                    color = colors.gray500
+                )
             }
-            Column {
-                Text("확인하기", fontSize = 14.sp, color = Color(0xff9FA5B0))
+            Column (Modifier.width(IntrinsicSize.Max)) {
+                Text(
+                    "확인하기",
+                    style = typography.body_01_R_14,
+                    color = colors.gray400,
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
+                )
                 Spacer(Modifier.width(4.dp))
-                HorizontalDivider(Modifier.width(50.dp))
+                HorizontalDivider(Modifier.fillMaxWidth(), color = colors.gray400)
             }
         }
         Spacer(Modifier.size(22.dp))
