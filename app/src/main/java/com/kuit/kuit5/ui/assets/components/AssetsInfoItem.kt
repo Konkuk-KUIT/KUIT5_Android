@@ -21,7 +21,7 @@ import com.kuit.kuit5.R
 import com.kuit.kuit5.model.AssetsData
 
 @Composable
-fun AssetsInfoItem(modifier: Modifier = Modifier, assets: AssetsData) {
+fun AssetsInfoItem(assets: AssetsData, modifier: Modifier = Modifier,) {
     Row(
         modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,

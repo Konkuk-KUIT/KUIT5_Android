@@ -223,9 +223,8 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                             icon = R.drawable.img_kakao_icon,
                             name = "입출금통장",
                             value = "234,567원"
-                        ),
-
                         )
+                    )
                 )
 
                 AssetsInfoContainer(
@@ -339,31 +338,13 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 }
 
             }
-            Spacer(
-                Modifier
-                    .fillMaxWidth()
-                    .height(10.dp)
-                    .background(Color(0xffF3F4F6))
-            )
-            Spacer(Modifier.size(24.dp))
+
+
             AssetsMore(title = "카드", icon = R.drawable.img_assets_card, content = "내게 맞는 추천카드는?")
-            Spacer(
-                Modifier
-                    .fillMaxWidth()
-                    .height(10.dp)
-                    .background(Color(0xffF3F4F6))
-            )
-            Spacer(Modifier.size(24.dp))
 
 
             AssetsMore(title = "대출", icon = R.drawable.img_assets_loan, content = "내 최저 금리는?")
-            Spacer(
-                Modifier
-                    .fillMaxWidth()
-                    .height(10.dp)
-                    .background(Color(0xffF3F4F6))
-            )
-            Spacer(Modifier.size(24.dp))
+
 
             AssetsMore(
                 title = "보험",
@@ -408,7 +389,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
 }
 
 
-@Preview(heightDp = 800, widthDp = 360)
+@Preview(heightDp = 3000, widthDp = 360)
 @Composable
 private fun AssetsScreenPreview() {
     AssetsScreen()

@@ -17,10 +17,10 @@ import com.kuit.kuit5.model.AssetsData
 
 @Composable
 fun AssetsInfoContainer(
-    modifier: Modifier = Modifier,
     assetsList: List<AssetsData>,
     title: String,
-    money: String
+    money: String,
+    modifier: Modifier = Modifier,
 ) {
     Column(modifier.fillMaxWidth()) {
         Row(modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {

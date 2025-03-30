@@ -1,6 +1,7 @@
 package com.kuit.kuit5.ui.assets.components
 
 import android.graphics.drawable.Icon
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -31,53 +32,65 @@ import com.kuit.kuit5.ui.assets.screen.AssetsScreen
 
 @Composable
 fun AssetsMore(
-    modifier: Modifier = Modifier,
     title: String,
     icon: Int,
     content: String,
+    modifier: Modifier = Modifier,
 ) {
 
-    Column(
-        Modifier.padding(horizontal = 20.dp),
-    ) {
-        Row(
-            modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+    Column {
+        Spacer(
+            Modifier
+                .fillMaxWidth()
+                .height(10.dp)
+                .background(Color(0xffF3F4F6))
+        )
+        Spacer(Modifier.size(24.dp))
+        Column(
+            Modifier.padding(horizontal = 20.dp),
         ) {
-            Text(title, fontWeight = FontWeight.W700)
-            Icon(
-                painter = painterResource(R.drawable.ic_assets_plus),
-                contentDescription = "plus",
-                tint = Color(0xff9FA5B0)
-            )
-        }
-
-        Spacer(modifier.height(24.dp))
-
-        Row(
-            modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
+            Row(
+                modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(title, fontWeight = FontWeight.W700)
                 Icon(
-                    painter = painterResource(icon),
-                    contentDescription = "icon",
-                    modifier = modifier.size(30.dp),
-                    tint = Color.Unspecified
+                    painter = painterResource(R.drawable.ic_assets_plus),
+                    contentDescription = "plus",
+                    tint = Color(0xff9FA5B0)
                 )
-                Spacer(modifier.width(10.dp))
-                Text(content, fontSize = 14.sp, color = Color(0xff666668))
             }
-            Column {
-                Text("확인하기", fontSize = 14.sp, color = Color(0xff9FA5B0))
-                Spacer(Modifier.width(4.dp))
-                HorizontalDivider(Modifier.width(50.dp))
+
+            Spacer(modifier.height(24.dp))
+
+            Row(
+                modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        painter = painterResource(icon),
+                        contentDescription = "icon",
+                        modifier = modifier.size(30.dp),
+                        tint = Color.Unspecified
+                    )
+                    Spacer(modifier.width(10.dp))
+                    Text(content, fontSize = 14.sp, color = Color(0xff666668))
+                }
+                Column {
+                    Text("확인하기", fontSize = 14.sp, color = Color(0xff9FA5B0))
+                    Spacer(Modifier.width(4.dp))
+                    HorizontalDivider(Modifier.width(50.dp))
+                }
             }
+            Spacer(Modifier.size(22.dp))
+
+
         }
-        Spacer(Modifier.size(22.dp))
     }
+
 
 }
 
