@@ -29,7 +29,7 @@ import com.kuit.kuit5.navigation.BottomNavItem
 import com.kuit.kuit5.navigation.KuitNavGraph
 import com.kuit.kuit5.navigation.Route
 import com.kuit.kuit5.ui.theme.KUIT5Theme
-////
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

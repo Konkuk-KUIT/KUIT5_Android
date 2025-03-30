@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.model.AssetData
 import com.kuit.kuit5.ui.asset.component.AssetInfoContainer
+import com.kuit.kuit5.ui.asset.component.AssetSummaryRow
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -53,7 +54,7 @@ fun AssetsScreen(
                         text = "자산",
                         color = Color.Black,
                         fontSize = 24.sp,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
                     )
                 },
                 actions = {
@@ -64,22 +65,22 @@ fun AssetsScreen(
                         Icon(
                             painter = painterResource(id = R.drawable.ic_assets_money),
                             contentDescription = "money Icon",
-                            tint = Color(0XFF9FA5B0)
+                            tint = Color(0XFF9FA5B0),
                         )
                         Icon(
                             painter = painterResource(id = R.drawable.ic_assets_gear),
                             contentDescription = "gear Icon",
-                            tint = Color(0XFF9FA5B0)
+                            tint = Color(0XFF9FA5B0),
                         )
                         Icon(
                             painter = painterResource(id = R.drawable.ic_assets_bell),
                             contentDescription = "bell Icon",
-                            tint = Color(0XFF9FA5B0)
+                            tint = Color(0XFF9FA5B0),
                         )
                         Icon(
                             painter = painterResource(id = R.drawable.ic_assets_stack),
                             contentDescription = "stack Icon",
-                            tint = Color(0XFF9FA5B0)
+                            tint = Color(0XFF9FA5B0),
                         )
                     }
                 },
@@ -95,7 +96,7 @@ fun AssetsScreen(
                 .fillMaxSize()
                 .padding(innerPadding)
                 .background(Color.White),
-            contentPadding = PaddingValues(bottom = 30.dp)
+            contentPadding = PaddingValues(bottom = 30.dp),
         ) {
             item {
                 Box(
@@ -105,7 +106,12 @@ fun AssetsScreen(
                 ) {
                     Column {
                         Text("쿠잇님의 순자산", color = Color.Black, fontSize = 14.sp)
-                        Text("1,234,567원", color = Color.Black, fontSize = 24.sp, fontWeight = FontWeight.Bold)
+                        Text(
+                            "1,234,567원",
+                            color = Color.Black,
+                            fontSize = 24.sp,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                     Button(
                         modifier = Modifier
@@ -116,7 +122,7 @@ fun AssetsScreen(
                         onClick = {},
                         colors = ButtonDefaults.buttonColors(
                             containerColor = Color(0xFFF3F4F6),
-                            contentColor = Color(0xFF666668)
+                            contentColor = Color(0xFF666668),
                         )
                     ) {
                         Text("분석", fontSize = 14.sp)
@@ -127,12 +133,12 @@ fun AssetsScreen(
             item {
                 Card(
                     modifier = Modifier.padding(horizontal = 20.dp),
-                    colors = CardDefaults.cardColors(containerColor = Color(0xFFF3F4F6))
+                    colors = CardDefaults.cardColors(containerColor = Color(0xFFF3F4F6)),
                 ) {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = 16.dp, vertical = 16.dp)
+                            .padding(horizontal = 16.dp, vertical = 16.dp),
                     ) {
                         Image(
                             modifier = Modifier.size(42.dp),
@@ -141,8 +147,18 @@ fun AssetsScreen(
                         )
                         Spacer(modifier = Modifier.size(16.dp))
                         Column {
-                            Text("티맵 대리 1만원 쿠폰 받으세요", color = Color.Black, fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                            Text("3월 한정 선착순 1만명 혜택", color = Color.Black, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                            Text(
+                                "티맵 대리 1만원 쿠폰 받으세요",
+                                color = Color.Black,
+                                fontSize = 16.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                            Text(
+                                "3월 한정 선착순 1만명 혜택",
+                                color = Color.Black,
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.Bold
+                            )
                         }
                     }
                 }
@@ -160,7 +176,7 @@ fun AssetsScreen(
                         text = "계좌・현금",
                         color = Color.Black,
                         fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
                     )
 
                     Row(
@@ -170,17 +186,19 @@ fun AssetsScreen(
                         Text(
                             text = "1,234,567원",
                             color = Color(0xFF666668),
-                            fontSize = 14.sp
+                            fontSize = 14.sp,
                         )
                         Icon(
                             painter = painterResource(id = R.drawable.ic_assets_right_arrow),
                             contentDescription = "right arrow",
-                            tint = Color(0xFF666668)
+                            tint = Color(0xFF666668),
                         )
                     }
-                }}
+                }
+            }
             item {
-                Spacer(modifier = Modifier.size(30.dp))}
+                Spacer(modifier = Modifier.size(30.dp))
+            }
 
             item {
                 // 입출금
@@ -198,7 +216,7 @@ fun AssetsScreen(
                             AssetData(
                                 icon = R.drawable.img_kakao_icon,
                                 name = "입출금통장",
-                                value = "234,567원"
+                                value = "234,567원",
                             ),
                         )
                     )
@@ -212,7 +230,7 @@ fun AssetsScreen(
                             AssetData(
                                 icon = R.drawable.img_kakao_icon,
                                 name = "정기예금",
-                                value = "1,000,000원"
+                                value = "1,000,000원",
                             ),
                         )
                     )
@@ -230,7 +248,8 @@ fun AssetsScreen(
                             ),
                         )
                     )
-                }}
+                }
+            }
             item {
                 Spacer(modifier = Modifier.size(22.dp))
 
@@ -239,10 +258,12 @@ fun AssetsScreen(
                         .fillMaxWidth()
                         .height(10.dp)
                         .background(Color(color = 0xFFF3F4F6))
-                )}
+                )
+            }
             item {
 
-                Spacer(modifier = Modifier.size(22.dp))}
+                Spacer(modifier = Modifier.size(22.dp))
+            }
 
             item {
                 //페이머니
@@ -257,19 +278,20 @@ fun AssetsScreen(
                         text = "페이머니",
                         color = Color.Black,
                         fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
                     )
 
                     Text(
                         text = "0원",
                         color = Color(0xFF666668)
                     )
-                }}
+                }
+            }
             item {
 
 
-
-                Spacer(modifier = Modifier.size(22.dp))}
+                Spacer(modifier = Modifier.size(22.dp))
+            }
             item {
 
 //뱅샐머니
@@ -298,7 +320,7 @@ fun AssetsScreen(
                         Text(
                             text = "뱅샐머니",
                             color = Color(color = 0XFF666668),
-                            fontSize = 14.sp
+                            fontSize = 14.sp,
                         )
 
 
@@ -306,10 +328,11 @@ fun AssetsScreen(
                     Text(
                         text = "0원",
                         color = Color.Black,
-                        fontSize = 14.sp
+                        fontSize = 14.sp,
                     )
 
-                }}
+                }
+            }
 
             item {
                 Spacer(modifier = Modifier.size(28.11.dp))
@@ -323,7 +346,8 @@ fun AssetsScreen(
 
 
             item {
-                Spacer(modifier = Modifier.size(22.dp))}
+                Spacer(modifier = Modifier.size(22.dp))
+            }
 
             item {
                 //신용
@@ -338,7 +362,7 @@ fun AssetsScreen(
                         text = "신용",
                         color = Color.Black,
                         fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
                     )
 
                     Row(
@@ -348,7 +372,7 @@ fun AssetsScreen(
                         Text(
                             text = "750점",
                             color = Color(0xFF666668),
-                            fontSize = 14.sp
+                            fontSize = 14.sp,
                         )
                         Spacer(modifier = Modifier.size(4.dp))
                         Icon(
@@ -359,86 +383,12 @@ fun AssetsScreen(
                         )
                     }
 
-                }}
-
-            item {
-                Spacer(modifier = Modifier.size(26.dp))
-                Spacer(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(10.dp)
-                        .background(Color(color = 0xFFF3F4F6))
-                )}
-            item {
-
-//카드
-                Spacer(modifier = Modifier.size(22.dp))}
-            item {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 20.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text(
-                        text = "카드",
-                        color = Color.Black,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_assets_plus),
-                            contentDescription = "plus",
-                            tint = Color(0xFF9FA5B0)
-                        )
-                    }
-
-                }}
-            item {
-
-                Spacer(modifier = Modifier.size(30.dp))}
-            item {
-
-//추천카드
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 20.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
-
-                ) {
-
-                    Row(
-                        modifier = Modifier,
-                        verticalAlignment = Alignment.CenterVertically
-
-                    ) {
-                        Image(
-                            modifier = Modifier.size(30.dp),
-                            painter = painterResource(id = R.drawable.img_card_icon),
-                            contentDescription = "Recommend Card",
-                        )
-                        Spacer(modifier = Modifier.size(16.dp))
-                        Text(
-                            text = "내가 맞는 추천카드는?",
-                            color = Color(color = 0XFF666668),
-                            fontSize = 14.sp
-                        )
+                }
+            }
 
 
-                    }
-                    Text(
-                        text = "확인하기",
-                        color = Color(color = 0XFF9FA5B0),
-                        fontSize = 14.sp
-                    )
 
-                }}
+
 
             item {
                 Spacer(modifier = Modifier.size(26.dp))
@@ -449,160 +399,83 @@ fun AssetsScreen(
                         .background(Color(color = 0xFFF3F4F6))
                 )
             }
+
+
+// 카드
             item {
 
-                Spacer(modifier = Modifier.size(22.dp))}
+                Spacer(modifier = Modifier.size(24.dp))}
 
             item {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 20.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text(
-                        text = "대출",
-                        color = Color.Black,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_assets_plus),
-                            contentDescription = "plus",
-                            tint = Color(0xFF9FA5B0)
-                        )
-                    }
-
-                }}
+                AssetSummaryRow(
+                    sectionTitle = "카드",
+                    iconResId = R.drawable.img_card_icon,
+                    summaryTitle = "내가 맞는 추천카드는?",
+                    actionText = "확인하기"
+                )
+            }
             item {
+                Spacer(modifier = Modifier.size(22.dp))
+            }
 
 
-                Spacer(modifier = Modifier.size(30.dp))}
-            item {
-//대출
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 20.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
-
-                ) {
-
-                    Row(
-                        modifier = Modifier,
-                        verticalAlignment = Alignment.CenterVertically
-
-                    ) {
-                        Image(
-                            modifier = Modifier.size(30.dp),
-                            painter = painterResource(id = R.drawable.img_loan_icon),
-                            contentDescription = "low loan",
-                        )
-                        Spacer(modifier = Modifier.size(16.dp))
-                        Text(
-                            text = "내 최저 금리는?",
-                            color = Color(color = 0XFF666668),
-                            fontSize = 14.sp
-                        )
-
-
-                    }
-                    Text(
-                        text = "확인하기",
-                        color = Color(color = 0XFF9FA5B0),
-                        fontSize = 14.sp
-                    )
-
-                }}
 
             item {
-                Spacer(modifier = Modifier.size(26.dp))
                 Spacer(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(10.dp)
                         .background(Color(color = 0xFFF3F4F6))
-                )}
+                )
+            }
+
+
+// 대출
+            item {
+
+                Spacer(modifier = Modifier.size(24.dp))}
+
+            item {
+                AssetSummaryRow(
+                    sectionTitle = "대출",
+                    iconResId = R.drawable.img_loan_icon,
+                    summaryTitle = "내 최저 금리는?",
+                    actionText = "확인하기"
+                )
+            }
+
+            item {
+                Spacer(modifier = Modifier.size(22.dp))
+            }
+
+
+            item {
+                Spacer(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(10.dp)
+                        .background(Color(color = 0xFFF3F4F6))
+                )
+            }
+//보험
+            item {
+
+                Spacer(modifier = Modifier.size(24.dp))}
+
+
+            item {
+                AssetSummaryRow(
+                    sectionTitle = "보험",
+                    iconResId = R.drawable.img_insurance_icon,
+                    summaryTitle = "보험료 낸 만큼 보장받을 수 있을까?",
+                    actionText = "확인하기"
+                )
+            }
+
 
 
             item {
                 Spacer(modifier = Modifier.size(22.dp))}
-
-            item {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 20.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text(
-                        text = "보험",
-                        color = Color.Black,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_assets_plus),
-                            contentDescription = "plus",
-                            tint = Color(0xFF9FA5B0)
-                        )
-                    }
-
-                }}
-
-            item {
-
-                Spacer(modifier = Modifier.size(30.dp))}
-
-            item {
-
-//보험
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 20.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
-
-                ) {
-
-                    Row(
-                        modifier = Modifier,
-                        verticalAlignment = Alignment.CenterVertically
-
-                    ) {
-                        Image(
-                            modifier = Modifier.size(30.dp),
-                            painter = painterResource(id = R.drawable.img_insurance_icon),
-                            contentDescription = "insurance",
-                        )
-                        Spacer(modifier = Modifier.size(10.dp))
-                        Text(
-                            text = "보험료 낸 만큼 보장받을 수 있을까?",
-                            color = Color(color = 0XFF666668),
-                            fontSize = 14.sp
-                        )
-
-
-                    }
-                    Text(
-                        text = "확인하기",
-                        color = Color(color = 0XFF9FA5B0),
-                        fontSize = 14.sp
-                    )
-
-                }}
-            item {
-                Spacer(modifier = Modifier.size(26.dp))}
 
 
             item {
@@ -610,7 +483,7 @@ fun AssetsScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .background(Color(0xFFF3F4F6))
-                        .padding(vertical = 14.dp)
+                        .padding(vertical = 32.dp)
                 ) {
                     Row(
                         modifier = Modifier.align(Alignment.Center),
@@ -620,7 +493,7 @@ fun AssetsScreen(
                         Text(
                             text = "편집하기",
                             color = Color(0XFF666668),
-                            fontSize = 14.sp
+                            fontSize = 14.sp,
                         )
                         Spacer(modifier = Modifier.width(46.dp))
 
@@ -635,7 +508,7 @@ fun AssetsScreen(
                         Text(
                             text = "추가하기",
                             color = Color(0XFF666668),
-                            fontSize = 14.sp
+                            fontSize = 14.sp,
                         )
 
                     }

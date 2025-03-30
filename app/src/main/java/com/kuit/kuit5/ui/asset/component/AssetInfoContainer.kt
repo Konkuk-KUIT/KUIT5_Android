@@ -24,21 +24,24 @@ fun AssetInfoContainer(
     assetList: List<AssetData>
 ) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
-    ){
+    )
+    {
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Text(text = title,
+            Text(
+                text = title,
                 color = Color(0XFF666668),
                 fontSize = 12.sp,
-                )
-            Text(text = value,
+            )
+            Text(
+                text = value,
                 color = Color(0XFF666668),
                 fontSize = 12.sp,
-                )
+            )
         }
         HorizontalDivider(
             modifier = Modifier

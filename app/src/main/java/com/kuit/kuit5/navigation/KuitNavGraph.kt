@@ -27,7 +27,7 @@ fun KuitNavGraph(
         // 자산
         composable(route = Route.Assets.route) {
             AssetsScreen(
-                modifier = Modifier
+                modifier = modifier
             )
 
         }
