@@ -1,6 +1,7 @@
 package com.kuit.kuit5.ui.assets.components
 
 import android.graphics.drawable.Icon
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -40,55 +41,65 @@ fun AssetsMore(
     content: String,
 ) {
 
-    Column(
-        Modifier.padding(horizontal = 20.dp),
-    ) {
-        Row(
-            modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(title, style = typography.head_03_B_16)
-            Icon(
-                painter = painterResource(R.drawable.ic_assets_plus),
-                contentDescription = "plus",
-                tint = colors.gray400
-            )
-        }
+    Column {
+        Spacer(
+            Modifier
+                .fillMaxWidth()
+                .height(10.dp)
+                .background(colors.gray200)
+        )
+        Spacer(Modifier.size(24.dp))
 
-        Spacer(modifier.height(24.dp))
-
-        Row(
-            modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+        Column(
+            Modifier.padding(horizontal = 20.dp),
         ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
+            Row(
+                modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(title, style = typography.head_03_B_16)
                 Icon(
-                    painter = painterResource(icon),
-                    contentDescription = "icon",
-                    modifier = modifier.size(30.dp),
-                    tint = Color.Unspecified
-                )
-                Spacer(modifier.width(10.dp))
-                Text(
-                    content,
-                    style = typography.body_01_R_14,
-                    color = colors.gray500
+                    painter = painterResource(R.drawable.ic_assets_plus),
+                    contentDescription = "plus",
+                    tint = colors.gray400
                 )
             }
-            Column (Modifier.width(IntrinsicSize.Max)) {
-                Text(
-                    "확인하기",
-                    style = typography.body_01_R_14,
-                    color = colors.gray400,
-                    modifier = Modifier.align(Alignment.CenterHorizontally)
-                )
-                Spacer(Modifier.width(4.dp))
-                HorizontalDivider(Modifier.fillMaxWidth(), color = colors.gray400)
+
+            Spacer(modifier.height(24.dp))
+
+            Row(
+                modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        painter = painterResource(icon),
+                        contentDescription = "icon",
+                        modifier = modifier.size(30.dp),
+                        tint = Color.Unspecified
+                    )
+                    Spacer(modifier.width(10.dp))
+                    Text(
+                        content,
+                        style = typography.body_01_R_14,
+                        color = colors.gray500
+                    )
+                }
+                Column(Modifier.width(IntrinsicSize.Max)) {
+                    Text(
+                        "확인하기",
+                        style = typography.body_01_R_14,
+                        color = colors.gray400,
+                        modifier = Modifier.align(Alignment.CenterHorizontally)
+                    )
+                    Spacer(Modifier.width(4.dp))
+                    HorizontalDivider(Modifier.fillMaxWidth(), color = colors.gray400)
+                }
             }
+            Spacer(Modifier.size(22.dp))
         }
-        Spacer(Modifier.size(22.dp))
     }
 
 }

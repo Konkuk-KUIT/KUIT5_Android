@@ -106,11 +106,6 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
             }
         })
         // TopAppBar 제외한 지점
-//        CounterWithoutRemember()
-//        CounterWithRemember()
-//        CounterWithRememberSaveable()
-//
-//        SampleTextField()
 
 
         Column(
@@ -315,31 +310,10 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 }
 
             }
-            Spacer(
-                Modifier
-                    .fillMaxWidth()
-                    .height(10.dp)
-                    .background(colors.gray200)
-            )
-            Spacer(Modifier.size(24.dp))
             AssetsMore(title = "카드", icon = R.drawable.img_assets_card, content = "내게 맞는 추천카드는?")
-            Spacer(
-                Modifier
-                    .fillMaxWidth()
-                    .height(10.dp)
-                    .background(colors.gray200)
-            )
-            Spacer(Modifier.size(24.dp))
 
 
             AssetsMore(title = "대출", icon = R.drawable.img_assets_loan, content = "내 최저 금리는?")
-            Spacer(
-                Modifier
-                    .fillMaxWidth()
-                    .height(10.dp)
-                    .background(colors.gray200)
-            )
-            Spacer(Modifier.size(24.dp))
 
             AssetsMore(
                 title = "보험",
@@ -369,8 +343,6 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 }
             }
 
-//            Spacer(Modifier.height(80.dp))
-
 
         }
 
@@ -378,7 +350,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
 }
 
 
-@Preview(heightDp = 2000, widthDp = 360)
+@Preview(heightDp = 2500, widthDp = 360)
 @Composable
 private fun AssetsScreenPreview() {
     AssetsScreen()
