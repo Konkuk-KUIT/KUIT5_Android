@@ -42,14 +42,19 @@ fun AssetInfoItem(
                 tint = Color.Unspecified
             )
             Spacer(modifier = Modifier.size(10.dp))
-            Text(text = asset.name,
+            Text(
+                text = asset.name,
                 color = Color(color = 0XFF666668),
-                fontSize = 14.sp)
+                fontSize = 14.sp
+            )
 
         }
-        Text(text = asset.value,
+
+        Text(
+            text = asset.value,
             color = Color.Black,
-            fontSize = 14.sp)
+            fontSize = 14.sp
+        )
 
     }
 }
