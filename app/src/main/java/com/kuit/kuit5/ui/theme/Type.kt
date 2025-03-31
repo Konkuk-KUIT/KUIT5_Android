@@ -12,10 +12,10 @@ import com.kuit.kuit5.R
 import com.kuit.kuit5.ui.theme.defaultBankSaladColors
 
 
-val bankSaladFontBold = FontFamily(Font(R.font.Pretendard_Bold))
-val bankSaladFontSemiBold = FontFamily(Font(R.font.Pretendard_SemiBold))
-val bankSaladFontMedium = FontFamily(Font(R.font.Pretendard_Medium))
-val bankSaladFontRegular = FontFamily(Font(R.font.Pretendard_Regular))
+val bankSaladFontBold = FontFamily(Font(R.font.pretendard_bold))
+val bankSaladFontSemiBold = FontFamily(Font(R.font.pretendard_semibold))
+val bankSaladFontMedium = FontFamily(Font(R.font.pretendard_medium))
+val bankSaladFontRegular = FontFamily(Font(R.font.pretendard_regular))
 
 @Immutable
 data class BankSaladTypography(
