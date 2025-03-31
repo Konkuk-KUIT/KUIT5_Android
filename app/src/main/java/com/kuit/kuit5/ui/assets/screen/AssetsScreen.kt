@@ -1,8 +1,5 @@
 package com.kuit.kuit5.ui.assets.screen
 
-import android.R.attr.contentDescription
-import android.R.attr.onClick
-import android.widget.Space
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -25,30 +22,18 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.OutlinedTextFieldDefaults.contentPadding
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.input.key.Key.Companion.F
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.model.AssetsData
 import com.kuit.kuit5.ui.assets.components.AssetsInfoContainer
@@ -70,41 +55,41 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
     ) {
         TopAppBar(
             modifier = Modifier.fillMaxWidth(), colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = colors.white
-        ), title = {
-            Text(
-                "자산", color = Color.Black, style = typography.head_01_B_24
-            )
-        }, actions = {
-            Row(
-                Modifier.padding(20.dp), horizontalArrangement = Arrangement.spacedBy(20.dp)
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_assets_money),
-                    contentDescription = "money icon",
-                    tint = colors.gray400
+                containerColor = colors.white
+            ), title = {
+                Text(
+                    "자산", color = Color.Black, style = typography.head_01_B_24
                 )
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_assets_gear),
-                    contentDescription = "money icon",
-                    tint = colors.gray400
+            }, actions = {
+                Row(
+                    Modifier.padding(20.dp), horizontalArrangement = Arrangement.spacedBy(20.dp)
+                ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_assets_money),
+                        contentDescription = "money icon",
+                        tint = colors.gray400
+                    )
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_assets_gear),
+                        contentDescription = "money icon",
+                        tint = colors.gray400
 
-                )
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_assets_bell),
-                    contentDescription = "money icon",
-                    tint = colors.gray400
+                    )
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_topbar_bell),
+                        contentDescription = "money icon",
+                        tint = colors.gray400
 
-                )
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_assets_stack),
-                    contentDescription = "money icon",
-                    tint = colors.gray400
+                    )
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_topbar_stack),
+                        contentDescription = "money icon",
+                        tint = colors.gray400
 
-                )
+                    )
 
-            }
-        })
+                }
+            })
         // TopAppBar 제외한 지점
 
 
@@ -188,7 +173,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                         color = colors.gray500,
                     )
                     Icon(
-                        painter = painterResource(R.drawable.ic_assets_right_arrow),
+                        painter = painterResource(R.drawable.ic_right_arrow),
                         contentDescription = "right arrow",
                         tint = colors.gray500
                     )
@@ -303,7 +288,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                         "750점", style = typography.head_04_SB_14, color = colors.gray500
                     )
                     Icon(
-                        painter = painterResource(R.drawable.ic_assets_right_arrow),
+                        painter = painterResource(R.drawable.ic_right_arrow),
                         contentDescription = "right arrow",
                         tint = colors.gray500
                     )
