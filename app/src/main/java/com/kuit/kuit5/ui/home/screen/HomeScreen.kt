@@ -6,8 +6,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.pager.HorizontalPager
@@ -79,9 +81,9 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         Column(
             Modifier
                 .fillMaxWidth()
-                .verticalScroll(state = scrollState),
+                .verticalScroll(state = scrollState).padding(bottom = 16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(24.dp)
+            verticalArrangement = Arrangement.spacedBy(16.dp)
 
         ) {
 //            HomeBannerItem(
@@ -128,8 +130,6 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier.fillMaxWidth(),
                 contentPadding = PaddingValues(horizontal = 20.dp),
                 pageSpacing = 20.dp
-//                verticalAlignment = Alignment.CenterVertically
-//                적용 안되는 이유?
 
             ) { page ->
                 HomeBannerItem(
@@ -152,7 +152,10 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 HomeEventItem(image = R.drawable.img_home_bundle, text = "대출찾기")
                 HomeEventItem(image = R.drawable.img_home_card, text = "카드이벤트")
             }
+
+            Spacer(Modifier.height(8.dp))
             HomeAccountCard()
+
             HomeAssetsCard(
                 title = "순자산",
                 amount = 1234567.toDecimalFormat(),
@@ -173,6 +176,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 ),
                 bannerText = "쌓인 예적금 이자 확인하고 진단받기"
             )
+
             HomeAssetsCard(
                 title = "이번 달 지출",
                 amount = 198000.toDecimalFormat(),
@@ -190,7 +194,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         amount = 1000000.toDecimalFormat(),
                     )
                 ),
-                bannerText = "쌓인 예적금 이자 확인하고 진단받기"
+                bannerText = "3월 카드 지출"
             )
 
 
