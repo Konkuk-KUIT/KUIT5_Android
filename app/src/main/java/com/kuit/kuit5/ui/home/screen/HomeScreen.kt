@@ -3,39 +3,36 @@ package com.kuit.kuit5.ui.home.screen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kuit.kuit5.R
+import com.kuit.kuit5.model.HomeDetailData
 import com.kuit.kuit5.model.HomeBannerData
 import com.kuit.kuit5.ui.home.components.HomeAccountCard
+import com.kuit.kuit5.ui.home.components.HomeAssetsCard
 import com.kuit.kuit5.ui.home.components.HomeBannerItem
 import com.kuit.kuit5.ui.home.components.HomeEventItem
 import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
+import util.toDecimalFormat
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -139,7 +136,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     caption = bannerItemList[page].caption,
                     title = bannerItemList[page].title,
                     image = bannerItemList[page].image,
-                    page = page+1
+                    page = page + 1
                 )
 
             }
@@ -156,6 +153,46 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 HomeEventItem(image = R.drawable.img_home_card, text = "카드이벤트")
             }
             HomeAccountCard()
+            HomeAssetsCard(
+                title = "순자산",
+                amount = 1234567.toDecimalFormat(),
+                buttonText = "송금",
+                description = listOf("지난 방문일보다", 4500.toDecimalFormat(), "줄었어요"),
+                detailsList = listOf(
+                    HomeDetailData(
+                        image = R.drawable.img_kakao_icon,
+                        accountName = "계좌 · 현금",
+                        amount = 234567.toDecimalFormat(),
+                        changedAmount = 4500.toDecimalFormat()
+                    ), HomeDetailData(
+                        image = R.drawable.img_kakao_icon,
+                        accountName = "예적금",
+                        amount = 1000000.toDecimalFormat(),
+                        changedAmount = 10000.toDecimalFormat()
+                    )
+                ),
+                bannerText = "쌓인 예적금 이자 확인하고 진단받기"
+            )
+            HomeAssetsCard(
+                title = "이번 달 지출",
+                amount = 198000.toDecimalFormat(),
+                buttonText = "확인",
+                description = listOf("지난달 같은 기간보다", 53000.toDecimalFormat(), "덜 썼어요"),
+                detailsList = listOf(
+                    HomeDetailData(
+                        image = R.drawable.img_home_krw,
+                        accountName = "오늘 지출",
+                        amount = 234567.toDecimalFormat(),
+                    ),
+                    HomeDetailData(
+                        image = R.drawable.img_home_krw,
+                        accountName = "어제 지출",
+                        amount = 1000000.toDecimalFormat(),
+                    )
+                ),
+                bannerText = "쌓인 예적금 이자 확인하고 진단받기"
+            )
+
 
         }
     }

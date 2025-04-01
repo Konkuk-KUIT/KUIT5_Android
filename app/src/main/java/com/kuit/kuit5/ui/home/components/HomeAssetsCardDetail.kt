@@ -1,6 +1,5 @@
 package com.kuit.kuit5.ui.home.components
 
-import android.R.attr.accountType
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -23,11 +22,12 @@ import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 import com.kuit.kuit5.util.toDecimalFormat
 
 @Composable
-fun HomeAccountCardDetail(
+fun HomeAssetsCardDetail(
     modifier: Modifier = Modifier,
     image: Int,
-    value: String,
-    accountName: String
+    amount: String,
+    accountName: String,
+    changedAmount: String? = null
 ) {
     Column {
         Row(
@@ -43,23 +43,21 @@ fun HomeAccountCardDetail(
                 )
                 Spacer(Modifier.width(10.dp))
                 Column {
-                    Text(value, style = typography.body_01_M_14)
+                    Text(
+                        accountName,
+                        style = typography.body_01_M_14,
+                        color = colors.gray400
+                    )
                     Spacer(Modifier.height(8.dp))
-                    Text(accountName, style = typography.body_02_R_12, color = colors.gray400)
+                    Text(
+                        amount,
+                        style = typography.body_01_M_14
+                    )
                 }
             }
-            HomeBalanceChangeItem(amount = 4500.toDecimalFormat())
+            HomeBalanceChangeItem(amount = changedAmount)
         }
         Spacer(Modifier.height(24.dp))
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-private fun HacdPrev() {
-    HomeAccountCardDetail(
-        image = R.drawable.img_kakao_icon,
-        value = 234567.toDecimalFormat(),
-        accountName = "입출금통장"
-    )
-}

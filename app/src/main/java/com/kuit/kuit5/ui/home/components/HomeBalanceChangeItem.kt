@@ -16,18 +16,18 @@ import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 import com.kuit.kuit5.util.toDecimalFormat
 
 @Composable
-fun HomeBalanceChangeItem(modifier: Modifier = Modifier, isChanged: Boolean) {
+fun HomeBalanceChangeItem(modifier: Modifier = Modifier, amount: String? = null) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(2.dp)
     ) {
-        if (isChanged) {
+        amount?.let { t ->
             Icon(
                 painter = painterResource(R.drawable.ic_home_polygon),
                 contentDescription = "",
                 tint = colors.blue
             )
-            Text(4500.toDecimalFormat(), style = typography.body_01_M_14, color = colors.blue)
+            Text(t, style = typography.body_01_M_14, color = colors.blue)
         }
         Icon(
             painter = painterResource(R.drawable.ic_right_arrow),

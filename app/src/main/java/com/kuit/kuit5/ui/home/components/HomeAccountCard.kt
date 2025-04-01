@@ -64,15 +64,15 @@ fun HomeAccountCard(modifier: Modifier = Modifier) {
             value = 234567.toDecimalFormat(),
             accountName = "입출금통장"
         )
-        Spacer(Modifier.height(24.dp))
         Box(
             Modifier
                 .size(280.dp, 56.dp)
                 .clip(RoundedCornerShape(12.dp))
-                .background(colors.apricot)
+                .background(colors.apricot),
+            contentAlignment = Alignment.Center
         ) {
             Row(
-                Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 14.dp),
+                Modifier.fillMaxWidth().padding(horizontal = 12.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -99,7 +99,7 @@ fun HomeAccountCard(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview()
 @Composable
 private fun HomeAccountCardPrev() {
     HomeAccountCard()
