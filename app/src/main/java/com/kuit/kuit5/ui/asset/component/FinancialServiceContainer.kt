@@ -3,6 +3,7 @@ package com.kuit.kuit5.ui.asset.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -71,13 +72,13 @@ fun FinancialServiceContainer(
                 Text(text = content, fontSize = 14.sp, color = Color(0xFF666668))
             }
             Column(
-                modifier = Modifier,
+                modifier = Modifier.width(IntrinsicSize.Max),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(text = "확인하기", fontSize = 14.sp, color = Color(0xFF9FA5B0))
                 HorizontalDivider(
-                    modifier = Modifier.width(50.dp),
+                    modifier = Modifier.fillMaxWidth(),
                     color = Color(0xFF9FA5B0)
                 )
             }

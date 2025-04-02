@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.paging.common.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -58,4 +59,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     // Navigation
     implementation(libs.androidx.navigation.compose)
+    implementation("com.google.accompanist:accompanist-pager:0.20.1")
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.20.1")
 }
