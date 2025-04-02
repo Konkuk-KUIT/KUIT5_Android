@@ -85,7 +85,7 @@ fun HomeAssetsCard(
             HomeAssetsCardDetail(
                 image = detail.image,
                 amount = detail.amount,
-                accountName = detail.accountName,
+                name = detail.name,
                 changedAmount = detail.changedAmount
             )
         }
@@ -103,25 +103,25 @@ private fun HomeAssetsCardPrev() {
 
 
     HomeAssetsCard(
-        title = "순자산",
-        amount = 234567.toDecimalFormat(),
-        buttonText = "송금",
-        description = listOf("지난 방문일보다", 4500.toDecimalFormat(), "줄었어요"),
+        title = "title",
+        amount = "amount",
+        buttonText = "버튼",
+        description = listOf("description[0]", "description[1]", "description[2]"),
         detailsList = listOf(
             HomeDetailData(
                 image = R.drawable.img_kakao_icon,
-                accountName = "계좌 · 현금",
-                amount = 234567.toDecimalFormat(),
-                changedAmount = 4500.toDecimalFormat()
+                name = "accountName1",
+                amount = 1.toDecimalFormat(),
+                changedAmount = 1.toDecimalFormat()
             ),
             HomeDetailData(
                 image = R.drawable.img_kakao_icon,
-                accountName = "예적금",
-                amount = 1000000.toDecimalFormat(),
-                changedAmount = 10000.toDecimalFormat()
+                name = "accountName2",
+                amount = 2.toDecimalFormat(),
+                changedAmount = 2.toDecimalFormat()
             )
         ),
-        bannerText = "쌓인 예적금 이자 확인하고 진단받기"
+        bannerText = "샘플 배너 텍스트"
 
 
     )

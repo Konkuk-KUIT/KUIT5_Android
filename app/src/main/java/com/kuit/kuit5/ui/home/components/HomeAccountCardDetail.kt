@@ -56,10 +56,10 @@ fun HomeAccountCardDetail(
 
 @Preview(showBackground = true)
 @Composable
-private fun HacdPrev() {
+private fun HomeAccountCardDetailPrev() {
     HomeAccountCardDetail(
         image = R.drawable.img_kakao_icon,
         value = 234567.toDecimalFormat(),
-        accountName = "입출금통장"
+        accountName = "Sample Account Name"
     )
 }

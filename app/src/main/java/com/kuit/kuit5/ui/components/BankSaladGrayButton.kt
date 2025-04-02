@@ -29,9 +29,3 @@ fun BankSaladGrayButton(modifier: Modifier = Modifier, text: String = "버튼") 
     }
 
 }
-
-@Preview
-@Composable
-private fun BsgbPrev() {
-    BankSaladGrayButton()
-}

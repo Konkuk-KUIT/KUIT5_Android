@@ -96,7 +96,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             })
 
             val bannerItemList =
-                listOf<HomeBannerData>(
+                listOf(
                     HomeBannerData(
                         caption = "3월에 받을 수 있는",
                         title = "최대 17만원 용돈받기",
@@ -164,12 +164,12 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 detailsList = listOf(
                     HomeDetailData(
                         image = R.drawable.img_kakao_icon,
-                        accountName = "계좌 · 현금",
+                        name = "계좌 · 현금",
                         amount = 234567.toDecimalFormat(),
                         changedAmount = 4500.toDecimalFormat()
                     ), HomeDetailData(
                         image = R.drawable.img_kakao_icon,
-                        accountName = "예적금",
+                        name = "예적금",
                         amount = 1000000.toDecimalFormat(),
                         changedAmount = 10000.toDecimalFormat()
                     )
@@ -185,12 +185,12 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 detailsList = listOf(
                     HomeDetailData(
                         image = R.drawable.img_home_krw,
-                        accountName = "오늘 지출",
+                        name = "오늘 지출",
                         amount = 234567.toDecimalFormat(),
                     ),
                     HomeDetailData(
                         image = R.drawable.img_home_krw,
-                        accountName = "어제 지출",
+                        name = "어제 지출",
                         amount = 1000000.toDecimalFormat(),
                     )
                 ),
@@ -202,7 +202,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true, widthDp = 360, heightDp = 2500)
+@Preview(showBackground = true, widthDp = 360, heightDp = 2000)
 @Composable
 private fun HomeScreenPreview() {
     HomeScreen()

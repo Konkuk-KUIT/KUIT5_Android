@@ -26,7 +26,7 @@ fun HomeAssetsCardDetail(
     modifier: Modifier = Modifier,
     image: Int,
     amount: String,
-    accountName: String,
+    name: String,
     changedAmount: String? = null
 ) {
     Column {
@@ -44,7 +44,7 @@ fun HomeAssetsCardDetail(
                 Spacer(Modifier.width(10.dp))
                 Column {
                     Text(
-                        accountName,
+                        name,
                         style = typography.body_01_M_14,
                         color = colors.gray400
                     )
@@ -59,5 +59,16 @@ fun HomeAssetsCardDetail(
         }
         Spacer(Modifier.height(24.dp))
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun HomeAssetsCardDetailPreview() {
+    HomeAssetsCardDetail(
+        image = R.drawable.img_kakao_icon,
+        amount = 0.toDecimalFormat(),
+        name = "샘플 계좌 이름",
+        changedAmount = 5000.toDecimalFormat()
+    )
 }
 
