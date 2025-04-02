@@ -23,7 +23,7 @@ import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
 import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 
 @Composable
-fun AssetsInfoItem(modifier: Modifier = Modifier, assets: AssetsData) {
+fun AssetsInfoItem(assets: AssetsData, modifier: Modifier = Modifier,) {
     Row(
         modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
