@@ -129,9 +129,12 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 
             HorizontalPager(
                 state = pagerState,
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.CenterHorizontally),
                 contentPadding = PaddingValues(horizontal = 20.dp),
-                pageSpacing = 20.dp
+                pageSpacing = 20.dp,
+                verticalAlignment = Alignment.CenterVertically
 
             ) { page ->
                 HomeBannerItem(
@@ -146,7 +149,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 36.dp),
+                    .padding(horizontal = 36.dp, vertical = 8.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 HomeEventItem(image = R.drawable.img_home_allowance, text = "용돈벌기")
@@ -155,7 +158,6 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 HomeEventItem(image = R.drawable.img_home_card, text = "카드이벤트")
             }
 
-            Spacer(Modifier.height(8.dp))
             HomeAccountCard(
                 accountList = listOf(
                     HomeAccountDetailData(
@@ -207,8 +209,6 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 ),
                 bannerText = "3월 카드 지출"
             )
-
-
         }
     }
 }

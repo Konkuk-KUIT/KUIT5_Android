@@ -28,7 +28,6 @@ import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 fun HomeAssetsBannerItem(modifier: Modifier = Modifier, text: String) {
     Box(
         Modifier
-            .size(280.dp, 40.dp)
             .clip(RoundedCornerShape(12.dp))
             .background(colors.gray200),
         contentAlignment = Alignment.Center
@@ -36,7 +35,7 @@ fun HomeAssetsBannerItem(modifier: Modifier = Modifier, text: String) {
         Row(
             Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 12.dp), // Text가 잘려 vertical padding 말고 Alignment 적용
+                .padding(horizontal = 12.dp, vertical = 14.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {

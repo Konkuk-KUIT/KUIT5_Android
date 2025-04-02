@@ -2,6 +2,7 @@ package com.kuit.kuit5.ui.home.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -26,7 +27,7 @@ import com.kuit.kuit5.util.toDecimalFormat
 
 @Composable
         /**
-         * @param description List의 size는 3 이어야만 함.
+         * @param description List의 size는 3 이상이어야 함.
          */
 
 fun HomeAssetsCard(
@@ -38,55 +39,60 @@ fun HomeAssetsCard(
     detailsList: List<HomeAssetsDetailData>,
     bannerText: String
 ) {
-    Column(
+    Box(
         Modifier
-            .width(320.dp)
+            .padding(horizontal = 20.dp)
             .clip(RoundedCornerShape(16.dp))
             .background(colors.white)
-            .padding(vertical = 24.dp, horizontal = 20.dp)
     ) {
-        Row(
-            Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+        Column(
+            Modifier
+                .fillMaxWidth()
+                .padding(vertical = 24.dp, horizontal = 20.dp)
         ) {
-            Column(verticalArrangement = Arrangement.SpaceBetween) {
-                Text(title, style = typography.head_03_R_16, color = colors.gray500)
-                Spacer(Modifier.height(10.dp))
-                Text(amount, style = typography.head_02_B_20)
+            Row(
+                Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(verticalArrangement = Arrangement.SpaceBetween) {
+                    Text(title, style = typography.head_03_R_16, color = colors.gray500)
+                    Spacer(Modifier.height(10.dp))
+                    Text(amount, style = typography.head_02_B_20)
+                }
+                BankSaladGrayButton(text = buttonText)
+
             }
-            BankSaladGrayButton(text = buttonText)
+            Spacer(Modifier.height(16.dp))
+            Row {
+                Text(
+                    description[0],
+                    style = typography.body_02_R_12,
+                )
+                Text(
+                    " ${description[1]} ",
+                    style = typography.body_02_SB_12,
+                    color = colors.green
+                )
+                Text(
+                    description[2],
+                    style = typography.body_02_R_12,
+                )
+            }
+            Spacer(Modifier.height(22.dp))
+            detailsList.forEach { detail ->
+                HomeAssetsCardDetail(
+                    image = detail.image,
+                    amount = detail.amount,
+                    name = detail.name,
+                    changedAmount = detail.changedAmount
+                )
+            }
+
+            HomeAssetsBannerItem(text = bannerText)
+
 
         }
-        Spacer(Modifier.height(16.dp))
-        Row {
-            Text(
-                description[0],
-                style = typography.body_02_R_12,
-            )
-            Text(
-                " ${description[1]} ",
-                style = typography.body_02_SB_12,
-                color = colors.green
-            )
-            Text(
-                description[2],
-                style = typography.body_02_R_12,
-            )
-        }
-        Spacer(Modifier.height(22.dp))
-        detailsList.forEach { detail ->
-            HomeAssetsCardDetail(
-                image = detail.image,
-                amount = detail.amount,
-                name = detail.name,
-                changedAmount = detail.changedAmount
-            )
-        }
-
-        HomeAssetsBannerItem(text = bannerText)
-
-
     }
 }
 

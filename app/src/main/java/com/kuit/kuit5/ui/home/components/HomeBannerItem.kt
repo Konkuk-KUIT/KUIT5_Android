@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -38,7 +39,7 @@ fun HomeBannerItem(
 ) {
     Box(
         modifier
-            .size(320.dp, 60.dp)
+            .fillMaxWidth()
             .clip(RoundedCornerShape(16.dp))
             .background(colors.white)
 
@@ -46,33 +47,40 @@ fun HomeBannerItem(
         Row(
             Modifier
                 .fillMaxWidth()
+                .height(IntrinsicSize.Max)
                 .padding(start = 16.dp, top = 10.dp, bottom = 10.dp, end = 10.dp),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Column(Modifier.fillMaxHeight()) {
-                Spacer(Modifier.height(2.dp))
-                Text(caption, color = colors.gray500, style = typography.caption_01_R_10)
-                Spacer(Modifier.height(10.dp))
-                Row(verticalAlignment = Alignment.CenterVertically) {
+            Column(Modifier.fillMaxHeight(), verticalArrangement = Arrangement.SpaceBetween) {
+                Text(
+                    text = caption,
+                    modifier = Modifier.padding(top = 2.dp),
+                    color = colors.gray500,
+                    style = typography.caption_01_R_10
+                )
+
+                Row(
+                    modifier = Modifier.padding(bottom = 4.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
                     Text(title, style = typography.head_04_SB_14)
-                    Spacer(Modifier.width(2.dp))
                     Icon(
                         painter = painterResource(R.drawable.ic_right_arrow),
                         contentDescription = "right arrow",
-                    ) // 이거왜가운데정렬안됨???
+                    )
                 }
-                Spacer(Modifier.height(4.dp))
             }
 
             Box {
                 Image(
                     painter = painterResource(image),
                     contentDescription = "",
-                    modifier = Modifier.padding(end = 10.dp)
+                    modifier = Modifier
+                        .padding(end = 10.dp)
+                        .size(40.dp)
                 )
                 Box(
                     Modifier
-                        .size(32.dp, 18.dp)
                         .clip(RoundedCornerShape(9.dp))
                         .background(colors.gray400.copy(alpha = 0.8f))
                         .align(Alignment.BottomEnd)
@@ -81,9 +89,9 @@ fun HomeBannerItem(
                         "$page / 5",
                         style = typography.caption_01_R_10,
                         color = colors.white.copy(alpha = 0.8f),
-                        modifier = Modifier.align(
-                            Alignment.Center
-                        )
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                            .padding(horizontal = 6.dp, vertical = 4.dp)
                     )
                 }
             }
