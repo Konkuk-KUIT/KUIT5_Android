@@ -27,14 +27,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kuit.kuit5.R
-import com.kuit.kuit5.model.HomeDetailData
+import com.kuit.kuit5.model.HomeAccountData
+import com.kuit.kuit5.model.HomeAssetsDetailData
 import com.kuit.kuit5.model.HomeBannerData
 import com.kuit.kuit5.ui.home.components.HomeAccountCard
 import com.kuit.kuit5.ui.home.components.HomeAssetsCard
 import com.kuit.kuit5.ui.home.components.HomeBannerItem
 import com.kuit.kuit5.ui.home.components.HomeEventItem
 import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
-import util.toDecimalFormat
+import com.kuit.kuit5.util.toDecimalFormat
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -81,7 +82,8 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         Column(
             Modifier
                 .fillMaxWidth()
-                .verticalScroll(state = scrollState).padding(bottom = 16.dp),
+                .verticalScroll(state = scrollState)
+                .padding(bottom = 16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp)
 
@@ -154,7 +156,16 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             }
 
             Spacer(Modifier.height(8.dp))
-            HomeAccountCard()
+            HomeAccountCard(
+                accountList = listOf(
+                    HomeAccountData(
+                        image = R.drawable.img_kakao_icon,
+                        accountName = "입출금통장",
+                        amount = 234567.toDecimalFormat(),
+                        changedAmount = 4500.toDecimalFormat()
+                    )
+                )
+            )
 
             HomeAssetsCard(
                 title = "순자산",
@@ -162,12 +173,12 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 buttonText = "송금",
                 description = listOf("지난 방문일보다", 4500.toDecimalFormat(), "줄었어요"),
                 detailsList = listOf(
-                    HomeDetailData(
+                    HomeAssetsDetailData(
                         image = R.drawable.img_kakao_icon,
                         name = "계좌 · 현금",
                         amount = 234567.toDecimalFormat(),
                         changedAmount = 4500.toDecimalFormat()
-                    ), HomeDetailData(
+                    ), HomeAssetsDetailData(
                         image = R.drawable.img_kakao_icon,
                         name = "예적금",
                         amount = 1000000.toDecimalFormat(),
@@ -183,12 +194,12 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 buttonText = "확인",
                 description = listOf("지난달 같은 기간보다", 53000.toDecimalFormat(), "덜 썼어요"),
                 detailsList = listOf(
-                    HomeDetailData(
+                    HomeAssetsDetailData(
                         image = R.drawable.img_home_krw,
                         name = "오늘 지출",
                         amount = 234567.toDecimalFormat(),
                     ),
-                    HomeDetailData(
+                    HomeAssetsDetailData(
                         image = R.drawable.img_home_krw,
                         name = "어제 지출",
                         amount = 1000000.toDecimalFormat(),

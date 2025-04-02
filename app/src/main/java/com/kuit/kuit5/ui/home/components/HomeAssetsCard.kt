@@ -1,30 +1,24 @@
 package com.kuit.kuit5.ui.home.components
 
-import android.R.attr.text
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kuit.kuit5.R
-import com.kuit.kuit5.model.HomeDetailData
+import com.kuit.kuit5.model.HomeAssetsDetailData
 import com.kuit.kuit5.ui.components.BankSaladGrayButton
 import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
 import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
@@ -41,7 +35,7 @@ fun HomeAssetsCard(
     amount: String,
     buttonText: String,
     description: List<String>,
-    detailsList: List<HomeDetailData>,
+    detailsList: List<HomeAssetsDetailData>,
     bannerText: String
 ) {
     Column(
@@ -108,13 +102,13 @@ private fun HomeAssetsCardPrev() {
         buttonText = "버튼",
         description = listOf("description[0]", "description[1]", "description[2]"),
         detailsList = listOf(
-            HomeDetailData(
+            HomeAssetsDetailData(
                 image = R.drawable.img_kakao_icon,
                 name = "accountName1",
                 amount = 1.toDecimalFormat(),
                 changedAmount = 1.toDecimalFormat()
             ),
-            HomeDetailData(
+            HomeAssetsDetailData(
                 image = R.drawable.img_kakao_icon,
                 name = "accountName2",
                 amount = 2.toDecimalFormat(),

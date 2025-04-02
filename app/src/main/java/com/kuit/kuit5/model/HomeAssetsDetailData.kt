@@ -1,6 +1,6 @@
 package com.kuit.kuit5.model
 
-data class HomeDetailData(
+data class HomeAssetsDetailData(
     val image: Int,
     val name: String,
     val amount: String,

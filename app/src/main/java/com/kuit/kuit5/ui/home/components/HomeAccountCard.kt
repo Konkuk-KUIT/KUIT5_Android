@@ -24,13 +24,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kuit.kuit5.R
+import com.kuit.kuit5.model.HomeAccountData
 import com.kuit.kuit5.ui.components.BankSaladGrayButton
 import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
 import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 import com.kuit.kuit5.util.toDecimalFormat
 
 @Composable
-fun HomeAccountCard(modifier: Modifier = Modifier) {
+fun HomeAccountCard(modifier: Modifier = Modifier, accountList: List<HomeAccountData>) {
     Column(
         Modifier
             .width(320.dp)
@@ -59,11 +60,14 @@ fun HomeAccountCard(modifier: Modifier = Modifier) {
             color = colors.gray400
         )
         Spacer(Modifier.height(22.dp))
-        HomeAccountCardDetail(
-            image = R.drawable.img_kakao_icon,
-            value = 234567.toDecimalFormat(),
-            accountName = "입출금통장"
-        )
+        accountList.forEach { accountDetail ->
+            HomeAccountCardDetail(
+                image = accountDetail.image,
+                accountName = accountDetail.accountName,
+                amount = accountDetail.amount,
+                changedAmount = accountDetail.changedAmount
+            )
+        }
         Box(
             Modifier
                 .size(280.dp, 56.dp)
@@ -72,7 +76,9 @@ fun HomeAccountCard(modifier: Modifier = Modifier) {
             contentAlignment = Alignment.Center
         ) {
             Row(
-                Modifier.fillMaxWidth().padding(horizontal = 12.dp),
+                Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 12.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -102,5 +108,26 @@ fun HomeAccountCard(modifier: Modifier = Modifier) {
 @Preview()
 @Composable
 private fun HomeAccountCardPrev() {
-    HomeAccountCard()
+    HomeAccountCard(
+        accountList = listOf(
+            HomeAccountData(
+                image = R.drawable.img_kakao_icon,
+                amount = 1.toDecimalFormat(),
+                accountName = "Sample Account Name",
+                changedAmount = 1.toDecimalFormat()
+            ),
+            HomeAccountData(
+                image = R.drawable.img_kakao_icon,
+                amount = 1.toDecimalFormat(),
+                accountName = "Sample Account Name",
+                changedAmount = 1.toDecimalFormat()
+            ),
+            HomeAccountData(
+                image = R.drawable.img_kakao_icon,
+                amount = 1.toDecimalFormat(),
+                accountName = "Sample Account Name",
+                changedAmount = 1.toDecimalFormat()
+            )
+        )
+    )
 }

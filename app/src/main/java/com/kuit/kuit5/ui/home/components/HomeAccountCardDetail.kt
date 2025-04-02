@@ -26,8 +26,9 @@ import com.kuit.kuit5.util.toDecimalFormat
 fun HomeAccountCardDetail(
     modifier: Modifier = Modifier,
     image: Int,
-    value: String,
-    accountName: String
+    amount: String,
+    accountName: String,
+    changedAmount: String? = null
 ) {
     Column {
         Row(
@@ -43,12 +44,12 @@ fun HomeAccountCardDetail(
                 )
                 Spacer(Modifier.width(10.dp))
                 Column {
-                    Text(value, style = typography.body_01_M_14)
+                    Text(amount, style = typography.body_01_M_14)
                     Spacer(Modifier.height(8.dp))
                     Text(accountName, style = typography.body_02_R_12, color = colors.gray400)
                 }
             }
-            HomeBalanceChangeItem(amount = 4500.toDecimalFormat())
+            HomeBalanceChangeItem(amount = changedAmount)
         }
         Spacer(Modifier.height(24.dp))
     }
@@ -59,7 +60,7 @@ fun HomeAccountCardDetail(
 private fun HomeAccountCardDetailPrev() {
     HomeAccountCardDetail(
         image = R.drawable.img_kakao_icon,
-        value = 234567.toDecimalFormat(),
+        amount = 234567.toDecimalFormat(),
         accountName = "Sample Account Name"
     )
 }
