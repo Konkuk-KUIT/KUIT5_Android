@@ -48,7 +48,7 @@ fun HomeAccountCardDetail(
                     Text(accountName, style = typography.body_02_R_12, color = colors.gray400)
                 }
             }
-            HomeBalanceChangeItem(balanceChangeAmount = balanceChange)
+            HomeBalanceChangeItem(balanceChangeAmount = balanceChangeAmount)
         }
         Spacer(Modifier.height(24.dp))
     }
