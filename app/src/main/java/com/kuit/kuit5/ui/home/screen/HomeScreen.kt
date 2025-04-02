@@ -27,7 +27,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kuit.kuit5.R
-import com.kuit.kuit5.model.HomeAccountData
+import com.kuit.kuit5.model.HomeAccountDetailData
 import com.kuit.kuit5.model.HomeAssetsDetailData
 import com.kuit.kuit5.model.HomeBannerData
 import com.kuit.kuit5.ui.home.components.HomeAccountCard
@@ -158,7 +158,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             Spacer(Modifier.height(8.dp))
             HomeAccountCard(
                 accountList = listOf(
-                    HomeAccountData(
+                    HomeAccountDetailData(
                         image = R.drawable.img_kakao_icon,
                         accountName = "입출금통장",
                         amount = 234567.toDecimalFormat(),

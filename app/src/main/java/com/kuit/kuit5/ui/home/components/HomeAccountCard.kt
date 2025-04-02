@@ -1,6 +1,5 @@
 package com.kuit.kuit5.ui.home.components
 
-import android.R.attr.top
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -24,14 +23,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kuit.kuit5.R
-import com.kuit.kuit5.model.HomeAccountData
+import com.kuit.kuit5.model.HomeAccountDetailData
 import com.kuit.kuit5.ui.components.BankSaladGrayButton
 import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
 import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 import com.kuit.kuit5.util.toDecimalFormat
 
 @Composable
-fun HomeAccountCard(modifier: Modifier = Modifier, accountList: List<HomeAccountData>) {
+fun HomeAccountCard(modifier: Modifier = Modifier, accountList: List<HomeAccountDetailData>) {
     Column(
         Modifier
             .width(320.dp)
@@ -110,19 +109,19 @@ fun HomeAccountCard(modifier: Modifier = Modifier, accountList: List<HomeAccount
 private fun HomeAccountCardPrev() {
     HomeAccountCard(
         accountList = listOf(
-            HomeAccountData(
+            HomeAccountDetailData(
                 image = R.drawable.img_kakao_icon,
                 amount = 1.toDecimalFormat(),
                 accountName = "Sample Account Name",
                 changedAmount = 1.toDecimalFormat()
             ),
-            HomeAccountData(
+            HomeAccountDetailData(
                 image = R.drawable.img_kakao_icon,
                 amount = 1.toDecimalFormat(),
                 accountName = "Sample Account Name",
                 changedAmount = 1.toDecimalFormat()
             ),
-            HomeAccountData(
+            HomeAccountDetailData(
                 image = R.drawable.img_kakao_icon,
                 amount = 1.toDecimalFormat(),
                 accountName = "Sample Account Name",
