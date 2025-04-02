@@ -27,7 +27,7 @@ fun HomeAssetsCardDetail(
     image: Int,
     amount: String,
     name: String,
-    changedAmount: String? = null
+    balanceChangeAmount: String? = null
 ) {
     Column {
         Row(
@@ -55,7 +55,7 @@ fun HomeAssetsCardDetail(
                     )
                 }
             }
-            HomeBalanceChangeItem(amount = changedAmount)
+            HomeBalanceChangeItem(balanceChangeAmount = balanceChangeAmount)
         }
         Spacer(Modifier.height(24.dp))
     }
@@ -68,7 +68,7 @@ private fun HomeAssetsCardDetailPreview() {
         image = R.drawable.img_kakao_icon,
         amount = 0.toDecimalFormat(),
         name = "샘플 계좌 이름",
-        changedAmount = 5000.toDecimalFormat()
+        balanceChangeAmount = 5000.toDecimalFormat()
     )
 }
 

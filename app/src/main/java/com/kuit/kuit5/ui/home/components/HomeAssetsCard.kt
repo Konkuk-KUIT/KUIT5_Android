@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -85,7 +84,7 @@ fun HomeAssetsCard(
                     image = detail.image,
                     amount = detail.amount,
                     name = detail.name,
-                    changedAmount = detail.changedAmount
+                    balanceChangeAmount = detail.balanceChangeAmount
                 )
             }
 
@@ -112,13 +111,13 @@ private fun HomeAssetsCardPrev() {
                 image = R.drawable.img_kakao_icon,
                 name = "accountName1",
                 amount = 1.toDecimalFormat(),
-                changedAmount = 1.toDecimalFormat()
+                balanceChangeAmount = 1.toDecimalFormat()
             ),
             HomeAssetsDetailData(
                 image = R.drawable.img_kakao_icon,
                 name = "accountName2",
                 amount = 2.toDecimalFormat(),
-                changedAmount = 2.toDecimalFormat()
+                balanceChangeAmount = 2.toDecimalFormat()
             )
         ),
         bannerText = "샘플 배너 텍스트"

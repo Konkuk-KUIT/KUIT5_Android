@@ -1,6 +1,5 @@
 package com.kuit.kuit5.ui.home.components
 
-import android.R.attr.accountType
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,7 +27,7 @@ fun HomeAccountCardDetail(
     image: Int,
     amount: String,
     accountName: String,
-    changedAmount: String? = null
+    balanceChangeAmount: String? = null
 ) {
     Column {
         Row(
@@ -49,7 +48,7 @@ fun HomeAccountCardDetail(
                     Text(accountName, style = typography.body_02_R_12, color = colors.gray400)
                 }
             }
-            HomeBalanceChangeItem(amount = changedAmount)
+            HomeBalanceChangeItem(balanceChangeAmount = balanceChange)
         }
         Spacer(Modifier.height(24.dp))
     }

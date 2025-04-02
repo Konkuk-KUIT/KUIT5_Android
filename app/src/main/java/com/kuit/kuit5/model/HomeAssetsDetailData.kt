@@ -4,5 +4,5 @@ data class HomeAssetsDetailData(
     val image: Int,
     val name: String,
     val amount: String,
-    val changedAmount: String? = null
+    val balanceChangeAmount: String? = null
 )

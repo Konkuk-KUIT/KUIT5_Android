@@ -70,7 +70,7 @@ fun HomeAccountCard(modifier: Modifier = Modifier, accountList: List<HomeAccount
                     image = accountDetail.image,
                     accountName = accountDetail.accountName,
                     amount = accountDetail.amount,
-                    changedAmount = accountDetail.changedAmount
+                    balanceChangeAmount = accountDetail.balanceChangeAmount
                 )
             }
             Box(
@@ -119,17 +119,17 @@ private fun HomeAccountCardPrev() {
                 image = R.drawable.img_kakao_icon,
                 amount = 1.toDecimalFormat(),
                 accountName = "Sample Account Name",
-                changedAmount = 1.toDecimalFormat()
+                balanceChangeAmount = 1.toDecimalFormat()
             ), HomeAccountDetailData(
                 image = R.drawable.img_kakao_icon,
                 amount = 1.toDecimalFormat(),
                 accountName = "Sample Account Name",
-                changedAmount = 1.toDecimalFormat()
+                balanceChangeAmount = 1.toDecimalFormat()
             ), HomeAccountDetailData(
                 image = R.drawable.img_kakao_icon,
                 amount = 1.toDecimalFormat(),
                 accountName = "Sample Account Name",
-                changedAmount = 1.toDecimalFormat()
+                balanceChangeAmount = 1.toDecimalFormat()
             )
         )
     )

@@ -164,7 +164,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         image = R.drawable.img_kakao_icon,
                         accountName = "입출금통장",
                         amount = 234567.toDecimalFormat(),
-                        changedAmount = 4500.toDecimalFormat()
+                        balanceChangeAmount = 4500.toDecimalFormat()
                     )
                 )
             )
@@ -179,12 +179,12 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         image = R.drawable.img_kakao_icon,
                         name = "계좌 · 현금",
                         amount = 234567.toDecimalFormat(),
-                        changedAmount = 4500.toDecimalFormat()
+                        balanceChangeAmount = 4500.toDecimalFormat()
                     ), HomeAssetsDetailData(
                         image = R.drawable.img_kakao_icon,
                         name = "예적금",
                         amount = 1000000.toDecimalFormat(),
-                        changedAmount = 10000.toDecimalFormat()
+                        balanceChangeAmount = 10000.toDecimalFormat()
                     )
                 ),
                 bannerText = "쌓인 예적금 이자 확인하고 진단받기"
