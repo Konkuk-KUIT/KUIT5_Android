@@ -1,9 +1,12 @@
 package com.kuit.kuit5.ui.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
 
 
-
-/*object BankSaladTheme {
+object BankSaladTheme {
     val colors: BankSaladColors
     @Composable
     @ReadOnlyComposable
@@ -17,7 +20,7 @@ package com.kuit.kuit5.ui.theme
 }
 
 @Composable
-fun KUIT5_SolutionsTheme(
+fun KUIT5Theme(
     darkTheme: Boolean = isSystemInDarkTheme(),
 
     dynamicColor: Boolean = true,

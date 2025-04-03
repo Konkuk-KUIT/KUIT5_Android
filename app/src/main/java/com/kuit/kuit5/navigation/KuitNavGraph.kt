@@ -7,7 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.kuit.kuit5.ui.asset.screen.AssetsScreen
 import com.kuit.kuit5.ui.health.screen.HealthScreen
-import com.kuit.kuit5.ui.home.screen.HomeScreen
+import com.kuit.kuit5.ui.home.screen.screen.HomeScreen
 import com.kuit.kuit5.ui.record.screen.RecordsScreen
 import com.kuit.kuit5.ui.shopping.screen.ShoppingScreen
 
