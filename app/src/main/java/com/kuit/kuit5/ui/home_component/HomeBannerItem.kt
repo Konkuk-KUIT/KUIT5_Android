@@ -81,10 +81,10 @@ fun HomeBannerItem(modifier: Modifier = Modifier) {
                 )
                 Card(
                     modifier = Modifier
-                        .padding(end = 10.dp, bottom = 2.dp)
+                        .align(Alignment.BottomEnd)
+                        .padding(end = 10.dp,bottom=14.dp)
                         .width(32.dp)
-                        .height(18.dp)
-                        .align(Alignment.BottomEnd),
+                        .height(18.dp),
                     shape = RoundedCornerShape(9.dp),
                     colors = CardDefaults.cardColors(containerColor = Color(0X999FA5B0))
                 ) {
@@ -110,6 +110,6 @@ fun HomeBannerItem(modifier: Modifier = Modifier) {
 
 @Preview
 @Composable
-private fun HomeBanneritem() {
-    HomeBanneritem()
+private fun HomeBannerItem() {
+    HomeBannerItem()
 }
