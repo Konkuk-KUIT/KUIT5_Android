@@ -2,10 +2,10 @@ package com.kuit.kuit5.ui.asset.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.HorizontalDivider
@@ -20,12 +20,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
-import com.kuit.kuit5.model.AssetData
+import com.kuit.kuit5.model.BoxData
+import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
+import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 
 @Composable
 fun AssetConfirmItem(
     modifier: Modifier = Modifier,
-    confirm:AssetData
+    confirm:BoxData
 ) {
     Row(
         modifier=modifier
@@ -45,20 +47,23 @@ fun AssetConfirmItem(
             )
             Spacer(modifier.size(10.dp))
             Text(
-                text = confirm.name,
-                fontSize = 14.sp
+                text = confirm.question,
+                style = typography.body_01_R_14,
+                color = colors.gray500
             )
         }
-        Column(){
+        Column(
+            modifier=Modifier.width(IntrinsicSize.Max)
+        ){
             Text(
-                text=confirm.value,
-                color=Color(0xFF9FA580),
-                fontSize = 14.sp
+                text=confirm.confirms,
+                color=colors.gray400,
+                style = typography.body_01_R_14,
             )
             HorizontalDivider(
                 modifier=modifier
-                    .width(50.dp),
-                color= Color(0xFFD9D9D9)
+                    .fillMaxWidth(),
+                color= colors.gray300
             )
         }
     }
@@ -68,10 +73,10 @@ fun AssetConfirmItem(
 @Preview(showBackground = true)
 @Composable
 private fun AssetConfirmItemPreview() {
-    val confirm = AssetData(
+    val confirm = BoxData(
         icon = R.drawable.img_card_icon,
-        name = "내게 맞는 추천 카드는?",
-        value = "확인하기"
+        question = "내게 맞는 추천 카드는?",
+        confirms = "확인하기"
     )
     AssetConfirmItem(
         confirm = confirm

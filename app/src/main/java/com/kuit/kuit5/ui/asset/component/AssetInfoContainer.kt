@@ -14,6 +14,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.model.AssetData
+import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
+import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
+import kotlin.reflect.typeOf
 
 @Composable
 fun AssetInfoContainer(
@@ -31,14 +34,21 @@ fun AssetInfoContainer(
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ){
-            Text(text = title) //ex)입출금
-            Text(text = value) //그 오른쪽에 총 액수
+            Text(
+                text = title,
+                style = typography.body_02_R_12
+            ) //ex)입출금
+            Text(
+                text = value,
+                style = typography.body_02_R_12,
+                color = colors.gray500
+            ) //그 오른쪽에 총 액수
         }
         HorizontalDivider(
             modifier=modifier
                 .fillMaxWidth()
                 .padding(vertical = 12.dp),
-            color= Color(0xFFD9D9D9)
+            color= colors.gray300
         )
         Column(
             modifier=modifier
