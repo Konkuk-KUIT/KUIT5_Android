@@ -41,69 +41,69 @@ val defaultBankSaladTypography = BankSaladTypography(
     head_01_B_24 = TextStyle(
         fontFamily = bankSaladFontBold,
         fontSize = 24.sp,
-        lineHeight =24.sp
+        lineHeight = 24.sp
     ),
     head_02_B_20 = TextStyle(
         fontFamily = bankSaladFontBold,
         fontSize = 20.sp,
-        lineHeight =20.sp
+        lineHeight = 20.sp
     ),
     head_03_B_16 = TextStyle(
         fontFamily = bankSaladFontBold,
         fontSize = 24.sp,
-        lineHeight =24.sp
+        lineHeight = 24.sp
     ),
     head_03_SB_16 = TextStyle(
         fontFamily = bankSaladFontSemiBold,
         fontSize = 16.sp,
-        lineHeight =16.sp
+        lineHeight = 16.sp
     ),
     head_03_R_14 = TextStyle(
         fontFamily = bankSaladFontRegular,
         fontSize = 14.sp,
-        lineHeight =14.sp
+        lineHeight = 14.sp
     ),
     head_03_R_16 = TextStyle(
         fontFamily = bankSaladFontRegular,
         fontSize = 16.sp,
-        lineHeight =16.sp
+        lineHeight = 16.sp
     ),
     head_04_SB_14 = TextStyle(
         fontFamily = bankSaladFontSemiBold,
         fontSize = 14.sp,
-        lineHeight =14.sp
+        lineHeight = 14.sp
     ),
     head_04_B_24 = TextStyle(
         fontFamily = bankSaladFontBold,
         fontSize = 24.sp,
-        lineHeight =24.sp
+        lineHeight = 24.sp
     ),
     head_05_B_10 = TextStyle(
         fontFamily = bankSaladFontBold,
         fontSize = 10.sp,
-        lineHeight =10.sp
+        lineHeight = 10.sp
     ),
 
     body_01_M_14 = TextStyle(
         fontFamily = bankSaladFontMedium,
         fontSize = 14.sp,
-        lineHeight =14.sp
+        lineHeight = 14.sp
     ),
     body_01_R_14 = TextStyle(
         fontFamily = bankSaladFontRegular,
         fontSize = 14.sp,
-        lineHeight =14.sp
+        lineHeight = 14.sp
     ),
     body_02_R_12 = TextStyle(
         fontFamily = bankSaladFontRegular,
         fontSize = 12.sp,
-        lineHeight =12.sp
+        lineHeight = 12.sp
     ),
 
     caption_01_R_10 = TextStyle(
         fontFamily = bankSaladFontRegular,
         fontSize = 10.sp,
-        lineHeight =10.sp
+        lineHeight = 10.sp
     )
 )
 
@@ -117,7 +117,8 @@ val Typography = Typography(
         fontSize = 16.sp,
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
-    ))/*
+    )
+)/*
     Other default text styles to override
     titleLarge = TextStyle(
         fontFamily = FontFamily.Default,

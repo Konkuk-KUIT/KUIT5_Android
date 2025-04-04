@@ -19,6 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.dp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.component.grayButton
@@ -32,7 +34,7 @@ import com.kuit.kuit5.util.toDecimalFormat
 fun HomeContentContainer(
     title: String,
     value: Int,
-    valueContent: String,
+    valueContent: AnnotatedString? = null,
     bottomValue: String,
     grayButton: String,
     homeContentList: List<HomeContentData>,
@@ -42,17 +44,17 @@ fun HomeContentContainer(
         modifier = Modifier
             .padding(horizontal = 16.dp)
             .clip(RoundedCornerShape(16.dp))
-            .background(colors.gray100)
+            .background(colors.white)
             .fillMaxWidth()
     ) {
-        Column (
+        Column(
             modifier = Modifier
                 .padding(vertical = 24.dp, horizontal = 20.dp)
                 .fillMaxWidth()
         )
         {
-            Row(){
-                Column(){
+            Row() {
+                Column() {
                     Text(
                         text = title,
                         color = colors.gray500,
@@ -60,13 +62,13 @@ fun HomeContentContainer(
                     )
                     Text(
                         modifier = Modifier.padding(top = 10.dp),
-                        text = value.toDecimalFormat()+"원",
+                        text = value.toDecimalFormat() + "원",
                         color = Color.Black,
                         style = typography.head_02_B_20
                     )
                     Text(
                         modifier = Modifier.padding(top = 10.dp),
-                        text = valueContent,
+                        text = valueContent ?: buildAnnotatedString { append("정보 없음") },
                         color = colors.black,
                         style = typography.body_02_R_12
                     )
@@ -76,7 +78,7 @@ fun HomeContentContainer(
                 )
             }
             Spacer(modifier = Modifier.size(22.dp))
-            homeContentList.forEach{ content->
+            homeContentList.forEach { content ->
                 HomeContentItem(content = content)
             }
             Spacer(modifier = Modifier.size(24.dp))

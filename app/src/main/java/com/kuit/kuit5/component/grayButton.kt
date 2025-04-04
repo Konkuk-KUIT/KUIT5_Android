@@ -33,8 +33,8 @@ fun grayButton(
 ) {
     Box(
         modifier = Modifier
-        .fillMaxWidth()
-    ){
+            .fillMaxWidth()
+    ) {
         Button(
             modifier = Modifier
                 .size(58.dp, 38.dp)

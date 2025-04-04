@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.platform.LocalContext
 
-object BankSaladTheme{
+object BankSaladTheme {
     val colors: BankSaladColors
         @Composable
         @ReadOnlyComposable

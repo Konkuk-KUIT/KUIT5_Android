@@ -35,13 +35,14 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import com.kuit.kuit5.component.grayButton
 import com.kuit.kuit5.model.AssetData
 import com.kuit.kuit5.model.HomeContentData
 import com.kuit.kuit5.ui.asset.component.FinanceItem
 import com.kuit.kuit5.ui.home.component.HomeQuickMenuItem
 import com.kuit.kuit5.ui.home.component.HomeContentContainer
-import com.kuit.kuit5.ui.home.component.HomeSecondContentContainer
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -49,9 +50,10 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 
     val scrollState = rememberScrollState()
 
-    Column(modifier = modifier
-        .fillMaxSize()
-        .background(colors.white)
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .background(Color(0xFFF5F5F5))
     ) {
         //TopAppBar
         TopAppBar(
@@ -65,14 +67,14 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         .padding(4.dp)
                         .size(24.dp),
                     painter = painterResource(id = R.drawable.img_home_icon),
-                    contentDescription = "home icon" ,
+                    contentDescription = "home icon",
                 )
             },
             actions = {
                 Row(
                     modifier = Modifier.padding(20.dp),
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
-                ){
+                ) {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_assets_bell),
                         contentDescription = "bell icon",
@@ -91,13 +93,13 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .fillMaxWidth()
                 .verticalScroll(state = scrollState)
-        ){
+        ) {
             //17만원 용돈받기 창
             Box(
                 modifier = Modifier
                     .padding(horizontal = 20.dp)
                     .clip(RoundedCornerShape(16.dp))
-                    .background(colors.gray100)
+                    .background(colors.white)
             ) {
                 Row(
                     modifier = Modifier
@@ -115,7 +117,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         Row(
                             modifier = Modifier
                                 .padding(start = 16.dp, bottom = 14.dp),
-                        ){
+                        ) {
                             Text(
                                 "최대 17만원 용돈받기",
                                 color = colors.black,
@@ -145,10 +147,13 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                             Box(
                                 modifier = Modifier
                                     .align(Alignment.BottomEnd)
-                                    .background(colors.gray400.copy(alpha = 0.8f), shape = RoundedCornerShape(9.dp))
+                                    .background(
+                                        colors.gray400.copy(alpha = 0.8f),
+                                        shape = RoundedCornerShape(9.dp)
+                                    )
                                     .size(width = 32.dp, height = 18.dp)
                                     .padding(6.dp, 4.dp)
-                            ){
+                            ) {
                                 Text(
                                     text = "1 / 5",
                                     color = Color.White,
@@ -167,7 +172,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .padding(start = 20.dp),
                 horizontalArrangement = Arrangement.spacedBy(6.dp)
-            ){
+            ) {
                 HomeQuickMenuItem(
                     icon = R.drawable.img_q1_icon,
                     value = "용돈벌기"
@@ -191,15 +196,15 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .padding(horizontal = 20.dp, vertical = 24.dp)
                     .clip(RoundedCornerShape(16.dp))
-                    .background(colors.gray100)
+                    .background(colors.white)
             ) {
-                Column (
+                Column(
                     modifier = Modifier
                         .padding(vertical = 24.dp, horizontal = 20.dp)
                 )
                 {
-                    Row(){
-                        Column(){
+                    Row() {
+                        Column() {
                             Text(
                                 "입출금 계좌",
                                 color = colors.gray500,
@@ -207,7 +212,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                             )
                             Text(
                                 modifier = Modifier.padding(top = 10.dp),
-                                text = 234567.toDecimalFormat()+"원",
+                                text = 234567.toDecimalFormat() + "원",
                                 color = Color.Black,
                                 style = typography.head_02_B_20
                             )
@@ -234,10 +239,10 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                             .fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
-                    ){
+                    ) {
                         Row(
                             verticalAlignment = Alignment.CenterVertically
-                        ){
+                        ) {
                             Icon(
                                 modifier = Modifier
                                     .size(30.dp),
@@ -247,9 +252,9 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                             )
                             Column(
                                 modifier = Modifier.padding(start = 10.dp)
-                            ){
+                            ) {
                                 Text(
-                                    text = 234567.toDecimalFormat()+"원",
+                                    text = 234567.toDecimalFormat() + "원",
                                     color = colors.black,
                                     style = typography.body_01_M_14
                                 )
@@ -261,7 +266,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                                 )
                             }
                         }
-                        Row(verticalAlignment = Alignment.CenterVertically){
+                        Row(verticalAlignment = Alignment.CenterVertically) {
                             Image(
                                 painter = painterResource(id = R.drawable.img_bluetriangle_icon),
                                 contentDescription = "greencash icon",
@@ -269,7 +274,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                                     .size(width = 16.dp, height = 10.dp)
                             )
                             Text(
-                                text = 3300.toDecimalFormat()+"원",
+                                text = 3300.toDecimalFormat() + "원",
                                 color = colors.blue,
                                 style = typography.body_01_M_14
                             )
@@ -323,7 +328,13 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier.fillMaxWidth(),
                 title = "순자산",
                 value = 1234567,
-                valueContent = "지난 방문일보다 4500원 줄었어요",
+                valueContent = buildAnnotatedString {
+                    append("지난 방문일보다 ")
+                    pushStyle(SpanStyle(color = colors.green))
+                    append("4500원")
+                    pop()
+                    append(" 줄었어요")
+                },
                 bottomValue = "쌓인 예적금 이자 확인하고 진단받기",
                 grayButton = "송금",
                 homeContentList = listOf(
@@ -331,13 +342,15 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         icon = R.drawable.img_kakao_icon,
                         value = 234567,
                         title = "계좌 · 현금",
-                        changeValue = 4500
+                        changeValue = 4500,
+                        textBoolean = true
                     ),
                     HomeContentData(
                         icon = R.drawable.img_kakao_icon,
                         value = 1000000,
                         title = "예적금",
-                        changeValue = 10000
+                        changeValue = 10000,
+                        textBoolean = false
                     )
                 )
             )
@@ -345,11 +358,17 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             Spacer(modifier = Modifier.size(16.dp))
 
             //이번 달 지출
-            HomeSecondContentContainer(
+            HomeContentContainer(
                 modifier = Modifier.fillMaxWidth(),
                 title = "이번 달 지출",
                 value = 198000,
-                valueContent = "지난달 같은 기간보다 53,000원 덜 썼어요",
+                valueContent = buildAnnotatedString {
+                    append("지난달 같은 기간보다 ")
+                    pushStyle(SpanStyle(color = colors.green))
+                    append("53,000원")
+                    pop()
+                    append(" 덜 썼어요")
+                },
                 bottomValue = "3월 카드 지출",
                 grayButton = "확인",
                 homeContentList = listOf(
@@ -357,13 +376,15 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         icon = R.drawable.img_won_icon,
                         value = 21500,
                         title = "오늘 지출",
-                        changeValue = 0
+                        changeValue = 0,
+                        textBoolean = false
                     ),
                     HomeContentData(
                         icon = R.drawable.img_won_icon,
                         value = 3500,
                         title = "어제 지출",
-                        changeValue = 0
+                        changeValue = 0,
+                        textBoolean = false
                     )
                 )
             )

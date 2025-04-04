@@ -52,5 +52,5 @@ val defaultBankSaladColors = BankSaladColors(
     blue = Blue
 )
 
-val LocalBankSaladColorsProvider = staticCompositionLocalOf{defaultBankSaladColors}
+val LocalBankSaladColorsProvider = staticCompositionLocalOf { defaultBankSaladColors }
 

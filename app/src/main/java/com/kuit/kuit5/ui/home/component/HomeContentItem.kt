@@ -35,10 +35,10 @@ fun HomeContentItem(
             .padding(vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
-    ){
+    ) {
         Row(
             verticalAlignment = Alignment.CenterVertically
-        ){
+        ) {
             Icon(
                 modifier = Modifier
                     .size(30.dp),
@@ -48,9 +48,9 @@ fun HomeContentItem(
             )
             Column(
                 modifier = Modifier.padding(start = 10.dp)
-            ){
+            ) {
                 Text(
-                    text = content.value.toDecimalFormat()+"원",
+                    text = content.value.toDecimalFormat() + "원",
                     color = colors.gray400,
                     style = typography.body_01_M_14
                 )
@@ -62,18 +62,20 @@ fun HomeContentItem(
                 )
             }
         }
-        Row(verticalAlignment = Alignment.CenterVertically){
-            Image(
-                painter = painterResource(id = R.drawable.img_bluetriangle_icon),
-                contentDescription = "greencash icon",
-                modifier = Modifier
-                    .size(width = 16.dp, height = 10.dp)
-            )
-            Text(
-                text = content.changeValue.toDecimalFormat()+"원",
-                color = colors.blue,
-                style = typography.body_01_M_14
-            )
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            if (content.textBoolean) {
+                Image(
+                    painter = painterResource(id = R.drawable.img_bluetriangle_icon),
+                    contentDescription = "bluetriangle icon",
+                    modifier = Modifier
+                        .size(width = 16.dp, height = 10.dp)
+                )
+                Text(
+                    text = content.changeValue.toDecimalFormat() + "원",
+                    color = colors.blue,
+                    style = typography.body_01_M_14
+                )
+            }
             Icon(
                 painter = painterResource(id = R.drawable.ic_assets_right_arrow),
                 contentDescription = "right arrow",

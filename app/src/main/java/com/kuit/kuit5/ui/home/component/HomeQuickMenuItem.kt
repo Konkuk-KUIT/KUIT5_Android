@@ -31,11 +31,11 @@ fun HomeQuickMenuItem(
     value: String,
     modifier: Modifier = Modifier
 ) {
-    Column (
+    Column(
         modifier = Modifier
             .size(width = 74.dp, height = 60.dp),
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
+    ) {
         Image(
             painter = painterResource(id = icon),
             contentDescription = "QuickMenu icon",
