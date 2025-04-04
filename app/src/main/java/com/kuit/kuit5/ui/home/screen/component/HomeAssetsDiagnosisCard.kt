@@ -128,7 +128,7 @@ fun HomeAssetsDiagnosisCard(
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 20.dp, vertical = 24.dp),
+                        .padding(vertical = 24.dp),
                     colors = CardDefaults.cardColors(containerColor = BankSaladTheme.colors.gray200),
                     shape = RoundedCornerShape(12.dp)
                 ) {
