@@ -17,7 +17,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -81,13 +80,13 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                         tint = Color(0xFF9FA5B0)
                     )
                     Icon(
-                        painter = painterResource(id = R.drawable.ic_asset_bell),
+                        painter = painterResource(id = R.drawable.ic_home_bell),
                         contentDescription = "bell icon",
                         tint = Color(0xFF9FA5B0)
                     )
 
                     Icon(
-                        painter = painterResource(id = R.drawable.ic_asset_stack),
+                        painter = painterResource(id = R.drawable.ic_home_stack),
                         contentDescription = "stack icon",
                         tint = Color(0xFF9FA5B0)
                     )
