@@ -11,4 +11,17 @@ sealed class Route(val route: String) {
     object Health: Route(route = "health")
     // 금융쇼핑
     object Shopping: Route(route = "shopping")
+
+
+    // ShoppingSubgraph
+    object ShoppingSubGraph: Route( route = "shopping_subgraph")
+
+    // 상품 정보
+    object ProductInfo: Route(route = "product_info")
+
+    // 게좌 개설
+    object CreateAccount: Route(route = "create_account")
+    // 계좌 개설 결과
+    object CreateAccountResult: Route(route = "create_account_result")
+
 }

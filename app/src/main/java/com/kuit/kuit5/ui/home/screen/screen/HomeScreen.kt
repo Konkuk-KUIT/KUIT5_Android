@@ -39,7 +39,7 @@ import com.kuit.kuit5.ui.theme.BankSaladTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(modifier: Modifier = Modifier) {
     Scaffold(
         topBar = {
             TopAppBar(
