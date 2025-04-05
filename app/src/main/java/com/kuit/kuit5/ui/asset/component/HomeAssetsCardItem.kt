@@ -15,7 +15,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kuit.kuit5.R
@@ -93,7 +92,7 @@ fun HomeAssetsCardItem(
                 }
             }
             Spacer(modifier = modifier.size(30.dp))
-            HomeAssetsDiagonosisCard(text = text)
+            HomeAssetsDiagnosisCard(text = text)
         }
     }
 }
@@ -101,18 +100,18 @@ fun HomeAssetsCardItem(
 @Preview
 @Composable
 private fun HomeAssetsCardItemPreview() {
-    val accountList = listOf(
+    val assetList = listOf(
         NetAssetData(
             icon = R.drawable.img_kakao_icon,
             title = "계좌 · 현금",
             money = 234567.toDecimalFormat() + "원",
-            drop_money = 4500.toDecimalFormat() + "원"
+            dropMoney = 4500.toDecimalFormat() + "원"
         ),
         NetAssetData(
             icon = R.drawable.img_kakao_icon,
             title = "예적금",
             money = 1000000.toDecimalFormat() + "원",
-            drop_money = 10000.toDecimalFormat() + "원"
+            dropMoney = 10000.toDecimalFormat() + "원"
         )
     )
     val spendList = listOf(
@@ -120,13 +119,13 @@ private fun HomeAssetsCardItemPreview() {
             icon = R.drawable.img_won_icon,
             title = "오늘 지출",
             money = 21500.toDecimalFormat() + "원",
-            drop_money = ""
+            dropMoney = ""
         ),
         NetAssetData(
             icon = R.drawable.img_won_icon,
             title = "어제 지출",
             money = 3500.toDecimalFormat() + "원",
-            drop_money = ""
+            dropMoney = ""
         )
     )
     Column(modifier = Modifier) {
@@ -138,7 +137,7 @@ private fun HomeAssetsCardItemPreview() {
             info3 = "줄었어요",
             button_name = "송금",
             text="쌓인 예적금 이자 확인하고 진단받기",
-            NetAssetDataList = accountList,
+            NetAssetDataList = assetList,
         )
         HomeAssetsCardItem(
             title = "이번달 지출",

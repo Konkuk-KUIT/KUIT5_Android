@@ -4,30 +4,25 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.BiasAbsoluteAlignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
-import com.kuit.kuit5.model.AssetData
 import com.kuit.kuit5.model.EventData
 import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
 import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 @Composable
 fun HomeEventItem(
     modifier: Modifier = Modifier,
-    EventList: List<EventData>
+    eventList: List<EventData>
 ) {
     Row(
         modifier = modifier
@@ -35,7 +30,7 @@ fun HomeEventItem(
             .padding(horizontal = 36.dp), //벽과의 간격
         horizontalArrangement = Arrangement.SpaceBetween //사진들 사이의 간격
     ) {
-        EventList.forEach { event ->
+        eventList.forEach { event ->
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
@@ -75,5 +70,5 @@ private fun HomeEventItemPreview() {
             text = "카드이벤트"
         ),
     )
-    HomeEventItem(EventList = EventList)
+    HomeEventItem(eventList = EventList)
 }

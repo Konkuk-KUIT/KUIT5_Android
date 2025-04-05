@@ -1,6 +1,5 @@
 package com.kuit.kuit5.ui.asset.component
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,9 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kuit.kuit5.R
-import com.kuit.kuit5.model.AssetData
 import com.kuit.kuit5.model.NetAssetData
-import com.kuit.kuit5.navigation.Route
 import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
 import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 import com.kuit.kuit5.util.toDecimalFormat
@@ -64,7 +61,7 @@ fun HomeAssetCardDetail(
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) { // 오른쪽 그룹
-            if(net_asset.drop_money!="") {
+            if(net_asset.dropMoney.isBlank()) {
                 Icon(
                     modifier = modifier
                         .width(10.dp)
@@ -76,7 +73,7 @@ fun HomeAssetCardDetail(
             }
             Spacer(modifier=modifier.size(4.dp))
             Text(
-                text = net_asset.drop_money,
+                text = net_asset.dropMoney,
                 style = typography.body_01_M_14,
                 color = colors.blue
             )
@@ -95,7 +92,7 @@ private fun HomeAssetCardDetailPreview() {
         icon = R.drawable.img_kakao_icon,
         title = "계좌 · 현금",
         money = 234567.toDecimalFormat() + "원",
-        drop_money = 4500.toDecimalFormat()+"원"
+        dropMoney = 4500.toDecimalFormat()+"원"
     )
     HomeAssetCardDetail(net_asset=net_asset)
 }

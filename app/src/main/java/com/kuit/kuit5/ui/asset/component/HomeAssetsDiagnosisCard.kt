@@ -21,7 +21,7 @@ import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
 import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 
 @Composable
-fun HomeAssetsDiagonosisCard(
+fun HomeAssetsDiagnosisCard(
     modifier: Modifier = Modifier,
     text:String
 ) {
@@ -58,5 +58,5 @@ fun HomeAssetsDiagonosisCard(
 @Preview
 @Composable
 private fun HomeAssetsDiagonosisCardPreview() {
-    HomeAssetsDiagonosisCard(text="쌓인 예적금 이자 확인하고 진단받기")
+    HomeAssetsDiagnosisCard(text="쌓인 예적금 이자 확인하고 진단받기")
 }

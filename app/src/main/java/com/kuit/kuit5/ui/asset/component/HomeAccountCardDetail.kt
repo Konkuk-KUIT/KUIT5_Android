@@ -1,6 +1,6 @@
 package com.kuit.kuit5.ui.asset.component
 
-import androidx.compose.foundation.Image
+import android.accounts.Account
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,18 +14,22 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kuit.kuit5.R
+import com.kuit.kuit5.model.AccountData
+import com.kuit.kuit5.model.NetAssetData
 import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
 import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 import com.kuit.kuit5.util.toDecimalFormat
 
 @Composable
-fun HomeAccountCardDetail(modifier: Modifier = Modifier) {
+fun HomeAccountCardDetail(
+    modifier: Modifier = Modifier,
+    account: AccountData
+) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -36,20 +40,22 @@ fun HomeAccountCardDetail(modifier: Modifier = Modifier) {
         ) { // 왼쪽 그룹
             Icon(
                 modifier = modifier.size(30.dp),
-                painter = painterResource(id = R.drawable.img_kakao_icon),
+                painter = painterResource(id = account.icon),
                 contentDescription = "asset icon",
                 tint = Color.Unspecified
             )
             Spacer(modifier = modifier.size(10.dp))
             Column {
                 Text(
-                    text = 234567.toDecimalFormat() + "원",
+                    text = account.money,
                     style = typography.body_01_M_14,
                     color = colors.black
                 )
                 Spacer(modifier = modifier.size(8.dp))
                 Text(
-                    text = "입출금통장", style = typography.body_02_R_12, color = colors.gray400
+                    text = account.title,
+                    style = typography.body_02_R_12,
+                    color = colors.gray400
                 )
             }
         }
@@ -64,9 +70,9 @@ fun HomeAccountCardDetail(modifier: Modifier = Modifier) {
                 contentDescription = "triangle icon",
                 tint = Color.Unspecified
             )
-            Spacer(modifier=modifier.size(4.dp))
+            Spacer(modifier = modifier.size(4.dp))
             Text(
-                text = 3300.toDecimalFormat() + "원",
+                text = account.dropMoney,
                 style = typography.body_01_M_14,
                 color = colors.blue
             )
@@ -81,5 +87,11 @@ fun HomeAccountCardDetail(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun HomeAccountCardDetailPreview() {
-    HomeAccountCardDetail()
+    val account = AccountData(
+        icon = R.drawable.img_kakao_icon,
+        money = 234567.toDecimalFormat() + "원",
+        title = "입출금통장",
+        dropMoney = 3300.toDecimalFormat() + "원"
+    )
+    HomeAccountCardDetail(account = account)
 }

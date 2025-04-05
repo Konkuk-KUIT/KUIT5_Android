@@ -13,20 +13,17 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.kuit.kuit5.model.AccountData
 import com.kuit.kuit5.model.EventData
 import com.kuit.kuit5.model.NetAssetData
-import com.kuit.kuit5.ui.asset.component.HomeAccountCardDetail
 import com.kuit.kuit5.ui.asset.component.HomeAccountCardItem
 import com.kuit.kuit5.ui.asset.component.HomeAssetsCardItem
 import com.kuit.kuit5.ui.asset.component.HomeBannerItem
@@ -88,7 +85,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 
             //사진과 텍스트
             HomeEventItem(
-                EventList = listOf(
+                eventList = listOf(
                     EventData(
                         icon = R.drawable.img_moneymail_icon,
                         text = "용돈벌기"
@@ -109,20 +106,34 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             )
             Spacer(modifier=modifier.size(24.dp))
             //입출금 계좌
-            HomeAccountCardItem()
+            val accountLists = listOf(
+                AccountData(
+                    icon = R.drawable.img_kakao_icon,
+                    money = 234567.toDecimalFormat()+"원",
+                    title="입출금통장",
+                    dropMoney = 3300.toDecimalFormat()+"원"
+                )
+            )
+            HomeAccountCardItem(
+                title = "입출금 계좌",
+                total_money = 234567,
+                info1 = "어제보다",
+                button_name = "송금",
+                AccountDataList = accountLists,
+            )
             //순자산
             val accountList = listOf(
                 NetAssetData(
                     icon = R.drawable.img_kakao_icon,
                     title = "계좌 · 현금",
                     money = 234567.toDecimalFormat() + "원",
-                    drop_money = 4500.toDecimalFormat() + "원"
+                    dropMoney = 4500.toDecimalFormat() + "원"
                 ),
                 NetAssetData(
                     icon = R.drawable.img_kakao_icon,
                     title = "예적금",
                     money = 1000000.toDecimalFormat() + "원",
-                    drop_money = 10000.toDecimalFormat() + "원"
+                    dropMoney = 10000.toDecimalFormat() + "원"
                 )
             )
             val spendList = listOf(
@@ -130,13 +141,13 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     icon = R.drawable.img_won_icon,
                     title = "오늘 지출",
                     money = 21500.toDecimalFormat() + "원",
-                    drop_money = ""
+                    dropMoney = ""
                 ),
                 NetAssetData(
                     icon = R.drawable.img_won_icon,
                     title = "어제 지출",
                     money = 3500.toDecimalFormat() + "원",
-                    drop_money = ""
+                    dropMoney = ""
                 )
             )
             HomeAssetsCardItem(
