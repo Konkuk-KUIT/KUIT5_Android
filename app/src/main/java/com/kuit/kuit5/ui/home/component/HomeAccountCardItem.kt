@@ -26,7 +26,7 @@ import com.kuit.kuit5.model.ButtonItem
 import com.kuit.kuit5.ui.theme.Gray500
 
 @Composable
-fun HomeAccuountCardItem(
+fun HomeAccountCardItem(
     modifier: Modifier = Modifier,
     title: String,
     amount: String,
@@ -67,7 +67,7 @@ fun HomeAccuountCardItem(
 @Preview
 @Composable
 private fun HomeAccountCardItemPreview() {
-    HomeAccuountCardItem(
+    HomeAccountCardItem(
         title = "입출금 계좌",
         amount = "234,567원",
         buttonTitle = "송금"

@@ -29,13 +29,12 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.model.AccountDetailItem
 import com.kuit.kuit5.model.BannerItem
 import com.kuit.kuit5.model.EventItem
 import com.kuit.kuit5.ui.home.component.HomeAccountCardDetail
-import com.kuit.kuit5.ui.home.component.HomeAccuountCardItem
+import com.kuit.kuit5.ui.home.component.HomeAccountCardItem
 import com.kuit.kuit5.ui.home.component.HomeAssetsCardDetail
 import com.kuit.kuit5.ui.home.component.HomeAssetsDiagnosisCard
 import com.kuit.kuit5.ui.home.component.HomeBannerItem
@@ -96,13 +95,13 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             }
         )
         //HomeBannerItem
-        val HBannerItem = BannerItem(
+        val hBannerItem = BannerItem(
             icon = R.drawable.img_home_money,
             name = "3월에만 받을 수 있는",
             value = "최대 17만원 용돈받기"
         )
 
-        HomeBannerItem(asset = HBannerItem)
+        HomeBannerItem(asset = hBannerItem)
         Spacer(modifier = Modifier.size(13.dp))
 
         //HomeEventItem
@@ -154,8 +153,8 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 .fillMaxWidth()
                 .padding(horizontal = 20.dp)
         ) {
-            //HomeAccountCardItem
-            HomeAccuountCardItem(
+
+            HomeAccountCardItem(
                 title = "입출금 계좌",
                 amount = "234,567원",
                 buttonTitle = "송금"
@@ -224,7 +223,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 .fillMaxWidth()
                 .padding(horizontal = 20.dp)
         ) {
-            HomeAccuountCardItem(
+            HomeAccountCardItem(
                 title = "순자산",
                 amount = "1,234,567원",
                 buttonTitle = "송금"
@@ -283,7 +282,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 .fillMaxWidth()
                 .padding(horizontal = 20.dp) // 좌우 20dp
         ) {
-            HomeAccuountCardItem(
+            HomeAccountCardItem(
                 title = "이번 달 지출",
                 amount = "198,000원",
                 buttonTitle = "확인"
