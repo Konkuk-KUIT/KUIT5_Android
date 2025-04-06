@@ -31,7 +31,6 @@ import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
 
 @Composable
 fun ProductInfoScreen(
-    modifier: Modifier = Modifier,
     viewModel: ShoppingViewModel = ShoppingViewModel(),
     onNavigateToCreateAccount: () -> Unit = {}
 ) {
@@ -49,7 +48,7 @@ fun ProductInfoScreen(
                 Text(
                     text = "가입하기",
                     style = BankSaladTheme.typography.body_02_R_12,
-                    color = BankSaladTheme.colors.black
+                    color = colors.black
                 )
             }
         }
@@ -82,7 +81,7 @@ fun ProductInfoScreen(
                 Text(
                     text = "KB 청년도약계좌",
                     style = BankSaladTheme.typography.head_02_B_20,
-                    color = BankSaladTheme.colors.black
+                    color = colors.black
                 )
 
                 Spacer(modifier = Modifier.height(30.dp))

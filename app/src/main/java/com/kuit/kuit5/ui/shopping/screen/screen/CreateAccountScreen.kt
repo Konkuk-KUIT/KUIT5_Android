@@ -25,12 +25,12 @@ import androidx.compose.ui.unit.dp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.ui.shopping.screen.viewmodel.ShoppingViewModel
 import com.kuit.kuit5.ui.theme.BankSaladTheme
+
 import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
 
 
 @Composable
 fun CreateAccountScreen(
-    modifier: Modifier = Modifier,
     viewModel: ShoppingViewModel = ShoppingViewModel(),
     onNavigateToCreateAccountResult: () -> Unit = {}
 ) {
@@ -51,7 +51,7 @@ fun CreateAccountScreen(
                 Text(
                     text = "확인",
                     style = BankSaladTheme.typography.body_02_R_12,
-                    color = BankSaladTheme.colors.black
+                    color = colors.black
                 )
             }
         }
@@ -83,7 +83,7 @@ fun CreateAccountScreen(
                 Text(
                     text = "유의할 점",
                     style = BankSaladTheme.typography.head_02_B_20,
-                    color = BankSaladTheme.colors.black
+                    color = colors.black
                 )
 
                 Spacer(modifier = Modifier.height(30.dp))

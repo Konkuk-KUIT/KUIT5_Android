@@ -39,7 +39,7 @@ fun CreateAccountResultScreen(
             Text(
                 text = "가입완료!",
                 style = BankSaladTheme.typography.head_02_B_20,
-                color = BankSaladTheme.colors.black
+                color = colors.black
             )
         }
 
@@ -54,7 +54,7 @@ fun CreateAccountResultScreen(
             Text(
                 text = "금융쇼핑으로 이동",
                 style = BankSaladTheme.typography.body_02_R_12,
-                color = BankSaladTheme.colors.black
+                color = colors.black
             )
         }
 
