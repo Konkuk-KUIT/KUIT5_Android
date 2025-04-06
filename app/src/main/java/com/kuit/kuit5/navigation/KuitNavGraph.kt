@@ -91,7 +91,11 @@ fun KuitNavGraph(
                     modifier = modifier,
                     viewModel = viewModel,
                     onNavigateToShopping = {
-                        navController.navigate(Route.Shopping.route)
+                        navController.navigate(Route.Shopping.route) {
+                            popUpTo(Route.ShoppingSubGraph.route) {
+                                inclusive = false //계좌 생성후 BackStack을 정리하여 초기화면으로 이동
+                            }
+                        }
 
 
                     }
