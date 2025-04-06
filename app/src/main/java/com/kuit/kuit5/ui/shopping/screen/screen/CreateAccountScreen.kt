@@ -8,8 +8,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Scaffold
@@ -23,37 +21,28 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kuit.kuit5.R
+import com.kuit.kuit5.ui.shopping.screen.component.ConfirmButton
 import com.kuit.kuit5.ui.shopping.screen.viewmodel.ShoppingViewModel
 import com.kuit.kuit5.ui.theme.BankSaladTheme
-
 import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
 
 
 @Composable
 fun CreateAccountScreen(
+    modifier: Modifier = Modifier,
     viewModel: ShoppingViewModel = ShoppingViewModel(),
     onNavigateToCreateAccountResult: () -> Unit = {}
 ) {
     Scaffold(
         containerColor = Color.White,
         bottomBar = {
-            Button(
+            ConfirmButton(
+                text = "확인",
                 onClick = {
                     viewModel.addAccount()
-                    onNavigateToCreateAccountResult()
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(20.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = colors.gray300),
-                shape = RoundedCornerShape(12.dp)
-            ) {
-                Text(
-                    text = "확인",
-                    style = BankSaladTheme.typography.body_02_R_12,
-                    color = colors.black
-                )
-            }
+                    onNavigateToCreateAccountResult()  // 해당 페이지로 네비게이션
+                }
+            )
         }
     ) { innerPadding ->
         Card(

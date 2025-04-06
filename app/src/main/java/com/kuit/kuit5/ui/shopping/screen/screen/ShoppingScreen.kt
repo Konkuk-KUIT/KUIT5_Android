@@ -32,6 +32,7 @@ import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
 
 @Composable
 fun ShoppingScreen(
+    modifier: Modifier = Modifier,
     viewModel: ShoppingViewModel = ShoppingViewModel(),
     onNavigateToProductInfo: () -> Unit = {}
 ) {
