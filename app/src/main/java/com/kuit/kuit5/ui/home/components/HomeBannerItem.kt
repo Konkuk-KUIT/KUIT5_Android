@@ -74,7 +74,7 @@ fun HomeBannerItem(
             Box {
                 Image(
                     painter = painterResource(image),
-                    contentDescription = "",
+                    contentDescription = "home banner image",
                     modifier = Modifier
                         .padding(end = 10.dp)
                         .size(40.dp)

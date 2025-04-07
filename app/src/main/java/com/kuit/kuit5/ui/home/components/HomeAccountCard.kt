@@ -89,7 +89,7 @@ fun HomeAccountCard(modifier: Modifier = Modifier, accountList: List<HomeAccount
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Image(
                             painter = painterResource(R.drawable.img_home_pig),
-                            contentDescription = "",
+                            contentDescription = "piggy bank",
                             modifier = Modifier.size(28.dp)
                         )
                         Spacer(Modifier.width(8.dp))
@@ -98,7 +98,7 @@ fun HomeAccountCard(modifier: Modifier = Modifier, accountList: List<HomeAccount
                     }
                     Icon(
                         painter = painterResource(R.drawable.ic_right_arrow),
-                        contentDescription = "",
+                        contentDescription = "right arrow",
                         modifier = Modifier.size(12.dp),
                         tint = colors.gray400
                     )

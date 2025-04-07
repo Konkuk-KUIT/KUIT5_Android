@@ -38,7 +38,7 @@ fun HomeAssetsCardDetail(
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Image(
                     painter = painterResource(image),
-                    contentDescription = "",
+                    contentDescription = "home assets detail image",
                     modifier = Modifier.size(30.dp)
                 )
                 Spacer(Modifier.width(10.dp))

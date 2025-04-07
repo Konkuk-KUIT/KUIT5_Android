@@ -21,7 +21,7 @@ fun HomeEventItem(modifier: Modifier = Modifier, image: Int, text: String) {
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
         Image(
             painter = painterResource(image),
-            contentDescription = "",
+            contentDescription = "home event image",
             modifier = Modifier.size(36.dp)
         )
         Spacer(Modifier.height(10.dp))

@@ -42,7 +42,7 @@ fun HomeAssetsBannerItem(modifier: Modifier = Modifier, text: String) {
             Text(text, style = typography.body_02_R_12)
             Icon(
                 painter = painterResource(R.drawable.ic_right_arrow),
-                contentDescription = "",
+                contentDescription = "right arrow",
                 modifier = Modifier.size(12.dp),
                 tint = colors.gray400
             )

@@ -22,14 +22,14 @@ fun HomeBalanceChangeItem(modifier: Modifier = Modifier, balanceChangeAmount: St
         balanceChangeAmount?.let { t ->
             Icon(
                 painter = painterResource(R.drawable.ic_home_polygon),
-                contentDescription = "",
+                contentDescription = "polygon",
                 tint = colors.blue
             )
             Text(t, style = typography.body_01_M_14, color = colors.blue)
         }
         Icon(
             painter = painterResource(R.drawable.ic_right_arrow),
-            contentDescription = "",
+            contentDescription = "right arrow",
             tint = colors.gray500
         )
 
