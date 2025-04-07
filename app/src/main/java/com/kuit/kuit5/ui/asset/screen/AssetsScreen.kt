@@ -77,7 +77,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_asset_gear),
                         contentDescription = "gear icon",
-                        tint = Color(0xFF9FA5B0)
+                        tint =   Color(0xFF9FA5B0)
                     )
                     Icon(
                         painter = painterResource(id = R.drawable.ic_asset_bell),

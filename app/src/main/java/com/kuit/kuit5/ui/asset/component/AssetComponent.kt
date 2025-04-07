@@ -19,7 +19,7 @@ import androidx.compose.ui.text.font.FontWeight.Companion.ExtraBold
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.kuit.kuit5.R
+import com .kuit.kuit5.R
 import com.kuit.kuit5.model.AssetData2
 
 @Composable
