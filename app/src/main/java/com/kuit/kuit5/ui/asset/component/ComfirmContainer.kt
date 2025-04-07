@@ -8,20 +8,19 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
-import com.kuit.kuit5.model.AssetData
+import com.kuit.kuit5.model.BoxData
+import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
+import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 
 @Composable
 fun ConfirmContainer(
     modifier: Modifier = Modifier,
     title:String,
-    confirmList:List<AssetData>
+    confirmList:List<BoxData>
     ) {
     Column(
         modifier=modifier
@@ -35,22 +34,16 @@ fun ConfirmContainer(
     ){
         Text(
             text=title,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Bold
+            style = typography.head_03_B_16,
         ) //ex)카드,대출,보험
         Icon(
             painter = painterResource(id = R.drawable.ic_assets_plus),
             contentDescription = "plus icon",
-            tint = Color(0xFF9FA5B0)
+            tint = colors.gray400
         )
     }
-        Row(
-            modifier=modifier
-                .fillMaxWidth(),
-        ){
-            confirmList.forEach{
-                    confirm -> AssetConfirmItem(confirm = confirm)
-            }
+        confirmList.forEach {
+            confirm -> AssetConfirmItem(confirm = confirm)
         }
     }
 }
@@ -59,10 +52,10 @@ fun ConfirmContainer(
 @Composable
 private fun ConfirmContainerPreview() {
     val confirmList = listOf(
-        AssetData(
+        BoxData(
             icon = R.drawable.img_card_icon,
-            name = "내게 맞는 추천 카드는?",
-            value = "확인하기"
+            question = "내게 맞는 추천 카드는?",
+            confirms = "확인하기"
         )
     )
     ConfirmContainer(

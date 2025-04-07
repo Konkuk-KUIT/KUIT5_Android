@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,10 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -30,17 +26,18 @@ import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.model.AssetData
+import com.kuit.kuit5.model.BoxData
 import com.kuit.kuit5.ui.asset.component.AssetInfoContainer
 import com.kuit.kuit5.ui.asset.component.AssetInfoItem
+import com.kuit.kuit5.ui.asset.component.BankSaladGrayButton
 import com.kuit.kuit5.ui.asset.component.ConfirmContainer
+import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
+import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -49,19 +46,18 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(colors.white)
     ) {
         TopAppBar(
             modifier = Modifier.fillMaxWidth(),
             colors = TopAppBarDefaults.topAppBarColors(
-                containerColor = Color.White
+                containerColor = colors.white
             ),
             title = {
                 Text(
                     text = "자산",
-                    color = Color.Black,
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold
+                    color = colors.black,
+                    style = typography.head_01_B_24
                 )
             },
             actions = {
@@ -72,26 +68,27 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_assets_money),
                         contentDescription = "money icon",
-                        tint = Color(0xFF9FA5B0)
+                        tint = colors.gray400
                     )
                     Icon(
                         painter = painterResource(id = R.drawable.ic_assets_gear),
                         contentDescription = "gear icon",
-                        tint = Color(0xFF9FA5B0)
+                        tint = colors.gray400
                     )
                     Icon(
                         painter = painterResource(id = R.drawable.ic_assets_bell),
                         contentDescription = "bell icon",
-                        tint = Color(0xFF9FA5B0)
+                        tint = colors.gray400
                     )
                     Icon(
                         painter = painterResource(id = R.drawable.ic_assets_stack),
                         contentDescription = "stack icon",
-                        tint = Color(0xFF9FA5B0)
+                        tint = colors.gray400
                     )
                 }
             }
         )
+        
         //TopAppBar 제외한 화면
         Column(
             modifier = Modifier
@@ -108,30 +105,14 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 ) {
                     Text(
                         text = "쿠잇님의 순자산",
-                        fontSize = 14.sp
+                        style = typography.body_01_R_14
                     )
                     Text(
                         text = "1,234,567원",
-                        fontSize = 24.sp,
-                        fontWeight = FontWeight.Bold
+                        style = typography.head_01_B_24
                     )
                 }
-                Button(
-                    modifier = Modifier
-                        .size(58.dp, 38.dp)
-                        .align(Alignment.CenterEnd),
-                    contentPadding = PaddingValues(0.dp),
-                    shape = RoundedCornerShape(6.dp),
-                    onClick = {
-                        //TODO:버튼 액션 추가하기
-                    },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFFF3F4F6),
-                        contentColor = Color(0xFF666668)
-                    )
-                ) {
-                    Text("분석")
-                }
+                BankSaladGrayButton(text="분석")
             }
             Spacer(modifier = Modifier.size(14.dp))
             //tmap 광고
@@ -139,7 +120,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .padding(horizontal = 20.dp),
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFFF3F4F6)
+                    containerColor = colors.gray200
                 ),
                 content = {
                     Row(
@@ -156,10 +137,13 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                         Column {
                             Text(
                                 text = "티맵 대리 1만원 쿠폰 받으세요",
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold
+                                style = typography.head_03_B_16
                             )
-                            Text("3월 한정 선착순 1만명 혜택")
+                            Spacer(modifier=modifier.height(10.dp))
+                            Text(
+                                text = "3월 한정 선착순 1만명 혜택",
+                                style = typography.caption_01_R_10
+                            )
                         }
                     }
                 }
@@ -174,18 +158,21 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
             ) {
                 Text(
                     text = "계좌 · 현금",
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
+                    style = typography.head_03_B_16
                 )
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(text = "1,234,567원")
+                    Text(
+                        text = "1,234,567원",
+                        style = typography.body_01_M_14,
+                        color = colors.gray500
+                    )
                     Icon(
                         painter = painterResource(id = R.drawable.ic_assets_right_arrow),
                         contentDescription = "right arrow",
-
-                        )
+                        tint= colors.gray500
+                    )
                 }
             }
             Spacer(modifier = Modifier.size(30.dp))
@@ -241,7 +228,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(10.dp)
-                    .background(Color(0xFFF3F4F6))
+                    .background(colors.gray200)
             )
             Spacer(
                 modifier = Modifier.size(24.dp)
@@ -259,13 +246,16 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 ) {
                     Text(
                         text = "페이머니",
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold
+                        style = typography.head_03_B_16
                     )
                     Row(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text(text = "0원")
+                        Text(
+                            text = "0원",
+                            style = typography.body_01_M_14,
+                            color = colors.gray500
+                        )
                     }
                 }
                 Spacer(Modifier.size(30.dp))
@@ -288,7 +278,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(10.dp)
-                    .background(Color(0xFFF3F4F6))
+                    .background(colors.gray200)
             )
             Spacer(
                 modifier = Modifier.size(24.dp)
@@ -302,13 +292,16 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
             ) {
                 Text(
                     text = "신용",
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
+                    style = typography.head_03_B_16
                 )
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(text = "750점")
+                    Text(
+                        text = "750점",
+                        style = typography.head_03_SB_14,
+                        color = colors.gray500
+                    )
                     Icon(
                         painter = painterResource(id = R.drawable.ic_assets_right_arrow),
                         contentDescription = "right arrow",
@@ -322,7 +315,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(10.dp)
-                    .background(Color(0xFFF3F4F6))
+                    .background(colors.gray200)
             )
             Spacer(
                 modifier = Modifier.size(24.dp)
@@ -337,10 +330,10 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                     modifier = Modifier,
                     title = "카드",
                     confirmList = listOf(
-                        AssetData(
+                        BoxData(
                             icon = R.drawable.img_card_icon,
-                            name = "내게 맞는 추천카드는?",
-                            value = "확인하기"
+                            question = "내게 맞는 추천카드는?",
+                            confirms = "확인하기"
                         )
                     )
                 )
@@ -352,7 +345,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(10.dp)
-                    .background(Color(0xFFF3F4F6))
+                    .background(colors.gray200)
             )
             Spacer(
                 modifier = Modifier.size(24.dp)
@@ -367,10 +360,10 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                     modifier = Modifier,
                     title = "대출",
                     confirmList = listOf(
-                        AssetData(
+                        BoxData(
                             icon = R.drawable.img_house_icon,
-                            name = "내 최저 금리는?",
-                            value = "확인하기"
+                            question = "내 최저 금리는?",
+                            confirms = "확인하기"
                         )
                     )
                 )
@@ -382,7 +375,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(10.dp)
-                    .background(Color(0xFFF3F4F6))
+                    .background(colors.gray200)
             )
             Spacer(
                 modifier = Modifier.size(24.dp)
@@ -397,10 +390,10 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                     modifier = Modifier,
                     title = "보험",
                     confirmList = listOf(
-                        AssetData(
+                        BoxData(
                             icon = R.drawable.img_shield_icon,
-                            name = "보험료 낸 만큼 보장받을 수 있을까?",
-                            value = "확인하기"
+                            question = "보험료 낸 만큼 보장받을 수 있을까?",
+                            confirms = "확인하기"
                         )
                     )
                 )
@@ -412,7 +405,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .width(360.dp)
                     .height(78.dp)
-                    .background(Color(0xFFF3F4F6))
+                    .background(colors.gray200)
                     .padding(
                         top = 32.dp, start = 84.dp
                     )
@@ -421,23 +414,29 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                     modifier = Modifier
                         .fillMaxWidth()
                 ) {
-                    Text(text = "편집하기")
+                    Text(
+                        text = "편집하기",
+                        color = colors.gray500
+                    )
                     Spacer(Modifier.size(46.dp))
                     VerticalDivider(
                         modifier = Modifier
                             .height(22.dp),
 
-                        color = Color(0xFFD9D9D9)
+                        color = colors.gray300
                     )
                     Spacer(Modifier.size(46.dp))
-                    Text("추가하기")
+                    Text(
+                        text = "추가하기",
+                        color = colors.gray500
+                    )
                 }
             }
         }
     }
 }
 
-@Preview(showBackground = true, heightDp = 2500)
+@Preview(widthDp = 360, heightDp = 800, showBackground = true)
 @Composable
 private fun AssetsScreenPreview() {
     AssetsScreen()
