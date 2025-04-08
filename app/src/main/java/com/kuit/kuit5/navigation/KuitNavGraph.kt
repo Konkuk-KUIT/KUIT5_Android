@@ -84,7 +84,9 @@ fun KuitNavGraph(
                     modifier = modifier,
                     viewModel = viewModel,
                     onNavigateToShopping = {
-                        navController.navigate(Route.Shopping.route)
+                        navController.navigate(Route.Shopping.route) {
+                            popUpTo(Route.Shopping.route) { inclusive = true }
+                        }
                     })
             }
         }

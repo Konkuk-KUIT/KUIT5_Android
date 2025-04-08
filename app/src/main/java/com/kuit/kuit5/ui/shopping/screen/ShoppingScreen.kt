@@ -38,11 +38,14 @@ fun ShoppingScreen(
             .background(colors.gray100),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        ProductCard(viewModel = viewModel, onNavigateToProductInfo = { onNavigateToProductInfo() }, image = R.drawable.img_kb_label, accountName = "KB 청년도약계좌")
-        ProductCard(viewModel = viewModel, onNavigateToProductInfo = { onNavigateToProductInfo() }, image = R.drawable.img_kb_label, accountName = "KB 청년도약계좌")
-        ProductCard(viewModel = viewModel, onNavigateToProductInfo = { onNavigateToProductInfo() }, image = R.drawable.img_kb_label, accountName = "KB 청년도약계좌")
-
-        Text(text = "Shopping Screen")
+        viewModel.ProductInfoMap.forEach { (key) ->
+            ProductCard(
+                viewModel = viewModel,
+                onNavigateToProductInfo = onNavigateToProductInfo,
+                image = R.drawable.img_kb_label,
+                accountName = key
+            )
+        }
     }
 }
 
