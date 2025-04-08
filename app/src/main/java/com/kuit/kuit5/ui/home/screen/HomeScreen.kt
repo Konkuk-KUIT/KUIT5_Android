@@ -37,7 +37,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
-import com.kuit.kuit5.component.grayButton
+import com.kuit.kuit5.component.GrayButton
 import com.kuit.kuit5.model.AssetData
 import com.kuit.kuit5.model.HomeContentData
 import com.kuit.kuit5.ui.asset.component.FinanceItem
@@ -217,7 +217,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                                 style = typography.head_02_B_20
                             )
                         }
-                        grayButton(
+                        GrayButton(
                             value = "송금"
                         )
                     }

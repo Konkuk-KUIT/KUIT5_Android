@@ -9,6 +9,16 @@ sealed class Route(val route: String) {
     object Records: Route(route = "records")
     // 건강
     object Health: Route(route = "health")
+
+    // ShoppingSubgraph
+    object ShoppingSubGraph: Route(route = "shopping_subgraph")
+
     // 금융쇼핑
     object Shopping: Route(route = "shopping")
+    // 상품정보
+    object ProductInfo: Route(route = "product_info")
+    // 계좌 개설
+    object CreateAccount: Route(route = "create_account")
+    // 계좌 개설 결과
+    object CreateAccountResult: Route(route = "create_account_result")
 }
