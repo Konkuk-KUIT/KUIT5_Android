@@ -69,7 +69,7 @@ fun ShoppingScreen(
                     contentDescription = "kb_label"
                 )
                 Spacer(modifier = Modifier.height(20.dp))
-                Text(text = "KB 청년도약계좌", style = typography.head_02_B_20)
+                Text(text = viewModel.accountName, style = typography.head_02_B_20)
                 Spacer(modifier = Modifier.height(20.dp))
                 Button(
                     onClick = { onNavigateToProductInfo()},
@@ -138,7 +138,7 @@ fun ShoppingScreenContent(
                         .height(40.dp),
                     shape = RoundedCornerShape(12.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Gray300, // ← 버튼 배경색
+                        containerColor = Gray300,
                         contentColor = Color.Black)
                     ) {
                     Text(text = "정보조회")

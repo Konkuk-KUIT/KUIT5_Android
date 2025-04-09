@@ -1,5 +1,6 @@
 package com.kuit.kuit5.ui.shopping.screen
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -16,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.kuit.kuit5.navigation.Route
 import com.kuit.kuit5.ui.shopping.viewmodel.ShoppingViewModel
 import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
@@ -26,8 +28,13 @@ import com.kuit.kuit5.ui.theme.Gray300
 fun CreateAccountResultScreen(
     modifier: Modifier = Modifier,
     viewModel: ShoppingViewModel,
+    navController: NavController,
     onNavigateToShopping: () -> Unit
 ) {
+
+    BackHandler {
+        navController.popBackStack(route = "shopping", inclusive = false)
+    }
     Column(
         modifier = modifier
             .fillMaxSize(),
@@ -36,7 +43,7 @@ fun CreateAccountResultScreen(
     ) {
         Spacer(modifier = Modifier.weight(1f))
         Text(
-            "가입완료!",
+            text = viewModel.completetext,
             style = typography.head_02_B_20
         )
         Spacer(modifier = Modifier.height(392.dp))

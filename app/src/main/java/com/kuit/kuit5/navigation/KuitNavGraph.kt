@@ -81,6 +81,7 @@ fun KuitNavGraph(
                 CreateAccountResultScreen(
                     modifier=modifier,
                     viewModel=viewModel,
+                    navController = navController,
                     onNavigateToShopping={
                         navController.navigate(Route.Shopping.route)
                     })

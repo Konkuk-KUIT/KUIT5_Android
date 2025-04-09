@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kuit.kuit5.ui.shopping.component.ProductImageCard
 import com.kuit.kuit5.ui.shopping.viewmodel.ShoppingViewModel
 import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
@@ -47,85 +48,56 @@ fun ProductInfoScreen(
                     .align(Alignment.CenterHorizontally)
                     .padding(20.dp)
             )
+
             Text(
-                text = "KB 청년도약계좌",
+                text = viewModel.productInfoTitle,
                 style = typography.head_02_B_20,
                 modifier = Modifier.padding(start = 20.dp)
             )
+
             Spacer(modifier = Modifier.height(30.dp))
-            Text(
-                text = "가입 연령",
-                style = typography.head_03_R_16,
-                modifier = Modifier.padding(start = 20.dp)
-            )
-            Spacer(modifier = Modifier.height(10.dp))
-            Text(
-                text = "19~34세",
-                style = typography.head_02_B_20,
-                modifier = Modifier.padding(start = 20.dp)
-            )
-            Spacer(modifier = Modifier.height(30.dp))
-            Text(
-                text = "소득 기준",
-                style = typography.head_03_R_16,
-                modifier = Modifier.padding(start = 20.dp)
-            )
-            Spacer(modifier = Modifier.height(10.dp))
-            Text(
-                text = "연 6,000 만 원 이하",
-                style = typography.head_02_B_20,
-                modifier = Modifier.padding(start = 20.dp)
-            )
-            Spacer(modifier = Modifier.height(30.dp))
-            Text(
-                text = "월 납입 금액",
-                style = typography.head_03_R_16,
-                modifier = Modifier.padding(start = 20.dp)
-            )
-            Spacer(modifier = Modifier.height(10.dp))
-            Text(
-                text = "40만원 ~ 최대70만원",
-                style = typography.head_02_B_20,
-                modifier = Modifier.padding(start = 20.dp)
-            )
-            Spacer(modifier = Modifier.height(30.dp))
-            Text(
-                text = "정부 지원금",
-                style = typography.head_03_R_16,
-                modifier = Modifier.padding(start = 20.dp)
-            )
-            Spacer(modifier = Modifier.height(10.dp))
-            Text(
-                text = "납입액의 3~6%",
-                style = typography.head_02_B_20,
-                modifier = Modifier.padding(start = 20.dp)
-            )
-        }
+
+            viewModel.productInfoList.forEach { item ->
+                Text(
+                    text = item.title,
+                    style = typography.head_03_R_16,
+                    modifier = Modifier.padding(start = 20.dp)
+                )
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(
+                    text = item.value,
+                    style = typography.head_02_B_20,
+                    modifier = Modifier.padding(start = 20.dp)
+                )
+                Spacer(modifier = Modifier.height(30.dp))
+            }
 
 
-        Button(
-            onClick = {
-                onNavigateToCreateAccount()
-            },
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .width(320.dp)
-                .height(40.dp),
-            shape = RoundedCornerShape(12.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Gray300,
-                contentColor = Color.Black
-            )
-        ) {
-            Text(text = "가입하기")
-        }
+            Button(
+                onClick = {
+                    onNavigateToCreateAccount()
+                },
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .width(320.dp)
+                    .height(40.dp),
+                shape = RoundedCornerShape(12.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Gray300,
+                    contentColor = Color.Black
+                )
+            ) {
+                Text(text = "가입하기")
+            }
 //            }
 //
 //
 //            Text(text = "${viewModel.newAccount.value}")
 //    }
         }
+
     }
+}
 
     //프리뷰용 함수
     @Composable
@@ -224,10 +196,10 @@ fun ProductInfoScreen(
         }
     }
 
-    @Preview
-    @Composable
-    private fun ProductInfoScreenPreview() {
-        ProductInfoScreenContent(
-            onNavigateToCreateAccount = {}
-        )
-    }
+@Preview
+@Composable
+private fun ProductInfoScreenPreview() {
+    ProductInfoScreenContent(
+        onNavigateToCreateAccount = {}
+    )
+}
