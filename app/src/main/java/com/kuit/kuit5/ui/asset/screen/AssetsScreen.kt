@@ -392,12 +392,14 @@ fun AssetsScreen( modifier: Modifier=Modifier) {
                 Row(
                     modifier = modifier
                         .fillMaxWidth()
-                        .height(78.dp)
+                        .height(78.dp),
+
                     ) {
 
-                    Spacer(modifier = modifier.size(16.dp))
+                    Spacer(modifier = modifier.size(14.dp))
                     Column {
-                        Text("편집하기")
+                        Text(text="편집하기")
+                        Text(text="추가하기")
 
                     }
                 }

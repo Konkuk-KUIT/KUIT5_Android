@@ -1,6 +1,7 @@
 package com.kuit.kuit5.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.internal.composableLambda
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -9,6 +10,9 @@ import com.kuit.kuit5.ui.asset.screen.AssetsScreen
 import com.kuit.kuit5.ui.health.screen.HealthScreen
 import com.kuit.kuit5.ui.home.screen.HomeScreen
 import com.kuit.kuit5.ui.record.screen.RecordsScreen
+import com.kuit.kuit5.ui.shopping.screen.CreatAccountResultScreen
+import com.kuit.kuit5.ui.shopping.screen.CreateAccountScreen
+import com.kuit.kuit5.ui.shopping.screen.ProductInfoScreen
 import com.kuit.kuit5.ui.shopping.screen.ShoppingScreen
 
 @Composable
@@ -19,14 +23,14 @@ fun KuitNavGraph(
     NavHost(
         navController = navController,
         startDestination = Route.Home.route,
-    ){
+    ) {
         // 홈
         composable(route = Route.Home.route) {
             HomeScreen()
         }
         // 자산
         composable(route = Route.Assets.route) {
-            AssetsScreen(modifier=modifier)
+            AssetsScreen(modifier = modifier)
 
         }
         // 가계부
@@ -40,6 +44,35 @@ fun KuitNavGraph(
         // 금융쇼핑
         composable(route = Route.Shopping.route) {
             ShoppingScreen()
+            ShoppingScreen(
+                modifier = modifier,
+                onNavigateToProductInfo = {
+
+                }
+            )
+        }
+        composable(route = Route.ProductInfo.route) {
+            ProductInfoScreen(
+                modifier = modifier
+                        modifier = modifier,
+                onNavigateToCreateAccount = {
+
+                }
+            )
+
+        }
+        composable(route = Route.CreatAccount.route) {
+            CreateAccountScreen(
+                modifier = modifier,
+                onNavigateToCreateAccountResult = {}
+            )
+
+        }
+        composable(route = Route.CreatAccountResult.route) {
+            CreatAccountResultScreen(
+                modifier = modifier,
+                onNavigateToAccountResult = {}
+            )
         }
     }
 }
