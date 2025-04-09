@@ -53,8 +53,7 @@ fun KuitNavGraph(
         }
         composable(route = Route.ProductInfo.route) {
             ProductInfoScreen(
-                modifier = modifier
-                        modifier = modifier,
+                modifier = modifier,
                 onNavigateToCreateAccount = {
 
                 }
