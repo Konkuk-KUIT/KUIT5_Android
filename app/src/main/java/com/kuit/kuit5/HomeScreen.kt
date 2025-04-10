@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -38,7 +39,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(colors.gray100)
+            .background(colors.gray100),
     ) {
         TopAppBar(
             modifier = Modifier.fillMaxWidth(),
@@ -78,10 +79,11 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .verticalScroll(state = scrollState)
+                .verticalScroll(state = scrollState),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            HomeBannerItem() //카드 출력
-            Spacer(modifier = Modifier.size(24.dp)) //그 아래에 간격 좀 주고
+            HomeBannerItem() //옆으로 넘어가는 카드 출력
+            Spacer(modifier = Modifier.size(8.dp)) //그 아래에 간격 좀 주고
 
             //사진과 텍스트
             HomeEventItem(
@@ -104,7 +106,6 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     ),
                 )
             )
-            Spacer(modifier=modifier.size(24.dp))
             //입출금 계좌
             val accountLists = listOf(
                 AccountData(
@@ -160,7 +161,6 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 text = "쌓인 예적금 이자 확인하고 진단받기",
                 NetAssetDataList = accountList,
             )
-            Spacer(modifier = modifier.size(16.dp))
             //이번달 지출
             HomeAssetsCardItem(
                 title = "이번달 지출",
@@ -172,7 +172,6 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 text="3월 카드 지출",
                 NetAssetDataList = spendList,
             )
-            Spacer(modifier=modifier.size(1.dp))
         }
     }
 }

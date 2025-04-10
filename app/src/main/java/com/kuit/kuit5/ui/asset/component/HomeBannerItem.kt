@@ -31,6 +31,7 @@ fun HomeBannerItem(
     Card(
         modifier = Modifier
             .padding(horizontal = 20.dp),
+        //Card와 좌우 벽과의 간격
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
             containerColor = colors.white
@@ -40,6 +41,7 @@ fun HomeBannerItem(
             modifier = modifier
                 .fillMaxWidth()
                 .padding(16.dp),
+            //Card와 내부 글씨들의 간격
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Column() {
