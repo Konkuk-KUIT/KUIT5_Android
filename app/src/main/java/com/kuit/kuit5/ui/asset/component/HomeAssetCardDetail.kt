@@ -61,7 +61,7 @@ fun HomeAssetCardDetail(
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) { // 오른쪽 그룹
-            if(net_asset.dropMoney.isBlank()) {
+            if(!net_asset.dropMoney.isBlank()) {
                 Icon(
                     modifier = modifier
                         .width(10.dp)

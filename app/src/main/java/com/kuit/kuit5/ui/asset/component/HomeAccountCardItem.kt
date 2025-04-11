@@ -35,7 +35,8 @@ fun HomeAccountCardItem(
 ) {
     Box(
         modifier = Modifier
-            .padding(horizontal = 20.dp, vertical = 16.dp)
+            .padding(horizontal = 20.dp)
+            //벽과의 가로 간격 20
             .fillMaxWidth()
             .clip(RoundedCornerShape(16.dp))
             .background(colors.white)

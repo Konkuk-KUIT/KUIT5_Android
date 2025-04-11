@@ -134,12 +134,11 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                             contentDescription = "tmap"
                         )
                         Spacer(Modifier.size(16.dp))
-                        Column {
+                        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                             Text(
                                 text = "티맵 대리 1만원 쿠폰 받으세요",
                                 style = typography.head_03_B_16
                             )
-                            Spacer(modifier=modifier.height(10.dp))
                             Text(
                                 text = "3월 한정 선착순 1만명 혜택",
                                 style = typography.caption_01_R_10
