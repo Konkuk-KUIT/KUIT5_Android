@@ -21,27 +21,28 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.model.AssetData
+import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
+import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 
 @Composable
 fun FinanceItem(
-    modifier: Modifier = Modifier,
     title: String,
     value: String,
-    icon: Int
+    icon: Int,
+    modifier: Modifier = Modifier
 ) {
-    Column (){
+    Column() {
         Row(
             modifier = Modifier
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
-        ){
+        ) {
             Text(
                 modifier = Modifier,
                 text = title,
-                color = Color.Black,
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Bold
+                color = colors.black,
+                style = typography.head_03_B_16
             )
             Icon(
                 modifier = Modifier
@@ -51,16 +52,16 @@ fun FinanceItem(
                 tint = Color.Unspecified
             )
         }
-        Spacer(modifier=Modifier.size(30.dp))
+        Spacer(modifier = Modifier.size(30.dp))
         Row(
             modifier = Modifier
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
-        ){
+        ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically
-            ){
+            ) {
                 Icon(
                     modifier = Modifier
                         .size(30.dp),
@@ -71,15 +72,15 @@ fun FinanceItem(
                 Text(
                     modifier = Modifier.padding(10.dp),
                     text = value,
-                    color = Color(0xFF666668),
-                    fontSize = 14.sp,
+                    color = colors.gray500,
+                    style = typography.head_03_R_14
                 )
             }
-            Column(){
+            Column() {
                 Text(
                     text = "확인하기",
-                    color = Color(0xFF9FA5B0),
-                    fontSize = 14.sp,
+                    color = colors.gray400,
+                    style = typography.head_03_R_14,
                     textDecoration = TextDecoration.Underline
                 )
             }

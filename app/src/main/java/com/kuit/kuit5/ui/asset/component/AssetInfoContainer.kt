@@ -15,19 +15,20 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
+import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
+import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 
 @Composable
 fun AssetInfoContainer(
-    modifier: Modifier = Modifier,
     title: String,
     value: String,
-    assetList: List<AssetData>
+    assetList: List<AssetData>,
+    modifier: Modifier = Modifier
 ) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-    ){
+    ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
@@ -35,12 +36,12 @@ fun AssetInfoContainer(
             Text(
                 text = title,
                 color = Color(0xFF666668),
-                fontSize = 12.sp,
+                style = typography.body_02_R_12
             )
             Text(
                 text = value,
-                color = Color(0xFF666668),
-                fontSize = 12.sp,
+                color = colors.gray500,
+                style = typography.body_02_R_12
             )
         }
         HorizontalDivider(
@@ -52,8 +53,8 @@ fun AssetInfoContainer(
         Column(
             modifier = Modifier.fillMaxWidth(),
             verticalArrangement = Arrangement.spacedBy(12.dp)
-        ){
-            assetList.forEach{asset ->
+        ) {
+            assetList.forEach { asset ->
                 AssetInfoItem(asset = asset)
             }
         }

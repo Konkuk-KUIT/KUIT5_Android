@@ -22,7 +22,9 @@ fun KuitNavGraph(
     ){
         // 홈
         composable(route = Route.Home.route) {
-            HomeScreen()
+            HomeScreen(
+                modifier = modifier
+            )
         }
         // 자산
         composable(route = Route.Assets.route) {
