@@ -1,8 +1,5 @@
 package com.kuit.kuit5.ui.assets.screen
 
-import android.R.attr.contentDescription
-import android.R.attr.onClick
-import android.widget.Space
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -25,33 +22,24 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.OutlinedTextFieldDefaults.contentPadding
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.model.AssetsData
 import com.kuit.kuit5.ui.assets.components.AssetsInfoContainer
 import com.kuit.kuit5.ui.assets.components.AssetsMore
+import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
+import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 import kotlin.collections.listOf
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -63,59 +51,46 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(colors.white)
     ) {
         TopAppBar(
-            modifier = Modifier.fillMaxWidth(),
-            colors = TopAppBarDefaults.topAppBarColors(
-                containerColor = Color.White
-            ),
-            title = {
+            modifier = Modifier.fillMaxWidth(), colors = TopAppBarDefaults.topAppBarColors(
+                containerColor = colors.white
+            ), title = {
                 Text(
-                    "자산",
-                    color = Color.Black,
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.W700,
+                    "자산", color = Color.Black, style = typography.head_01_B_24
                 )
-            },
-            actions = {
+            }, actions = {
                 Row(
-                    Modifier.padding(20.dp),
-                    horizontalArrangement = Arrangement.spacedBy(20.dp)
+                    Modifier.padding(20.dp), horizontalArrangement = Arrangement.spacedBy(20.dp)
                 ) {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_assets_money),
                         contentDescription = "money icon",
-                        tint = Color(0xFF9FA5B0)
+                        tint = colors.gray400
                     )
                     Icon(
                         painter = painterResource(id = R.drawable.ic_assets_gear),
                         contentDescription = "money icon",
-                        tint = Color(0xff9FA5B0)
+                        tint = colors.gray400
 
                     )
                     Icon(
-                        painter = painterResource(id = R.drawable.ic_assets_bell),
+                        painter = painterResource(id = R.drawable.ic_topbar_bell),
                         contentDescription = "money icon",
-                        tint = Color(0xff9FA5B0)
+                        tint = colors.gray400
 
                     )
                     Icon(
-                        painter = painterResource(id = R.drawable.ic_assets_stack),
+                        painter = painterResource(id = R.drawable.ic_topbar_stack),
                         contentDescription = "money icon",
-                        tint = Color(0xff9FA5B0)
+                        tint = colors.gray400
 
                     )
 
                 }
-            }
-        )
+            })
         // TopAppBar 제외한 지점
-//        CounterWithoutRemember()
-//        CounterWithRemember()
-//        CounterWithRememberSaveable()
-//
-//        SampleTextField()
 
 
         Column(
@@ -129,8 +104,8 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                     .padding(20.dp)
             ) {
                 Column {
-                    Text("쿠잇님의 순자산", fontSize = 14.sp, fontWeight = FontWeight.W400)
-                    Text("1,234,567원", fontSize = 24.sp, fontWeight = FontWeight.W700)
+                    Text("쿠잇님의 순자산", style = typography.body_01_R_14)
+                    Text("1,234,567원", style = typography.head_01_B_24)
                 }
                 Button(
                     modifier = Modifier
@@ -142,21 +117,17 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                         print("ButtonClicked")
                     },
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xffF3F4F6),
-                        contentColor = Color(0xff666668)
+                        containerColor = colors.gray200, contentColor = colors.gray500
                     )
                 ) {
                     Text(
-                        text = "분석",
-                        fontWeight = FontWeight.W600,
-                        fontSize = 14.sp,
+                        text = "분석", style = typography.head_04_SB_14
                     )
                 }
             }
             Card(
-                modifier = Modifier
-                    .padding(horizontal = 20.dp),
-                colors = CardDefaults.cardColors(containerColor = Color(0xffF3F4F6)),
+                modifier = Modifier.padding(horizontal = 20.dp),
+                colors = CardDefaults.cardColors(containerColor = colors.gray200),
                 content = {
                     Row(
                         Modifier
@@ -174,15 +145,17 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                         Column {
 
                             Text(
-                                "티맵 대리 1만원 쿠폰 받으세요",
-                                fontWeight = FontWeight.W600
+                                "티맵 대리 1만원 쿠폰 받으세요", style = typography.head_03_SB_16
                             )
                             Spacer(Modifier.size(5.dp))
-                            Text("3월 선착순 1만명 혜택", fontSize = 10.sp, color = Color(0xff666668))
+                            Text(
+                                "3월 한정 선착순 1만명 혜택",
+                                style = typography.caption_01_R_10,
+                                color = colors.gray500
+                            )
                         }
                     }
-                }
-            )
+                })
 
             Spacer(Modifier.size(22.dp))
 
@@ -192,18 +165,17 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                     .padding(horizontal = 20.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Text("계좌 · 현금", fontSize = 16.sp, fontWeight = FontWeight.W700)
+                Text("계좌 · 현금", style = typography.head_03_B_16)
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
                         "1,234,567원",
-                        fontSize = 14.sp,
-                        color = Color(0xff666668),
-                        fontWeight = FontWeight.W500
+                        style = typography.body_01_M_14,
+                        color = colors.gray500,
                     )
                     Icon(
-                        painter = painterResource(R.drawable.ic_assets_right_arrow),
+                        painter = painterResource(R.drawable.ic_right_arrow),
                         contentDescription = "right arrow",
-                        tint = Color(0xff666668)
+                        tint = colors.gray500
                     )
                 }
             }
@@ -215,39 +187,25 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 verticalArrangement = Arrangement.spacedBy(28.dp)
             ) {
                 AssetsInfoContainer(
-                    modifier = Modifier,
-                    title = "입출금",
-                    money = "234,567원",
-                    assetsList = listOf(
+                    modifier = Modifier, title = "입출금", money = "234,567원", assetsList = listOf(
                         AssetsData(
-                            icon = R.drawable.img_kakao_icon,
-                            name = "입출금통장",
-                            value = "234,567원"
+                            icon = R.drawable.img_kakao_icon, name = "입출금통장", value = "234,567원"
+                        ),
+
                         )
-                    )
                 )
 
                 AssetsInfoContainer(
-                    modifier = Modifier,
-                    title = "예금",
-                    money = "1,000,000원",
-                    assetsList = listOf(
+                    modifier = Modifier, title = "예금", money = "1,000,000원", assetsList = listOf(
                         AssetsData(
-                            icon = R.drawable.img_kakao_icon,
-                            name = "정기예금",
-                            value = "1,000,000원"
+                            icon = R.drawable.img_kakao_icon, name = "정기예금", value = "1,000,000원"
                         ),
                     )
                 )
                 AssetsInfoContainer(
-                    modifier = Modifier,
-                    title = "현금",
-                    money = "0원",
-                    assetsList = listOf(
+                    modifier = Modifier, title = "현금", money = "0원", assetsList = listOf(
                         AssetsData(
-                            icon = R.drawable.img_shinhan_icon,
-                            name = "현금",
-                            value = "0원"
+                            icon = R.drawable.img_shinhan_icon, name = "현금", value = "0원"
                         ),
                     )
                 )
@@ -257,7 +215,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 Modifier
                     .fillMaxWidth()
                     .height(10.dp)
-                    .background(Color(0xffF3F4F6))
+                    .background(colors.gray200)
             )
 
 
@@ -269,14 +227,14 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                         .align(Alignment.CenterHorizontally),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Text("페이머니", fontSize = 16.sp, fontWeight = FontWeight.W700)
+                    Text("페이머니", style = typography.head_03_B_16)
 
                     Text(
                         "0원",
-                        fontSize = 14.sp,
-                        color = Color(0xff666668),
-                        fontWeight = FontWeight.W500
-                    )
+                        style = typography.body_01_M_14,
+                        color = colors.gray500,
+
+                        )
 
 
                 }
@@ -300,9 +258,11 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                             contentDescription = "뱅샐머니 아이콘"
                         )
 
-                        Text("뱅샐머니", fontSize = 14.sp, color = Color(0xff666668))
+                        Text(
+                            "뱅샐머니", style = typography.body_01_R_14, color = colors.gray500
+                        )
                     }
-                    Text("0원", fontWeight = FontWeight.W500, fontSize = 14.sp)
+                    Text("0원", style = typography.body_01_M_14)
                 }
 
             }
@@ -311,7 +271,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 Modifier
                     .fillMaxWidth()
                     .height(10.dp)
-                    .background(Color(0xffF3F4F6))
+                    .background(colors.gray200)
             )
 
             Row(
@@ -322,29 +282,23 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text("신용", fontWeight = FontWeight.W700)
+                Text("신용", style = typography.head_03_B_16)
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        "750점",
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.W600,
-                        color = Color(0xff666668)
+                        "750점", style = typography.head_04_SB_14, color = colors.gray500
                     )
                     Icon(
-                        painter = painterResource(R.drawable.ic_assets_right_arrow),
+                        painter = painterResource(R.drawable.ic_right_arrow),
                         contentDescription = "right arrow",
-                        tint = Color(0xff666668)
+                        tint = colors.gray500
                     )
                 }
 
             }
-
-
             AssetsMore(title = "카드", icon = R.drawable.img_assets_card, content = "내게 맞는 추천카드는?")
 
 
             AssetsMore(title = "대출", icon = R.drawable.img_assets_loan, content = "내 최저 금리는?")
-
 
             AssetsMore(
                 title = "보험",
@@ -355,7 +309,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
             Box(
                 Modifier
                     .size(360.dp, 78.dp)
-                    .background(Color(0xffF3F4F6))
+                    .background(colors.gray200)
             ) {
 
                 Row(
@@ -364,23 +318,15 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                     horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
                     Text(
-                        "편집하기",
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.W500,
-                        color = Color(0xff666668)
+                        "편집하기", style = typography.body_01_M_14, color = colors.gray500
                     )
-                    VerticalDivider(Modifier.height(22.dp), color = Color(0xff9FA5B0))
+                    VerticalDivider(Modifier.height(22.dp), color = colors.gray400)
                     Text(
-                        "추가하기",
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.W500,
-                        color = Color(0xff666668)
+                        "추가하기", style = typography.body_01_M_14, color = colors.gray500
                     )
 
                 }
             }
-
-//            Spacer(Modifier.height(80.dp))
 
 
         }
@@ -389,7 +335,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
 }
 
 
-@Preview(heightDp = 3000, widthDp = 360)
+@Preview(heightDp = 2500, widthDp = 360)
 @Composable
 private fun AssetsScreenPreview() {
     AssetsScreen()

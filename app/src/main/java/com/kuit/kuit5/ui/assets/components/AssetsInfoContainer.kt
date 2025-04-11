@@ -14,6 +14,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.model.AssetsData
+import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
+import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 
 @Composable
 fun AssetsInfoContainer(
@@ -24,14 +26,14 @@ fun AssetsInfoContainer(
 ) {
     Column(modifier.fillMaxWidth()) {
         Row(modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            Text(title, fontSize = 12.sp, color = Color(0xff666668))
-            Text(money, fontSize = 12.sp, color = Color(0xff666668))
+            Text(title, style = typography.body_02_R_12, color = colors.gray500)
+            Text(money, style = typography.body_02_R_12, color = colors.gray500)
         }
         HorizontalDivider(
             modifier
                 .fillMaxWidth()
                 .padding(vertical = 12.dp),
-            color = Color(0xffD9D9D9)
+            color = colors.gray300
         )
         Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
             assetsList.forEach { assets ->
