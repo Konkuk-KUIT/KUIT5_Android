@@ -14,6 +14,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.runtime.MutableIntState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -24,6 +25,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.kuit.kuit5.navigation.BottomNavItem
 import com.kuit.kuit5.navigation.KuitNavGraph
@@ -65,65 +67,82 @@ class MainActivity : ComponentActivity() {
                     ),
                     BottomNavItem(
                         label = "금융쇼핑",
-                        route = Route.Shopping.route,
+                        route = Route.ShoppingSubgraph.route,
                         selectedIcon = R.drawable.ic_bottomnav_shopping,
                         unselectedIcon = R.drawable.ic_bottomnav_shopping
                     )
                 )
+                // BottomNavigation을 보여줄 화면들
+                val bottomNavRoutes = listOf(
+                    Route.Home.route,
+                    Route.Assets.route,
+                    Route.Records.route,
+                    Route.Health.route,
+                    Route.Shopping.route,
 
-                var selectedIndex by rememberSaveable { mutableIntStateOf(0) }
+                    )
+
+
+                // var selectedIndex by rememberSaveable<MutableIntState> { mutableIntStateOf(0) }
+                val navBackStackEntry by navController.currentBackStackEntryAsState()
+                val currentRoute = navBackStackEntry?.destination?.route
 
                 Scaffold(
                     modifier = Modifier
                         .systemBarsPadding(),
                     contentWindowInsets = WindowInsets.safeDrawing,
                     bottomBar = {
-                        NavigationBar(
-                            modifier = Modifier
-                                .drawBehind {
-                                    val strokeWidth = 1.dp.toPx()
-                                    drawLine(
-                                        color = Color(0xFFD9D9D9), // NavigationBar의 상단 테두리
-                                        start = Offset(0f, 0f),
-                                        end = Offset(size.width, 0f),
-                                        strokeWidth = strokeWidth,
-                                    )
-                                },
-                            containerColor = Color.White,
-                        ) {
-                            navBarItems.forEachIndexed { index, item ->
-                                NavigationBarItem(
-                                    selected = selectedIndex == index,
-                                    alwaysShowLabel = true,
-                                    label = {
-                                        Text(
-                                            text = item.label,
+                        if (currentRoute in bottomNavRoutes)
+                            NavigationBar(
+                                modifier = Modifier
+                                    .drawBehind {
+                                        val strokeWidth = 1.dp.toPx()
+                                        drawLine(
+                                            color = Color(0xFFD9D9D9), // NavigationBar의 상단 테두리
+                                            start = Offset(0f, 0f),
+                                            end = Offset(size.width, 0f),
+                                            strokeWidth = strokeWidth,
                                         )
                                     },
-                                    onClick = {
-                                        selectedIndex = index
-                                        navController.navigate(item.route)
-                                    },
-                                    icon = {
-                                        Icon(
-                                            painter = painterResource(
-                                                if (index == selectedIndex) {
-                                                    item.selectedIcon
-                                                } else item.unselectedIcon
-                                            ),
-                                            contentDescription = item.label,
+                                containerColor = Color.White,
+                            ) {
+                                navBarItems.forEachIndexed { index, item ->
+                                    val isSelected = when (item.route) {
+                                        Route.ShoppingSubgraph.route -> currentRoute == Route.Shopping.route
+                                        else -> currentRoute == item.route
+                                    }
+                                    NavigationBarItem(
+                                        selected = isSelected,
+                                        alwaysShowLabel = true,
+                                        label = {
+                                            Text(
+                                                text = item.label,
+                                            )
+                                        },
+                                        onClick = {
+//                                        selectedIndex = index
+                                            navController.navigate(item.route)
+                                        },
+                                        icon = {
+                                            Icon(
+                                                painter = painterResource(
+                                                    if (isSelected) {
+                                                        item.selectedIcon
+                                                    } else item.unselectedIcon
+                                                ),
+                                                contentDescription = item.label,
+                                            )
+                                        },
+                                        colors = NavigationBarItemDefaults.colors(
+                                            indicatorColor = Color.Transparent,
+                                            selectedIconColor = Color.Black,
+                                            unselectedIconColor = Color(0xFF9FA5B0),
+                                            selectedTextColor = Color.Black,
+                                            unselectedTextColor = Color(0xFF9FA5B0)
                                         )
-                                    },
-                                    colors = NavigationBarItemDefaults.colors(
-                                        indicatorColor = Color.Transparent,
-                                        selectedIconColor = Color.Black,
-                                        unselectedIconColor = Color(0xFF9FA5B0),
-                                        selectedTextColor = Color.Black,
-                                        unselectedTextColor = Color(0xFF9FA5B0)
                                     )
-                                )
+                                }
                             }
-                        }
                     }
                 ) { innerPadding ->
                     KuitNavGraph(
