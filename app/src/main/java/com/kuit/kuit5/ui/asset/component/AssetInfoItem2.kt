@@ -22,14 +22,14 @@ fun AssetInfoItem2(modifier: Modifier = Modifier,
 
 ) {
     Row(
-        modifier=modifier
+        modifier=Modifier
             .fillMaxWidth(),
         verticalAlignment= Alignment.CenterVertically,
         horizontalArrangement= Arrangement.SpaceBetween
     ){
         Row(verticalAlignment=Alignment.CenterVertically){
             Icon(
-                modifier= modifier
+                modifier= Modifier
                     .size(30.dp),
                 painter= painterResource(id= asset.icon),
                 contentDescription="asset icon",

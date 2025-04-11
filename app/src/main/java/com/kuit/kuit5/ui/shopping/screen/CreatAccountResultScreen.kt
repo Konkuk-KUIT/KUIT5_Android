@@ -3,8 +3,10 @@ package com.kuit.kuit5.ui.shopping.screen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -30,19 +32,25 @@ fun CreatAccountResultScreen(
             .background(colors.white)
     ) {
 
-        Column(modifier = Modifier.align(Alignment.Center),
-            horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(
+            modifier = Modifier.align(Alignment.Center),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
 
             Text(
-                text="가입완료!",
-                style = typography.head_02_B_20)
+                text = "가입완료!",
+                style = typography.head_02_B_20
+            )
         }
+
             Button(
                 onClick = {
                     onNavigateToShopping()
                 },
                 modifier = Modifier
-                    .width(280.dp)
+                    .align(Alignment.BottomCenter)
+                    .padding(bottom = 16.dp)
+                    .width(320.dp)
                     .height(40.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = colors.gray300,
@@ -54,7 +62,7 @@ fun CreatAccountResultScreen(
                 Text(text = "금융쇼핑으로 이동")
             }
 
-            // Text(text="${viewModel.newAccount.value}")
+        // Text(text="${viewModel.newAccount.value}")
 
     }
 }

@@ -27,10 +27,9 @@ fun AssetInfoContainer_second(
     title: String,
     assetList: List<AssetData>
 ) {
-    Column(modifier=modifier
+    Column(modifier=Modifier
         .fillMaxWidth()
         .padding(20.dp)){
-        //Spacer(modifier=modifier.size(20.dp))
         Row(
             modifier = modifier
                 .fillMaxWidth(),
@@ -48,9 +47,9 @@ fun AssetInfoContainer_second(
 
 
         }
-        Spacer(modifier=modifier.size(30.dp))
+        Spacer(modifier=Modifier.size(30.dp))
 
-        Column(modifier=modifier.fillMaxWidth(),
+        Column(modifier=Modifier.fillMaxWidth(),
             verticalArrangement=Arrangement.spacedBy(12.dp))
         {
             assetList.forEach{ asset->
