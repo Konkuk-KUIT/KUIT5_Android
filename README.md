@@ -1,7 +1,3 @@
-# KUIT Android 5th
-
-저장소 Fork & Clone 방법이 헷갈린다면? --> [저장소를 Fork & Clone 하는 방법](https://github.com/Konkuk-KUIT/KUIT5_Android/blob/develop/Fork_Clone.md)
-
 # 미션 제출 방법
 
 ## commit & push 후 Fork 저장소 접근
