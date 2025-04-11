@@ -131,24 +131,34 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Column() {
-                        Text(
-                            text = "입출금 계좌",
-                            style = typography.head_03_R_16,
-                            color = colors.gray500
-                        )
-                        Spacer(modifier = Modifier.height(10.dp))
-                        Text(text = 234567.toDecimalFormat() + "원", style = typography.head_02_B_20)
+                    Column(modifier = Modifier) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Column(modifier = Modifier) {
+                                Text(
+                                    text = "입출금 계좌",
+                                    style = typography.head_03_R_16,
+                                    color = colors.gray500
+                                )
+                                Text(
+                                    text = 234567.toDecimalFormat() + "원",
+                                    style = typography.head_02_B_20
+                                )
+                            }
+                            BankSaladGrayButton(text = "송금")
+                        }
 
-                        BankSaladGrayButton(text = "송금")
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.End
+                        ) {
+                            Text(text = "어제보다", style = typography.body_02_R_12, color = colors.gray400)
+                        }
                     }
-                    Spacer(modifier = Modifier.height(16.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.End
-                    ) {
-                        Text(text = "어제보다", style = typography.body_02_R_12, color = colors.gray400)
-                    }
+
                 }
 
                 Spacer(modifier = Modifier.height(22.dp))
@@ -165,88 +175,89 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     icon = R.drawable.ic_home_pig,
                     color = colors.apricot
                 )
-                 Spacer(modifier = Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(24.dp))
 
             }
         }
-            //순자산
-            Spacer(modifier=Modifier.height(24.dp))
-            Card(
-                modifier = Modifier
+        //순자산
+        Spacer(modifier = Modifier.height(24.dp))
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 20.dp),
+            colors = CardDefaults.cardColors(containerColor = colors.white),
+            shape = RoundedCornerShape(16.dp)
+        ) {
+            Column(
+                modifier = modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 20.dp),
-                colors = CardDefaults.cardColors(containerColor = colors.white),
-                shape = RoundedCornerShape(16.dp)
+                    .padding(horizontal = 20.dp)
             ) {
-                Column(
-                    modifier = modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 20.dp)
+                Spacer(modifier = Modifier.height(24.dp))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Spacer(modifier = Modifier.height(24.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Column {
-                            Text(
-                                text = "순자산",
-                                style = typography.head_03_R_16,
-                                color = colors.gray500
-                            )
-                            Spacer(modifier = Modifier.height(10.dp))
-                            Text(
-                                text = 1234567.toDecimalFormat() + "원",
-                                style = typography.head_02_B_20
-                            )
-                        }
-                        BankSaladGrayButton(text = "송금")
-
-                    }
-                    Spacer(modifier = Modifier.height(10.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
+                    Column {
                         Text(
-                            text = buildAnnotatedString {
-                                append("지난 방문일보다 ")
-                                withStyle(style = SpanStyle(color = colors.green)) {
-                                    append(4500.toDecimalFormat() + "원")
-                                }
-                                append(" 줄었어요")
-                            },
-                            style = typography.body_02_SB_12,
-                            color = colors.black)
+                            text = "순자산",
+                            style = typography.head_03_R_16,
+                            color = colors.gray500
+                        )
+                        Spacer(modifier = Modifier.height(10.dp))
+                        Text(
+                            text = 1234567.toDecimalFormat() + "원",
+                            style = typography.head_02_B_20
+                        )
                     }
-                    Spacer(modifier=Modifier.height(28.dp))
-                    AssetAccountCardDetail(
-                        icon = R.drawable.kakao_bank,
-                        accountValue = 234567,
-                        accountCategory = "계좌•현금",
-                        lossvalue = 4500
-                    )
-                    Spacer(modifier=Modifier.height(24.dp))
-                    AssetAccountCardDetail(
-                        icon = R.drawable.kakao_bank,
-                        accountValue = 1000000,
-                        accountCategory = "예적금",
-                        lossvalue = 10000
-                    )
-                    Spacer(modifier=Modifier.height(20.dp))
-                    Add_HomeAccountCardDetail(
-                        text = "쌓인 예적금 이자 확인하고 진단받기",
-                        height = 40,
-                        color =colors.gray200
-                    )
-                    Spacer(modifier=Modifier.height(24.dp))
+                    BankSaladGrayButton(text = "송금")
 
                 }
+                Spacer(modifier = Modifier.height(10.dp))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = buildAnnotatedString {
+                            append("지난 방문일보다 ")
+                            withStyle(style = SpanStyle(color = colors.green)) {
+                                append(4500.toDecimalFormat() + "원")
+                            }
+                            append(" 줄었어요")
+                        },
+                        style = typography.body_02_SB_12,
+                        color = colors.black
+                    )
+                }
+                Spacer(modifier = Modifier.height(28.dp))
+                AssetAccountCardDetail(
+                    icon = R.drawable.kakao_bank,
+                    accountValue = 234567,
+                    accountCategory = "계좌•현금",
+                    lossvalue = 4500
+                )
+                Spacer(modifier = Modifier.height(24.dp))
+                AssetAccountCardDetail(
+                    icon = R.drawable.kakao_bank,
+                    accountValue = 1000000,
+                    accountCategory = "예적금",
+                    lossvalue = 10000
+                )
+                Spacer(modifier = Modifier.height(20.dp))
+                Add_HomeAccountCardDetail(
+                    text = "쌓인 예적금 이자 확인하고 진단받기",
+                    height = 40,
+                    color = colors.gray200
+                )
+                Spacer(modifier = Modifier.height(24.dp))
 
             }
+
+        }
         //이번 달 지출
-        Spacer(modifier=Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(24.dp))
         Card(
             modifier = Modifier
                 .fillMaxWidth()
@@ -294,29 +305,30 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                             append(" 덜 썻어요")
                         },
                         style = typography.body_02_SB_12,
-                        color = colors.black)
+                        color = colors.black
+                    )
                 }
-                Spacer(modifier=Modifier.height(28.dp))
+                Spacer(modifier = Modifier.height(28.dp))
                 AssetAccountCardDetail(
                     icon = R.drawable.ic_home_won,
                     accountValue = 215000,
                     accountCategory = "오늘 지출"
 
                 )
-                Spacer(modifier=Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(24.dp))
                 AssetAccountCardDetail(
                     icon = R.drawable.ic_home_won,
                     accountValue = 234567,
                     accountCategory = "어제 지출"
 
                 )
-                Spacer(modifier=Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(20.dp))
                 Add_HomeAccountCardDetail(
                     text = "3월 카드 지출",
                     height = 40,
-                    color =colors.gray200
+                    color = colors.gray200
                 )
-                Spacer(modifier=Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(24.dp))
 
             }
 
