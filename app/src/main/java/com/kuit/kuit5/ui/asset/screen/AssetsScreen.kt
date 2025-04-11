@@ -133,7 +133,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                 }
 
             }
-            Spacer(modifier = modifier.size(14.dp))
+            Spacer(modifier = Modifier.size(14.dp))
             //tmap 광고
             Card(
                 modifier = Modifier
