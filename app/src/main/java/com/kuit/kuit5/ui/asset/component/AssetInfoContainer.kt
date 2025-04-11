@@ -15,6 +15,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
 import com.kuit.kuit5.model.AssetData
+import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
+import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 
 @Composable
 fun AssetInfoContainer(
@@ -34,13 +36,13 @@ fun AssetInfoContainer(
         {
             Text(
                 text = title,
-                color = Color(0xFF666668),
-                fontSize = 12.sp
+                style = typography.body_02_R_12,
+                color = colors.gray500,
             )
             Text(
                 text = balance,
-                color = Color(0xFF666668),
-                fontSize = 12.sp
+                style = typography.body_02_R_12,
+                color = colors.gray500,
             )
         }
         HorizontalDivider(

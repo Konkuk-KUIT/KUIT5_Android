@@ -21,12 +21,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kuit.kuit5.R
-import com.kuit.kuit5.model.AssetData
+import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
+import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 
 @Composable
 fun AssetCheckContainer(
     modifier: Modifier = Modifier,
-    asset: AssetData
+    icon: Int,
+    name: String,
+    description: String
 ) {
     Column(
         modifier = modifier
@@ -41,9 +44,9 @@ fun AssetCheckContainer(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = asset.name,
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Bold
+                text = name,
+                style = typography.head_03_B_16,
+                color = colors.black
             )
             Icon(
                 painter = painterResource(id = R.drawable.ic_assets_plus),
@@ -64,13 +67,14 @@ fun AssetCheckContainer(
             ) {
                 Icon(
                     modifier = modifier.size(30.dp),
-                    painter = painterResource(id = asset.icon),
+                    painter = painterResource(id = icon),
                     contentDescription = "assets check image",
                     tint = Color.Unspecified
                 )
                 Text(
-                    text = asset.value,
-                    fontSize = 14.sp
+                    text = description,
+                    style = typography.body_01_R_14,
+                    color = colors.gray500
                 )
             }
             Column(
@@ -78,8 +82,8 @@ fun AssetCheckContainer(
             ) {
                 Text(
                     text = "확인하기",
-                    fontSize = 14.sp,
-                    color = Color(0xFF9FA5B0)
+                    style = typography.body_01_R_14,
+                    color = colors.gray400
                 )
                 HorizontalDivider(
                     modifier = modifier
@@ -97,10 +101,9 @@ fun AssetCheckContainer(
 @Preview(showBackground = true)
 @Composable
 private fun AssetCheckContainerPreview() {
-    val asset = AssetData(
+    AssetCheckContainer(
         icon = R.drawable.img_assets_card,
         name = "카드",
-        value = "내가 맞는 추천카드는?"
+        description = "내가 맞는 추천카드는?"
     )
-    AssetCheckContainer(asset = asset)
 }
