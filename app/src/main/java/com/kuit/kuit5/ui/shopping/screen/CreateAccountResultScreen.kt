@@ -28,10 +28,6 @@ fun CreateAccountResultScreen(
     viewModel: ShoppingViewModel,
     onNavigateToShopping:() ->Unit
 ) {
-    //단순히 뒤로 가기를 눌렀을 때 첫 화면으로 가도록
-    BackHandler {
-        onNavigateToShopping()
-    }
     Column(modifier=modifier.fillMaxSize()) {
         Column(
             modifier=modifier

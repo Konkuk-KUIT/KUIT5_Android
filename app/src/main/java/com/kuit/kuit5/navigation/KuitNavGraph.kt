@@ -8,6 +8,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
+import androidx.navigation.navOptions
 import com.kuit.kuit5.HealthScreen
 import com.kuit.kuit5.HomeScreen
 import com.kuit.kuit5.RecordsScreen
@@ -86,7 +87,15 @@ fun KuitNavGraph(
                     modifier = modifier,
                     viewModel = viewModel,
                     onNavigateToShopping = {
-                        navController.navigate(Route.Shopping.route)
+                        navController.navigate(
+                            Route.Shopping.route,
+                            //navOptions를 추가하여 뒤로 가기를 누르면 금융쇼핑의 초기화면으로 이동하도록
+                            navOptions = navOptions {
+                                popUpTo(Route.CreateAccount.route) {
+                                    inclusive = true
+                                }
+                            }
+                        )
                     }
                 )
             }
