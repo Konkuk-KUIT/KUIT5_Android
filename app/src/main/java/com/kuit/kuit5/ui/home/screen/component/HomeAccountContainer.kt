@@ -28,190 +28,155 @@ import com.kuit.kuit5.ui.theme.BankSaladTheme
 @Composable
 fun HomeAccountContainer(
     modifier: Modifier = Modifier
-
 ) {
-    Card( // 입출금 전체 카드박스
+    Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 20.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
         shape = RoundedCornerShape(16.dp)
     ) {
-        Column(modifier = Modifier) {
+        Column {
             Row(
-                modifier = Modifier
-                .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-    ) {
-        Column(
-            modifier = Modifier
-                .padding(20.dp)
-        ){
-            Text(
-                text = "입출금 계좌",
-                style = BankSaladTheme.typography.head_03_R_16,
-                color = BankSaladTheme.colors.gray500
-            )
-            Spacer(modifier = Modifier.height(10.dp))
-            Text(
-                text = "234,567원",
-                style = BankSaladTheme.typography.head_02_B_20,
-                color = BankSaladTheme.colors.black
-            )
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(
+                    modifier = Modifier.padding(20.dp)
+                ) {
+                    Text(
+                        text = "입출금 계좌",
+                        style = BankSaladTheme.typography.head_03_R_16,
+                        color = BankSaladTheme.colors.gray500
+                    )
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Text(
+                        text = "234,567원",
+                        style = BankSaladTheme.typography.head_02_B_20,
+                        color = BankSaladTheme.colors.black
+                    )
+                }
 
-
-        }
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(start = 20.dp, end = 20.dp, top = 24.dp),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
-                )  {
-
+                ) {
                     Column(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalAlignment = Alignment.End // 오른쪽정렬은 End를 사용
+                        horizontalAlignment = Alignment.End
                     ) {
                         CommonButton(title = "송금")
-                        Spacer(modifier = Modifier.height(20.dp)) // 버튼과 텍스트 사이 간격
-
+                        Spacer(modifier = Modifier.height(20.dp))
                         Text(
                             text = "어제보다",
-
                             style = BankSaladTheme.typography.caption_01_R_10,
                             color = BankSaladTheme.colors.gray400
                         )
                     }
                 }
-
-    }
-            // 계좌 정보: 아이콘 + 금액 + 화살표
-           Column {
-               Card(
-                   modifier = Modifier
-                       .fillMaxWidth()
-                       .padding(horizontal = 20.dp),
-                   colors = CardDefaults.cardColors(containerColor = Color.White),
-               ) {
-
-                   Row(
-                       modifier = Modifier
-                           .fillMaxWidth()
-                           .padding( top = 22.dp),
-                       horizontalArrangement = Arrangement.SpaceBetween,
-                       verticalAlignment = Alignment.CenterVertically
-                   ) {
-
-                       Row(verticalAlignment = Alignment.CenterVertically){
-
-                       Image(
-                           modifier = Modifier.size(24.dp),
-                           painter = painterResource(id = R.drawable.img_kakao_icon),
-                           contentDescription = "카카오뱅크 아이콘"
-                       )
-                       Spacer(modifier = Modifier.width(8.dp))
-
-                       Column {
-                           Text(
-                               text = "234,567원",
-                               style = BankSaladTheme.typography.body_01_M_14,
-                               color = BankSaladTheme.colors.black
-                           )
-                           Spacer(modifier = Modifier.size(8.dp))
-                           Text(
-                               text = "입출금 통장",
-                               style = BankSaladTheme.typography.body_02_R_12,
-                               color = BankSaladTheme.colors.gray400
-                           )
-
-                       }
-
-                   }
-
-
-                   Row(verticalAlignment = Alignment.CenterVertically
-
-                   ) {
-
-                       Icon(
-                           painter = painterResource(id = R.drawable.ic_home_direction),
-                           contentDescription = "down",
-                           tint = Color.Blue,
-
-                           )
-                       Spacer(modifier = Modifier.size(2.dp))
-                       Text(
-                           text = "3,300원",
-                           style = BankSaladTheme.typography.body_01_M_14,
-                           color = BankSaladTheme.colors.blue
-                       )
-
-                       Spacer(modifier = Modifier.size(2.dp))
-                       Icon(
-                           painter = painterResource(id = R.drawable.ic_assets_right_arrow),
-                           contentDescription = "right arrow",
-                           tint = BankSaladTheme.colors.gray500
-
-                       )
-                   }
-               }
-
-
-
-                Spacer(modifier = Modifier.height(24.dp))
-
-                // 하단: 목표 설정 텍스트
-
-
-                   Card(
-                       modifier = Modifier
-                           .fillMaxWidth(),
-                       colors = CardDefaults.cardColors(containerColor = BankSaladTheme.colors.apricot),
-                       shape = RoundedCornerShape(12.dp)
-                   ) {
-                       Row(
-                           modifier = Modifier
-                               .fillMaxWidth()
-                               .padding(horizontal = 16.dp, vertical = 14.dp),
-                           verticalAlignment = Alignment.CenterVertically,
-                           horizontalArrangement = Arrangement.SpaceBetween
-                       )  {
-                        Image(
-                            modifier = Modifier.size(28.dp),
-                            painter = painterResource(id = R.drawable.img_pig_icon),
-                            contentDescription = "종잣돈 아이콘"
-                        )
-                        Spacer(modifier = Modifier.height(8.dp))
-
-                        Text(
-                            text = "목표를 설정하고 종잣돈을 모아보세요",
-                            style = BankSaladTheme.typography.body_02_R_12,
-                            color = BankSaladTheme.colors.black
-                        )
-
-                        Spacer(modifier = Modifier.size(12.dp))
-
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_assets_right_arrow),
-                            contentDescription = "right arrow",
-                            tint = BankSaladTheme.colors.gray500
-
-                        )
             }
 
+            Column {
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 20.dp),
+                    colors = CardDefaults.cardColors(containerColor = Color.White),
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 22.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Image(
+                                modifier = Modifier.size(24.dp),
+                                painter = painterResource(id = R.drawable.img_kakao_icon),
+                                contentDescription = "카카오뱅크 아이콘"
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Column {
+                                Text(
+                                    text = "234,567원",
+                                    style = BankSaladTheme.typography.body_01_M_14,
+                                    color = BankSaladTheme.colors.black
+                                )
+                                Spacer(modifier = Modifier.size(8.dp))
+                                Text(
+                                    text = "입출금 통장",
+                                    style = BankSaladTheme.typography.body_02_R_12,
+                                    color = BankSaladTheme.colors.gray400
+                                )
+                            }
+                        }
+
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.ic_home_direction),
+                                contentDescription = "down",
+                                tint = Color.Blue,
+                            )
+                            Spacer(modifier = Modifier.size(2.dp))
+                            Text(
+                                text = "3,300원",
+                                style = BankSaladTheme.typography.body_01_M_14,
+                                color = BankSaladTheme.colors.blue
+                            )
+                            Spacer(modifier = Modifier.size(2.dp))
+                            Icon(
+                                painter = painterResource(id = R.drawable.ic_assets_right_arrow),
+                                contentDescription = "right arrow",
+                                tint = BankSaladTheme.colors.gray500
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(24.dp))
+
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = CardDefaults.cardColors(containerColor = BankSaladTheme.colors.apricot),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 16.dp, vertical = 14.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Image(
+                                modifier = Modifier.size(28.dp),
+                                painter = painterResource(id = R.drawable.img_pig_icon),
+                                contentDescription = "종잣돈 아이콘"
+                            )
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text(
+                                text = "목표를 설정하고 종잣돈을 모아보세요",
+                                style = BankSaladTheme.typography.body_02_R_12,
+                                color = BankSaladTheme.colors.black
+                            )
+                            Spacer(modifier = Modifier.size(12.dp))
+                            Icon(
+                                painter = painterResource(id = R.drawable.ic_assets_right_arrow),
+                                contentDescription = "right arrow",
+                                tint = BankSaladTheme.colors.gray500
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(24.dp))
+                }
             }
-                   Spacer(modifier = Modifier.height(24.dp))
-
-           }
-
-           }
         }
     }
 }
-
-
 
 @Preview(showBackground = true)
 @Composable
@@ -221,6 +186,4 @@ private fun HomeAccountContainerPreview() {
             .fillMaxWidth()
             .padding(20.dp)
     )
-
 }
-
