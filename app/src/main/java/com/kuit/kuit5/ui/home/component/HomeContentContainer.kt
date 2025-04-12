@@ -23,7 +23,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.dp
 import com.kuit.kuit5.R
-import com.kuit.kuit5.component.grayButton
+import com.kuit.kuit5.component.GrayButton
 import com.kuit.kuit5.model.HomeContentData
 import com.kuit.kuit5.ui.asset.component.AssetInfoItem
 import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
@@ -73,7 +73,7 @@ fun HomeContentContainer(
                         style = typography.body_02_R_12
                     )
                 }
-                grayButton(
+                GrayButton(
                     value = grayButton
                 )
             }

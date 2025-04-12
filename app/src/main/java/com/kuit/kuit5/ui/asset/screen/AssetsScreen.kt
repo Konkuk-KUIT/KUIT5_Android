@@ -40,7 +40,7 @@ import com.kuit.kuit5.ui.asset.component.AssetInfoContainer
 import com.kuit.kuit5.ui.asset.component.FinanceItem
 import androidx.compose.foundation.layout.width
 import androidx.compose.ui.text.style.TextDecoration
-import com.kuit.kuit5.component.grayButton
+import com.kuit.kuit5.component.GrayButton
 import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
 import com.kuit.kuit5.ui.theme.BankSaladTheme.typography
 
@@ -120,7 +120,7 @@ fun AssetsScreen(modifier: Modifier = Modifier) {
                         style = typography.head_01_B_24
                     )
                 }
-                grayButton(
+                GrayButton(
                     value = "분석"
                 )
             }
