@@ -20,6 +20,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kuit.kuit5.R
 import com.kuit.kuit5.ui.shopping.screen.component.ConfirmButton
 import com.kuit.kuit5.ui.shopping.screen.viewmodel.ShoppingViewModel
@@ -30,8 +31,8 @@ import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
 @Composable
 fun CreateAccountScreen(
     modifier: Modifier = Modifier,
-    viewModel: ShoppingViewModel = ShoppingViewModel(),
-    onNavigateToCreateAccountResult: () -> Unit = {}
+    viewModel: ShoppingViewModel,
+    onNavigateToCreateAccountResult: () -> Unit
 ) {
     Scaffold(
         containerColor = Color.White,
@@ -102,6 +103,8 @@ fun CreateAccountScreen(
     backgroundColor = 0xFFFFFFFF
 )
 @Composable
-fun PreviewCreateAccountScreenn() {
-    CreateAccountScreen()
+private fun CreateAccountScreenPreview() {
+    val viewModel =
+        viewModel<ShoppingViewModel>()
+    CreateAccountScreen(viewModel = viewModel){}
 }

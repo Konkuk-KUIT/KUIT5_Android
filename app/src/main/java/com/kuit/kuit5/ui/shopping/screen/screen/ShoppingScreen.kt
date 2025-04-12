@@ -23,6 +23,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kuit.kuit5.R
 import com.kuit.kuit5.ui.shopping.screen.viewmodel.ShoppingViewModel
 import com.kuit.kuit5.ui.theme.BankSaladTheme
@@ -33,8 +34,8 @@ import com.kuit.kuit5.ui.theme.BankSaladTheme.colors
 @Composable
 fun ShoppingScreen(
     modifier: Modifier = Modifier,
-    viewModel: ShoppingViewModel = ShoppingViewModel(),
-    onNavigateToProductInfo: () -> Unit = {}
+    viewModel: ShoppingViewModel,
+    onNavigateToProductInfo: () -> Unit
 ) {
     Box(
         modifier = Modifier
@@ -95,6 +96,12 @@ fun ShoppingScreen(
     backgroundColor = 0xFFFFFFFF
 )
 @Composable
-fun PreviewShoppingScreen() {
-    ShoppingScreen()
+
+private fun ShoppingScreenPreview() {
+    val viewModel = viewModel<ShoppingViewModel>()
+
+
+    ShoppingScreen(
+        viewModel = viewModel
+    ){}
 }
