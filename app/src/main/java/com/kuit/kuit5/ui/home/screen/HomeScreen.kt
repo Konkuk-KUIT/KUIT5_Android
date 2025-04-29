@@ -172,15 +172,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             }
             Spacer(modifier = Modifier.size(16.dp))
         }
-
     }
-
-
-//    Text(
-//        text = 100000.toDecimalFormat(),
-//        style = typography.head_03_B_16,
-//        color = colors.blue
-//    )
 }
 
 @Preview(showBackground = true, heightDp = 1600)
